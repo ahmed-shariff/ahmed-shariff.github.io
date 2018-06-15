@@ -5,7 +5,7 @@ permalink:           pretty
 title:               Ahmed Shariff
 tagline:             burp...
 #http://getpoole.com
-paginate:            1
+paginate:		5
 #baseurl:             /ahmed-shariff.github.io
 
 # Assets
@@ -34,5 +34,5 @@ gems:
 
 pages_list:       
   About: '/about'
-  Archive: '/archive'
+  Blog: '/blog'
   Feed: '/atom.xml'

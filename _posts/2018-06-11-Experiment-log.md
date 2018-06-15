@@ -3,6 +3,7 @@ layout: post
 comments: true
 title: Experiment log - How I keep track of my ML experiments
 tags: Machine-learning
+tagline: In order to reduce the clutter, I keep track of the experiments using a emacs org-mode.
 ---
 For the past year I have been working on deep learning applications. As I was working I continuously automated various components of the development cycle/ experiments, which I finally pulled together as a basic [machine learning pipeline](https://github.com/ahmed-shariff/ml-pipeline) (there is still alot that needs to be done there). It didn't take me long to run into the <em>technical dept in machine learning </em>[^fn-tech-debt-paper]<sup>,</sup>[^fn-reproduce-article]. While the pipeline I had solved a few problems, there were other concerns that I needed to address. One of the biggest of them was keeping track of what I have done so far, and the decision process accompanying it. I did find myself running in circles butting heads with the same walls over and over. While I maintain extensive logs and use git keep track of the experiments I have done, they were not enough or inconvenient to keep track of the reasons and decision process behind the experiments. This lack of clarity was not only hampering my work flow, it was also quite annoying when I had to draw a progress report. I had to spend an unnecessarily huge chunk of time piecing together what I had done.
 
