@@ -10,11 +10,12 @@ For the past year I have been working on deep learning applications. As I was wo
 What I needed was a simple and coherent way to write down what I am doing and be able to refer to it from my logs or anywhere else. I use emacs for my daily work. Hence, I had org-mode at my disposal. I drew up a template to log experiments, I'll describing what I do in the rest of this article.
 
 Each experiment is formatted as follows:
-{% highlight org%}
+{% highlight md%}
 * TODO  --Brief description of the experiment-- [0%]   :@work:exp:
   :PROPERTIES:
   :ID:       --unique id, which can be used to identify this experiment with--
   :END:
+  --Time stamp: indicting when the entry was created--
 - --A more detailed description of the experiment and notes also go here--
 
 ** TODO Experiments [/]
@@ -26,12 +27,14 @@ Each experiment is formatted as follows:
 {% endhighlight %}
 
 Example log:
-{% highlight org %}
+{% highlight md %}
 * TODO  ABC in XYZ model [0%]   :@work:exp:
   :PROPERTIES:
   :ID:       201
   :END:
-  
+  [2018-06-06 Wed 16:16]
+
+
 - Test if adding ABC to XYZ improves results.
 
 ** TODO Experiments [1/2]
@@ -73,14 +76,22 @@ To help me with this process, I included a few snippets to my <code>.emacs</code
 	   "Add experiment"
 	   entry 
 	   (file "~/Documents/org/experimnet_log.org")
-	   "\n* TODO %^{Experiment} [%] :@work:exp:%^g\n%^{ID}p- %^{Description}\n\n** Notes\n\n** TODO Experiments [/]\n%?\n** TODO Conclusions")))
+	   "\n* TODO %^{Experiment} [%] :@work:exp:%^g\n%^{ID}p%U\n- %^{Description}\n\n** Notes\n\n** TODO Experiments [/]\n%?\n** TODO Conclusions")))
 
 ;;Custom agenda to list all the experiments
 (setq org-agenda-custom-commands
-      '(("c" . "My custom queries")
-	("ce" tags "+exp"
-	 ((org-agenda-files 
-	   `("~/Documents/org/experimnet_log.org"))
+  '(("c" . "My custom queries")
+	("ci" tags-todo "LEVEL=1&+exp/!INPROGRESS"
+	 ((org-agenda-files `("~/Research/FoodClassification/experiment_log.org"))
+	  (org-agenda-filter-by-top-headline)))
+	("ct" tags-todo "LEVEL=1&+exp/!TODO|WAIT"
+	 ((org-agenda-files `("~/Research/FoodClassification/experiment_log.org"))
+	  (org-agenda-filter-by-top-headline)))
+	("ca" tags-todo "LEVEL=1&+exp"
+	 ((org-agenda-files `("~/Research/FoodClassification/experiment_log.org"))
+	  (org-agenda-filter-by-top-headline)))
+	("cd" tags-todo "LEVEL=1&+exp/!DONE"
+	 ((org-agenda-files `("~/Research/FoodClassification/experiment_log.org"))
 	  (org-agenda-filter-by-top-headline)))))
 {% endhighlight %}
 
