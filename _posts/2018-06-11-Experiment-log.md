@@ -75,23 +75,23 @@ To help me with this process, I included a few snippets to my <code>.emacs</code
 	  ("e" 
 	   "Add experiment"
 	   entry 
-	   (file "~/Documents/org/experimnet_log.org")
+	   (file "~/experimnet_log.org")
 	   "\n* TODO %^{Experiment} [%] :@work:exp:%^g\n%^{ID}p%U\n- %^{Description}\n\n** Notes\n\n** TODO Experiments [/]\n%?\n** TODO Conclusions")))
 
 ;;Custom agenda to query experiments
 (setq org-agenda-custom-commands
   '(("c" . "My custom queries")
 	("ci" tags-todo "LEVEL=1&+exp/!INPROGRESS"
-	 ((org-agenda-files `("~/Research/FoodClassification/experiment_log.org"))
+	 ((org-agenda-files `("~/experiment_log.org"))
 	  (org-agenda-filter-by-top-headline)))
 	("ct" tags-todo "LEVEL=1&+exp/!TODO|WAIT"
-	 ((org-agenda-files `("~/Research/FoodClassification/experiment_log.org"))
+	 ((org-agenda-files `("~/experiment_log.org"))
 	  (org-agenda-filter-by-top-headline)))
 	("ca" tags-todo "LEVEL=1&+exp"
-	 ((org-agenda-files `("~/Research/FoodClassification/experiment_log.org"))
+	 ((org-agenda-files `("~/experiment_log.org"))
 	  (org-agenda-filter-by-top-headline)))
 	("cd" tags-todo "LEVEL=1&+exp/!DONE"
-	 ((org-agenda-files `("~/Research/FoodClassification/experiment_log.org"))
+	 ((org-agenda-files `("~/experiment_log.org"))
 	  (org-agenda-filter-by-top-headline)))))
 {% endhighlight %}
 
