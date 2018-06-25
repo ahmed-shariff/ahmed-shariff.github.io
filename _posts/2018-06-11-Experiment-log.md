@@ -11,7 +11,7 @@ What I needed was a simple and coherent way to write down what I am doing and be
 
 Each experiment is formatted as follows:
 {% highlight md%}
-* TODO  --Brief description of the experiment-- [0%]   :@work:exp:
+* TODO  [--ID property value--]--Brief description of the experiment-- [0%]   :@work:exp:
   :PROPERTIES:
   :ID:       --unique id, which can be used to identify this experiment with--
   :END:
@@ -28,7 +28,7 @@ Each experiment is formatted as follows:
 
 Example log:
 {% highlight md %}
-* TODO  ABC in XYZ model [0%]   :@work:exp:
+* TODO [201] ABC in XYZ model [0%]   :@work:exp:
   :PROPERTIES:
   :ID:       201
   :END:
@@ -75,8 +75,11 @@ To help me with this process, I included a few snippets to my <code>.emacs</code
 	  ("e" 
 	   "Add experiment"
 	   entry 
-	   (file "~/experimnet_log.org")
-	   "\n* TODO %^{Experiment} [%] :@work:exp:%^g\n%^{ID}p%U\n- %^{Description}\n\n** Notes\n\n** TODO Experiments [/]\n%?\n** TODO Conclusions")))
+	   (file "~/Research/FoodClassification/experiment_log.org")
+	 "\n* TODO [%^{ID}] %^{Experiment} [%] :@work:exp:%^g\n:PROPERTIES:
+  :ID:       %\\1
+  :END:\n- %^{Description}\n\n** Notes\n\n** TODO Experiments [/]\n%?\n** TODO Conclusions")))
+
 
 ;;Custom agenda to query experiments
 (setq org-agenda-custom-commands
