@@ -66,6 +66,7 @@ Date:   Wed Jun 6 01:56:44 2018 +0530
 - The next subheading is the <em>Conclusions</em>, where I add the final results and related information.
 - Also as a habit, each time I implement something related to an experiment I add a commit with a reference to the related experiment before and after the training. Note that only the results and related code are added to git.
 - org mode helps with updating the TODO status and update completed percentage and sub tasks. 
+- Whenever I am taking notes, under the Notes section or under the subtasks, I generally add an inactive timestamp and a related commit hash before the note. 
 
 To help me with this process, I included a few snippets to my <code>.emacs</code>:
 {% highlight emacs-lisp %}
