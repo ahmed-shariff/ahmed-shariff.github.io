@@ -67,6 +67,7 @@ Date:   Wed Jun 6 01:56:44 2018 +0530
 - Also as a habit, each time I implement something related to an experiment I add a commit with a reference to the related experiment before and after the training. Note that only the results and related code are added to git.
 - org mode helps with updating the TODO status and update completed percentage and sub tasks. 
 - Whenever I am taking notes, under the Notes section or under the subtasks, I generally add an inactive timestamp and a related commit hash before the note. 
+- For convenience I have the experiment log attached to a repo I use for my work. To avoid getting the commits turn to a mess, the edits to the experiment log file are always commited seperately.
 
 To help me with this process, I included a few snippets to my <code>.emacs</code>:
 {% highlight emacs-lisp %}
