@@ -43,7 +43,7 @@ We break the train the model in two phases.
 
 ## Playing against the computer
 
-To play with the opponent, you'll have to have [pytorch](www.pytorch.org) installed. Launch the server in the same way as described above and go to <code>http://localhost:8080/smart_player.html</code>. It is a similar interface as you'd have seen before, now the player 2 is the computer. As you make your move, the computer will make it's next move. 
+To play with the opponent, you'll have to have [pytorch](http://www.pytorch.org) installed. Launch the server in the same way as described above and go to <code>http://localhost:8080/smart_player.html</code>. It is a similar interface as you'd have seen before, now the player 2 is the computer. As you make your move, the computer will make it's next move. 
 
 [^fn-arry_vs_tensor]: Not necessaryily an array, it's a tensor, but for simplicity's sake I am calling it an array here. The definition of a tensor, broadly speaking, is a generalization of a matrix.
 
