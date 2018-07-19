@@ -78,7 +78,7 @@ To help me with this process, I included a few snippets to my <code>.emacs</code
 	   "Add experiment"
 	   entry 
 	   (file "~/Research/FoodClassification/experiment_log.org")
-	 "\n* TODO [%^{ID}] %^{Experiment} [%] :@work:exp:%^g\n:PROPERTIES:
+	 "\n* TODO <<%^{ID}>> %^{Experiment} [%] :@work:exp:%^g\n:PROPERTIES:
   :ID:       %\\1
   :END:\n- %^{Description}\n\n** Notes\n\n** TODO Experiments [/]\n%?\n** TODO Conclusions")))
 
