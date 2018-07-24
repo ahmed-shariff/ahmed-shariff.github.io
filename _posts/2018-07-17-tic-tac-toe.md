@@ -3,7 +3,7 @@ layout: post
 comments: true
 title: Teaching a computer to play Tic-Tac-Toe.
 tags: ["Random thoughts"]
-tagline: Why indeed......
+tagline: A simple demonstration of teaching a computer to play tic-tac-toe. This is part of a demonstration made for the first year undergraduates.
 ---
 I am writing this article accompanying the [demonstration](https://github.com/H-A-I-L/tic-tac-toe) prepared as part of a seminar for the first year undergraduates at the Department of Statistics and Computer Science, Faculty of Science, University of Peradeniya.
 
