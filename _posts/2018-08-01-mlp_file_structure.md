@@ -1,8 +1,8 @@
 ---
 layout: post
 comments: true
-title: Breaking down the process of machine learning pipeline
-tags: ["deep learning", "NLP"]
+title: Practices I follow with the machine learning pipeline
+tags: ["deep learning"]
 tagline: While the ml-pipeline solves some of the problems I encounter, it doesn't solve all of them. Here I describe my process beyond the pipeline.
 ---
 
@@ -21,7 +21,7 @@ The above division of the workflow can be thought of as a lose *separation of co
 
 
 ## Datasets
-This directory primarily contains the dataset and related content. That is image files, video files, audio files, stored embedding, etc. This also contains the meta data of the datasets. Occasionally, if there are any tools/scripts which are used to make necessary changes to the datasets are also stored here. In addition I also store any pre-trained weights in this directory. The pre-trained weights are stored here as it can be used in both the training process and deployment systems. As each dataset tends to have it's own annotation/meta data format, I prefer to convert the meta-data to a fixed [format]({{ site.baseurl }}{% post_url 2018-07-26-ml-problems%}#meta-data-models) which eases the work that needs to be done when defining data-loaders. As of now I am using a json format. In the future I'll be moving to a better meta-data model, that pulls from a properly maintained database of features. The json format I use is as follows:
+This directory primarily contains the dataset and related content. That is image files, video files, audio files, stored embedding, etc. This also contains the meta data of the datasets. Occasionally, if there are any tools/scripts which are used to make necessary changes to the datasets are also stored here. This allows to use a tool like [dvc][https://github.com/iterative/dvc] to maintain the data. In addition I also store any pre-trained weights in this directory. The pre-trained weights are stored here as it can be used in both the training process and deployment systems. As each dataset tends to have it's own annotation/meta data format, I prefer to convert the meta-data to a fixed [format]({{ site.baseurl }}{% post_url 2018-07-26-ml-problems%}#meta-data-models) which eases the work that needs to be done when defining data-loaders. As of now I am using a json format. In the future I'll be moving to a better meta-data model, that pulls from a properly maintained database of features. The json format I use is as follows:
 - class labels: a string, if images contain multiple classes, an array of strings.
   - eg: 
 	- Single item: <code>car</code>
@@ -36,10 +36,19 @@ This directory primarily contains the dataset and related content. That is image
 - Segmentation mask: a string pointing to the file containing the mask for the respective image.
 
 ## Models
-Here I host the models and related content and where the majority of my work resides. For each model I am developing I have a separate script. To keep things cleaner, I prepend the id of the primary experiment the model in the script is related to. Also, the pipeline stores the outputs in this folder. This way this directory can be maintained as a separate repository using version control to keep track of the experiments conducted. I have made the habit of making a commit before and after a training session and record the commit's hash in the experiment_log.
+Here I host the models and related content and where the majority of my work resides. For each model I am developing I have a separate script. To keep things cleaner, I prepend the id of the primary experiment the model in the script is related to. Also, the pipeline stores the outputs in this directory. This way this directory can be maintained as a separate repository using version control to keep track of the experiments conducted. I have made the habit of making a commit before and after a training session and record the commit's hash in the experiment_log.
 
 Some parts of the code in several models scripts can be shared. The code in the script can be divided into two segments:
 - Code related to the construction of the model.
 - Code related to the training and evaluation process of the model.
 
 In most cases it is the second category of code that is shared among the scripts. When I export a model, I [make a copy of the script]({{ site.baseurl }}{% post_url 2018-07-26-ml-problems%}#model-code-and-weight) and store it along with the weights. For an exported model, the training and evaluation code is mostly irrelevant. Hence, only the code that falls into the second category is abstracted to a separate script which can be imported here. Any code that is related to the construction of a model will be available the respective script. Hence, there are several components that I have delegated to a different script, such the data-loaders and implantation details specific to a library (saving and loading weights, setting hyper-parameters, cleaning saved cache of previous iterations, etc.). Note that if using a intermediate format which exports both the weights and the graph, this will not be issue.
+
+## Deployment
+Anything beyond training, this is the place where have em all. Once I have a model I am comfortable with, I export it and build the necessary pieces needed to deploy the exported model. Generally I use the script I have saved along with the exported model to construct the model and set up other components around it.
+
+## Data processing
+Since 'machine learning', data is always a vital part. Almost always all projects have new data, even though deep learning might alleviate the need for feature engineering, it generally needs to be cleaned and processed before being used for training. While I prefer storing the data itself in the `Datasets` directory, the scripts I use to process the data and the related intermediate states and meta-data, I store in this directory. This is mostly to avoid polluting the `Datasets` directory. This way, the dirty stuff is in here, while the `Datasets` directory will be holding the actual data and meta-data in it. 
+
+## ml-pipeline
+All models I develop to be used with the ml-pipeline. Hence, when developing it is useful to have a copy of the pipeline with configurations specific to the project. Even if I am training the models in the same PC I use to develop models, I maintain a separate pipeline to use during development. This is mostly convenience than anything else.
