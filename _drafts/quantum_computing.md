@@ -109,23 +109,23 @@ Which can be written as,
 </table>
 
 {% endraw %}
-In classical computers the NAND gate is known as the universal gate, also the AND gate and the NOT gate in classical computing can be shown to be universal, i.e. they can be used to build any logical circuit. Similarly for a quantum system such gate(s) can be shown to be universal. The Hadamard gate, R_{^\pi\!/\!_4} gate (phase shift gate with \phi =  ^\pi \!/ \!_4 ), which are single qubit gates, together with the control-NOT(cNOT) gate can be known as universal, as any quantum circuit can be built from them.
+In classical computers the NAND gate is known as the universal gate, also the AND gate and the NOT gate in classical computing can be shown to be universal, i.e. they can be used to build any logical circuit. Similarly for a quantum system such gate(s) can be shown to be universal. The Hadamard gate, $R_{^\pi/_4}$ gate (phase shift gate with $\phi =  ^\pi /_4$ ), which are single qubit gates, together with the control-NOT(cNOT) gate can be known as universal, as any quantum circuit can be built from them.
 
 ## Entanglement
-An important distinguishing feature between a qubit and a classical bit is that multiple qubits can exhibit quantum entanglment. Take, for example, the bell state, ^1/_{\!\sqrt{2}} (|00\rangle + |11\rangle), which can be obtained from the inital state |00\rangle, and apply the Hadamard gate to one qubit and then apply the cNOT gate. The probability of the states |00\rangle or |11\rangle is |^1/_{\!\sqrt{2}}|^2 = ^1/_2. This state cannot be obtained by any combination of classical bits, i.e. we cannot obtain this state by arranging a set of qubits. That is to say, this state can be achieved only by applying a set of quantum gates. And this state exists only when both the qubits are together, and they don’t have a definite state on their own. To further elaborate on that, consider a two qubit placed to gether, hence
+<p>An important distinguishing feature between a qubit and a classical bit is that multiple qubits can exhibit quantum entanglment. Take, for example, the bell state, $^1/_{\!\sqrt{2}} (|00\rangle + |11\rangle)$, which can be obtained from the inital state $|00\rangle$, and apply the Hadamard gate to one qubit and then apply the cNOT gate. The probability of the states $|00\rangle$ or $|11\rangle$ is $|^1/_{\sqrt{2}}|^2 = ^1/_2$. This state cannot be obtained by any combination of classical bits, i.e. we cannot obtain this state by arranging a set of qubits. That is to say, this state can be achieved only by applying a set of quantum gates. And this state exists only when both the qubits are together, and they don’t have a definite state on their own. To further elaborate on that, consider a two qubit placed to gether, hence</p>
 
-|\psi\rangle = (\alpha |0\rangle + \beta |1\rangle)(\delta |0\rangle + \gamma |1\rangle)
+<p style="text-align:center">$|\psi\rangle = (\alpha |0\rangle + \beta |1\rangle)(\delta |0\rangle + \gamma |1\rangle)$</p>
 
 Thus,
 
-|\psi\rangle = \alpha\delta |00\rangle + \alpha\gamma |01\rangle + \beta\delta |10\rangle + \beta\gamma|11\rangle
+<p style="text-align:center">$|\psi\rangle = \alpha\delta |00\rangle + \alpha\gamma |01\rangle + \beta\delta |10\rangle + \beta\gamma|11\rangle$</p>
 
-for this system, whose state is represented by |\psi\rangle, to be in the bell state, the following should hold,
+<p>for this system, whose state is represented by $|\psi\rangle$, to be in the bell state, the following should hold,</p>
 
-\alpha\delta = ^1\!/\!_{\sqrt{2}} ,  \quad\alpha\gamma = 0 , \quad\beta\delta = 0 and  \beta\gamma =^1\!/\!_{\sqrt{2}}
+<p style="text-align:center">$\alpha\delta = ^1\!/\!_{\sqrt{2}}$ ,  $\quad\alpha\gamma = 0$ , $\quad\beta\delta = 0 $,  $\quad\beta\gamma =^1/_{\sqrt{2}}$</p>
 
-This does not have a solution. Such a state obtained by applying quantum gates are known as entangled states.
+<p>This does not have a solution. Such a state obtained by applying quantum gates are known as entangled states.</p>
 
-As described above, such entangled states are unique to quantum computing. It is entanglement that makes quantum computing stand out from the classical computing models. Such entangled states can be used as shortcuts to perform certain calculations. In fact it can be shown that a quantum computation that does not utilize entangled states can be effectively simulated using classical computing. For certain problems, such as integer factorization, quantum algorithms(algorithms that use quantum phenomena such as entangled states) have been developed which are faster than any classical algorithm.
+<p>As described above, such entangled states are unique to quantum computing. It is entanglement that makes quantum computing stand out from the classical computing models. Such entangled states can be used as shortcuts to perform certain calculations. In fact it can be shown that a quantum computation that does not utilize entangled states can be effectively simulated using classical computing. For certain problems, such as integer factorization, quantum algorithms(algorithms that use quantum phenomena such as entangled states) have been developed which are faster than any classical algorithm.</p>
 
 
