@@ -19,7 +19,7 @@ sass:
 author:
   name:              Ahmed Shariff
   url:               ""
-  email:             ahmed.shariff@live.com
+  email:             shariff.mfa@outlook.com
 
 # Custom vars
 version:             2.0.0
@@ -32,7 +32,6 @@ gems:
   - jekyll-gist
 
 
-pages_list:       
-  About: '/about'
+pages_list:
   Blog: '/blog'
   Feed: '/atom.xml'
