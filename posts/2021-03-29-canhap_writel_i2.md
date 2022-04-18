@@ -28,17 +28,17 @@ Initially we thought we'd need the force calculation we had used for the [PID la
 
 Bibushan had done a pretty cool implementation of using the font files itself to generate the letters in the form of a `FPoly`. `FPloy` is one of the classes from fisca, so having the fonts as `FPoly` objects allows us to connect it with fisca. The following figure demonstrates this system which uses the `geommetric` library to generate the letters.
 
-![01](/public/assets/2021-03-29/01_fonts.gif)
+![01](/assets/2021-03-29/01_fonts.gif)
 
 This method basically uses the outer vertices defined by the font to draw object. All except the disturbance feedback required knowing the center of the letter, i.e, the inner vertices. For the initial iteration, I tried moving horizontally and vertically from the position of the end effector on the screen and picking the closest edges on the screen (in this case, simply check for a change in color). And if I am inside the letter, which we can get using fisca's `isTouching` method. Following that, the idea was to calculate the closest edge and then get the edge on the opposite vector. The following shows the edge of the font being picked being marked by a red circle.
 
-![02](/public/assets/2021-03-29/02_vh_border.gif)
+![02](/assets/2021-03-29/02_vh_border.gif)
 
 Two problems stood out which blocked us from proceeding. First, this method is not always reliable, specially when considering letters that have anything other than vertical or horizontal lines. Checking diagonals also could have improved the approximation of the edge. But, the second issue was the showstopper: getting this method to work with letter that have "junctions", think the letter "T". Once, we realized it would be tricky to solve this problem, we went back to the drawing board. 
 
 Building off Bibushans `Alphabets` system, I resorted to using the inner vertices for the font, and draw lines with a given thickness to render fonts. Which turned out to be a simpler solution, with a few caveats: First, the inner vertices cannot be drawn from the font files, which means we have to manually calculate and specify the vertices. Second, drawing smooth rounded lines is not possible. But this approaches allowed us to get started on trying out the haptic feedback, so we are using this approach for now. The following image demonstrates the basic idea.
 
-![03](/public/assets/2021-03-29/03_graph.png)
+![03](/assets/2021-03-29/03_graph.png)
 
 The points provided would be P1, P2 and P3. As shown, using fisca's `FLine` lines are drawn with a certain thickness. Then to calculate the position the end effector (EE), project the position EE on the extended line of each line segment (blue arrows). Then get the line segment which is closest and also the projection calls inside the line segment. For example, in the above diagram, the EE falls outside the P2 to P3 line segment. Hence will not be used. Hence the problem of guiding or anti-guiding becomes rendering a force proportional to the distance from the EE to the projection on the line segment.
 
@@ -49,10 +49,10 @@ Through this implementation, we were not able to clearly establish what partial 
 With the other two, as described in the previous section, we render a force proportional to distance to the closes line segment. We realized having this feedback while outside of the letter (i.e not in touch with the line segment) was not very useful or comfortable. Hence we restricted the force rendering only when the EE is touching any of the `FLine`s representing the line segments. Another issue we ran into was that when the user first touches the letter with the EE, the force rendered immediately can be too much it completely force the user off the letter. Dampeining didn't help much here. Hence, to avoid this we used a ramping function to ease in the force being rendered. To further smoothen  the force we , we used theFor guidance, it was force proportional to distance vector (blue arrows), and for the anti-guidance it was inversely proportional. The following demos show drawing on a random shape with visualizations of the force being rendered, the closest point picked up on the line, and the drawn letter. (ps: the force lines shown in the below diagram are in the direction of the vector calculated (blue arrrow in above diagram) and not the force itself)
 
 For guiding, I am starting with showing the force being rendered when moving away from the center of the line segment. Then draw around by deliberately trying to go off the path:
-![04](/public/assets/2021-03-29/04_full_guiding.gif)
+![04](/assets/2021-03-29/04_full_guiding.gif)
 
 For anti-guiding:
-![05](/public/assets/2021-03-29/05_anti_guiding.gif)
+![05](/assets/2021-03-29/05_anti_guiding.gif)
 
 ### Reflections
 

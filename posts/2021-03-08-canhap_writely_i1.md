@@ -32,11 +32,11 @@ Early on during our discussion, we realized that in order to train someone to wr
 
 We had a few phidget pressure sensors which were not being used at the moment. So we decided we might want to start by playing with that instead of trying to get a sensor that works with arduino. Initially we thought we might need to directly connect it with the haply. Since the haply's simulations are being driven by the host system, and interfacing the phidget with the pc is a relatively straightforward process, we took that approach. Initially I started by trying to write a middleware to route the sensor information to the haply, turned out that was not necessary. The below image shows the sensor we used (placed next to the haply device for size reference).
 
-![image](/public/assets/2021-03-08/03_sensor.jpg)
+![image](/assets/2021-03-08/03_sensor.jpg)
 
 In order to get the sensors working with haply, first the phidget drivers needs to be installed (which took a bit of time to properly get to work because of a few issues with my `PATH` variable). Then, download the phidget java SDK, which comes packages as a `.jar` file, and drop it into the `code` directory of the sketch (in my case I drop it into the `code` directory of the root of the repo, which gets linked to the sketches through the above mention python tool). To have it working with processing we simply had to import the phidget SDK as we would do with any java library. The sketch titled [sketch_pressure_sensor](https://github.com/ahmed-shariff/CanHap501_writely/blob/master/sketch_preasure_sensor/sketch_preasure_sensor.pde) shows how it's being used in processing. The following clip shows it in action.
 
-![image](/public/assets/2021-03-08/02_pressuresensor.gif)
+![image](/assets/2021-03-08/02_pressuresensor.gif)
 
 For easier testing when sharing the code with others, I also have included a few test that can run. Now that the software side of the sensor has been solved, we are still working on figuring out how integrate it with the haply device. As it can be seen from the above images, integrating the sensor with the haply's end actuator without it interfering with the haply itself is something we hope to solve in our next iteration, along with figuring out if it would assist us in the system we are building. Another concern we have is that the sensors might get damaged, specially when haply decides to throw a tantrum. One idea we are playing with is to modify the pen actuator to have the sensor be a part of that.
 
@@ -48,11 +48,11 @@ Bibushan had made a few early drafts of how the UI might look and done a [few ex
 
 Since we would possibly need the PID framework we had used in lab 4 for the hapic feedback, I used the sketch used for that lab as the skeleton to implement the UI. I stripped the UI components from the labs sketch and drew the elements we needed for the project. The final UI look as follows.
 
-![image](/public/assets/2021-03-08/04_ui_screenshot.png)
+![image](/assets/2021-03-08/04_ui_screenshot.png)
 
 With the skeleton of the UI in place, I started integrating the experiments Bibushan had done. Before we started integrating the pressure sensor, I wanted to make sure the drawing component works as expected. For that I had the space key simulate the pressure sensor, i.e. pressed down representing the case when the user has the pen on sheet, and key up representing the pen being moved off the sheet when writing. Building off of Bibushan's implementation, I used a separate list to keep track of all the points where the user would have been writing on the surface. Placeholder points were added to the list to represent when the user would have taken the pen off the paper. When the user has satisfactorily completed the letter being displayed, they can move to the next letter by pressing the `n` key. Measuring the writing speed, and recording the values are still under development, which would be the next steps to complete. An interesting problem we still are trying to solve is how to measure the users performance; which is also closely tied to how the haptic feedback will be calculated. A bulk of the next iteration would be spent on this problem. The following clip show the current UI working with the haply without any haptic feedback. A question I had while recording this is if the haply device's "bulkiness" would become a compounding factor in the final results.
 
-![image](/public/assets/2021-03-08/01_ui.gif)
+![image](/assets/2021-03-08/01_ui.gif)
 
 
 ### Reflections
