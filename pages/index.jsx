@@ -1,9 +1,11 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 /* import excerpt from 'gray-matter/lib/excerpt'; */
-import Image from 'next/image';
+import Image from '../components/image';
+import { SiFacebook, SiGithub, SiGooglescholar, SiLinkedin, SiTwitter } from "react-icons/si";
 import Link from 'next/link';
 import * as mdOpt from 'markdown-it';
+import Gravatar from 'react-gravatar';
 /* const md = import('markdown-it');//.then(m => m({html:true})); */
 const md = mdOpt({ html: true });
 
@@ -45,27 +47,54 @@ export async function getStaticProps() {
     };
 }
 
+function PersonalLinks({link, text, iconComponent}) {
+    return (
+        <a className='flex items-center space-x-3 text-sky-800' href={link}>
+            <div>
+                {iconComponent}
+            </div>
+            <div>
+                {text}
+            </div>
+        </a>
+    )
+}
+
 export default function Home({ posts }) {
     return (
         <div>
-            <div className='prose max-w-none p-0 md:px-20 text-justify'>
-                <p className="text-sm m-10">
-                    Hey there! Thanks for coming to this obscure corner of the internet to visit my site. This site is work in progress. So be patient, I&apos;ll update here soon.
-                </p>
+            <div className='flex flex-row  space-x-12 prose max-w-none p-0 md:px-20 text-justify'>
+                <div className='flex-auto text-sm'>
+                    <Gravatar className='rounded-full' email='shariff.mfa@outlook.com' size={400} />
+                    <ul className='list-none w-40 list-outside'>
+                        <li>
+                            <PersonalLinks link="https://github.com/ahmed-shariff" text="Github" iconComponent={<SiGithub />} />
+                        </li>
+                        <li>
+                            <PersonalLinks link="https://scholar.google.ca/citations?user=wxMtqMMAAAAJ&hl=en" text="Google scholar" iconComponent={<SiGooglescholar />} />
+                        </li>
+                        <li>
+                            <PersonalLinks link="https://www.facebook.com/amsha1" text="facebook" iconComponent={<SiFacebook />} />
+                        </li>
+                        <li>
+                            <PersonalLinks link="https://twitter.com/_ahmedshariff_" text="Twitter" iconComponent={<SiTwitter />} />
+                        </li>
+                        <li>
+                            <PersonalLinks link="https://www.linkedin.com/in/ahmed-shariff-b2b25496/" text="Linkedin" iconComponent={<SiLinkedin />} />
+                        </li>
+                    </ul>
+                </div>
+                <div className='flex-auto'>
+                    <p className="text-sm m-10">
+                        Hey there! Thanks for coming to this obscure corner of the internet to visit my site. This site is work in progress. So be patient, I&apos;ll update here soon.
+                    </p>
 
-                <h1 className='text-center font-normal text-lg'>Hello there ....</h1>
-                <p>I am Ahmed Shariff, in case you didn&apos;t know ;). A tech enthusiast, a believer in the power of technology. My primary interest is in artificial intelligence. Everything about it interests me, from it&apos;s illusive definition, the philosophy behind it, the impact it has and will have on the human race to how it is done and the technicalities of building an intelligence. My current focus is on improving the interactions with immersive technologies.</p>
-                <p>Currently, I am a PhD student at the <a href="https://ok.ubc.ca">University of British Columbia - Okanagan</a>, under the supervision of <a href="http://cs.umanitoba.ca/~irani/">Dr Pourang Irani</a> at the Human Computer Interaction Lab.
-                </p>
-                <p>Previously, I was working at the University of Peradeniya on a industry collaboration project with CodeGen International. The project was started to study and develop AI systems. The focus of my work there was on using deep learning and computer vision technologies to automate various aspects of a restaurant.</p>
-
-                <h4> My digital presence:</h4>
-                <ul>
-                    <li> <a href="https://github.com/ahmed-shariff">Github </a></li>
-                    <li> <a href="https://www.facebook.com/amsha1">Facebook </a></li>
-                    <li> <a href="https://twitter.com/_ahmedshariff_">Twitter </a></li>
-                    <li> <a href="https://www.linkedin.com/in/ahmed-shariff-b2b25496/">Linkedin </a></li>
-                </ul>
+                    <h1 className='text-center font-normal text-lg'>Hello there ....</h1>
+                    <p>I am Ahmed Shariff, in case you didn&apos;t know ;). A tech enthusiast, a believer in the power of technology. My primary interest is in artificial intelligence. Everything about it interests me, from it&apos;s illusive definition, the philosophy behind it, the impact it has and will have on the human race to how it is done and the technicalities of building an intelligence. My current focus is on improving the interactions with immersive technologies.</p>
+                    <p>Currently, I am a PhD student at the <a href="https://ok.ubc.ca">University of British Columbia - Okanagan</a>, under the supervision of <a href="http://cs.umanitoba.ca/~irani/">Dr Pourang Irani</a> at the Human Computer Interaction Lab.
+                    </p>
+                    <p>Previously, I was working at the University of Peradeniya on a industry collaboration project with CodeGen International. The project was started to study and develop AI systems. The focus of my work there was on using deep learning and computer vision technologies to automate various aspects of a restaurant.</p>
+                </div>
             </div>
             <div className='grid grid-cols-1 p-0 md:px-20 mt-10'>
                 <h1 className='text-xl text-center'>Blog posts</h1>

@@ -1,12 +1,12 @@
 import '../styles/globals.css'
-import BlogLayout from  '../components/BlogLayout'
+import BaseLayout from  '../components/BaseLayout'
 
 function MyApp({ Component, pageProps }) {
     
     return (
-        <BlogLayout>
+        <BaseLayout>
             <Component {...pageProps} />
-        </BlogLayout>
+        </BaseLayout>
     );
 }
 
