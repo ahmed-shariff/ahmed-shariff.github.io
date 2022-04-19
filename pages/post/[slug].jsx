@@ -2,6 +2,7 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import mdOpt from 'markdown-it';
 import katex from 'katex';
+import Giscus from '@giscus/react';
 
 const md = mdOpt({ html: true })
 
@@ -52,6 +53,21 @@ export default function PostPage({ frontmatter, content }) {
         <div className='prose text-justify mx-auto max-w-screen-xl prose-img:block prose-img:m-auto prose-img:max-h-96 prose-p:w-full'>
             <h1>{frontmatter.title}</h1>
             <div dangerouslySetInnerHTML={{ __html: replaceMath(replaceJekyllLinks(md.render(content))) }} />
+            <Giscus
+                id="comments"
+                repo="ahmed-shariff/ahmed-shariff.github.io"
+                repoId="MDEwOlJlcG9zaXRvcnkxMjU3MDU3Nzc="
+                category="Announcements"
+                categoryId="DIC_kwDOB34eMc4COpxh"
+                mapping="pathname"
+                reactionsEnabled="1"
+                emitMetadata="0"
+                inputPosition="top"
+                theme="light"
+                lang="en"
+                loading="lazy"
+                crossorigin="anonymous"
+            />
         </div>
     );
 }
