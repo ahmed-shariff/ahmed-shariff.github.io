@@ -1,10 +1,12 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import mdOpt from 'markdown-it';
+import mf from 'markdown-it-footnote';
 import katex from 'katex';
 import Giscus from '@giscus/react';
 
-const md = mdOpt({ html: true })
+
+const md = mdOpt({ html: true }).use(mf);
 
 export async function getStaticPaths() {
     const files = fs.readdirSync('posts');
