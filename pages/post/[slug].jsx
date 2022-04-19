@@ -1,8 +1,9 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import mdOpt from 'markdown-it';
+import katex from 'katex';
 
-const md = mdOpt({ html: true });
+const md = mdOpt({ html: true })
 
 export async function getStaticPaths() {
     const files = fs.readdirSync('posts');
@@ -35,11 +36,22 @@ function replaceJekyllLinks(content) {
     })
 }
 
+function replaceMath(content) {
+    const regex = /\$(.+?)\$/g;
+    return content.replace(regex, (text, p1) => {
+        return katex.renderToString(p1, {
+            block: true,
+            throwOnError: false,
+            output: 'html'
+        });
+    });
+}
+
 export default function PostPage({ frontmatter, content }) {
     return (
         <div className='prose text-justify mx-auto max-w-screen-xl prose-img:block prose-img:m-auto prose-img:max-h-96 prose-p:w-full'>
             <h1>{frontmatter.title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: replaceJekyllLinks(md.render(content)) }} />
+            <div dangerouslySetInnerHTML={{ __html: replaceMath(replaceJekyllLinks(md.render(content))) }} />
         </div>
     );
 }

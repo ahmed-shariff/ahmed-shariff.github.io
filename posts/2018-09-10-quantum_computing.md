@@ -14,7 +14,7 @@ Before I further proceed, lets take a dive into some of the related terminology.
 
 ## Qubit
 <p>
-A classical bit can take one of two states, {% raw %}$1${% endraw %} and {% raw %}$0${% endraw %}. Now, a qubit, is a two state quantum system. The two states are similar to that of the classical bit's, but a qubit does not have to be in just one of those states. Before diving further into that, let’s take a look at how the state of a qubit can be represented. It is represented using ket notation ({% raw %}$ |\psi\rangle${% endraw %}), from the bra-ket notation ({% raw %}$\langle\phi|\psi\rangle$ {% endraw %}), as any other quantum state. That is, the state of the qubit can be represented using a two-dimensional complex state vector,
+A classical bit can take one of two states, $1$ and $0$. Now, a qubit, is a two state quantum system. The two states are similar to that of the classical bit's, but a qubit does not have to be in just one of those states. Before diving further into that, let’s take a look at how the state of a qubit can be represented. It is represented using ket notation ($ |\psi\rangle$), from the bra-ket notation ($\langle\phi|\psi\rangle$ ), as any other quantum state. That is, the state of the qubit can be represented using a two-dimensional complex state vector,
 </p>
 <p style="text-align:center">
 $|\psi\rangle = \left(\begin{matrix}\alpha\\ \beta\end{matrix}\right)$
@@ -65,7 +65,7 @@ Which can be written as,
 <p style="text-align:center">$H|\psi\rangle = \frac{\alpha + \beta}{\sqrt{2}} |0\rangle + \frac{\alpha - \beta}{\sqrt{2}} |1\rangle$</p>
 
 <p>$H$ is a unitary matrix, i.e. $HH^* = I$, where $I$ is an identity matrix and $H^*$ is the conjugate transpose of $H$. As it can be seen, a gate that works on $k$ qubits can be represented using a $2^k \times 2^k$ matrix. Some of the gates can be seen in the following table. Note that I ave not discussed the involvement of $\phi$ and $i$ in this article.</p>
-{% raw %}
+
 <table>
 	<thead>
 		<tr>
@@ -108,7 +108,6 @@ Which can be written as,
 	</tbody>
 </table>
 
-{% endraw %}
 In classical computers the NAND gate is known as the universal gate, also the AND gate and the NOT gate in classical computing can be shown to be universal, i.e. they can be used to build any logical circuit. Similarly for a quantum system such gate(s) can be shown to be universal. The Hadamard gate, $R_{^\pi/_4}$ gate (phase shift gate with $\phi =  ^\pi /_4$ ), which are single qubit gates, together with the control-NOT(cNOT) gate can be known as universal, as any quantum circuit can be built from them.
 
 ## Entanglement
@@ -122,7 +121,7 @@ Thus,
 
 <p>for this system, whose state is represented by $|\psi\rangle$, to be in the bell state, the following should hold,</p>
 
-<p style="text-align:center">$\alpha\delta = ^1\!/\!_{\sqrt{2}}$ ,  $\quad\alpha\gamma = 0$ , $\quad\beta\delta = 0 $,  $\quad\beta\gamma =^1/_{\sqrt{2}}$</p>
+<p style="text-align:center">$\alpha\delta = ^1/_{\sqrt{2}}$ ,  $\quad\alpha\gamma = 0$ , $\quad\beta\delta = 0 $,  $\quad\beta\gamma =^1/_{\sqrt{2}}$</p>
 
 <p>This does not have a solution. Such a state obtained by applying quantum gates are known as entangled states.</p>
 
