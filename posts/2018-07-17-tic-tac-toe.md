@@ -14,9 +14,9 @@ I am writing this article accompanying the [demonstration](https://github.com/H-
 ## The web app
 
 Before we dive into the 'teaching a computer' part, let's have a look at the interface, the web app, through which will be used to play the game. The back-end of the web app is implemented using python and the front end is simply the same old html and javascript. You should be able to launch the server by running the following command:
-{% highlight bash %}
+```bash
 python3 simple_server.py
-{% endhighlight %}
+```
 
 This will display the address of the server which is usually: <code>http://localhost:8080</code>. Visiting this address should land you on a simple interface for two players to play tic-tac-toe. If you open the <code>index.html</code> file in the repository, you can see a simple implementation of how a game is judged.
 

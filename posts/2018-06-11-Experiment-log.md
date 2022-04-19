@@ -10,7 +10,7 @@ For the past year I have been working on deep learning applications. As I was wo
 What I needed was a simple and coherent way to write down what I am doing and be able to refer to it from my logs or anywhere else. I use emacs for my daily work. Hence, I had org-mode at my disposal. I drew up a template to log experiments, I'll describing what I do in the rest of this article.
 
 Each experiment is formatted as follows:
-{% highlight md%}
+```md
 * TODO  [--ID property value--]--Brief description of the experiment-- [0%]   :@work:exp:
   :PROPERTIES:
   :ID:       --unique id, which can be used to identify this experiment with--
@@ -24,10 +24,10 @@ Each experiment is formatted as follows:
 ** TODO Conclusions
 --When the experiment is complete--
 
-{% endhighlight %}
+```
 
 Example log:
-{% highlight md %}
+```md
 * TODO [201] ABC in XYZ model [0%]   :@work:exp:
   :PROPERTIES:
   :ID:       201
@@ -43,10 +43,10 @@ Example log:
 
 ** TODO Conclusions
 
-{% endhighlight %}
+```
 
 An accompanying git log for the experiment will look as follows:
-{% highlight git %}
+```md
 commit 83d45cd1128a8feda93af551ba099234fa52c48b
 Author: Ahmed Shariff <ahmed.shariff@live.com>
 Date:   Wed Jun 6 01:56:44 2018 +0530
@@ -57,7 +57,7 @@ Date:   Wed Jun 6 01:56:44 2018 +0530
 	pipeline for [e201]. The changes to the pipeline
 	haven't made much of a difference in the model.
 
-{% endhighlight %}
+```
 
 - Each experiment is a TODO entry. The entry's heading contains a brief description of the experiment and tags. The tags I am using here are used by org for filtering when querying. The  <code>@work</code> tag I use for work related entries and <code>exp</code> for an entry that is related to experiments. 
 - The properties drawer holds the ID of the experiment. I use this ID to refer to this entry. The commit message above refers to this entry in the experiment log as <code>[e201]</code>. 
@@ -70,7 +70,7 @@ Date:   Wed Jun 6 01:56:44 2018 +0530
 - For convenience I have the experiment log attached to a repo I use for my work. To avoid getting the commits turn to a mess, the edits to the experiment log file are always commited seperately.
 
 To help me with this process, I included a few snippets to my <code>.emacs</code>:
-{% highlight emacs-lisp %}
+```emacs-lisp
 ;;I use capture to setup the template for any new experiment
 (setq org-capture-templates
 	'(... ;other capture templates
@@ -98,7 +98,7 @@ To help me with this process, I included a few snippets to my <code>.emacs</code
 	("cd" tags-todo "LEVEL=1&+exp/!DONE"
 	 ((org-agenda-files `("~/experiment_log.org"))
 	  (org-agenda-filter-by-top-headline)))))
-{% endhighlight %}
+```
 
 [^fn-tech-debt-paper]: [Hidden Technical Debt in Machine Learning Systems](https://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf)
 

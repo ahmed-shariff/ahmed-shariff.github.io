@@ -1,6 +1,8 @@
 import fs from 'fs';
 import matter from 'gray-matter';
-import md from 'markdown-it';
+import mdOpt from 'markdown-it';
+
+const md = mdOpt({ html: true });
 
 export async function getStaticPaths() {
     const files = fs.readdirSync('posts');
@@ -26,11 +28,18 @@ export async function getStaticProps({ params: { slug } }) {
     };
 }
 
+function replaceJekyllLinks(content) {
+    const regex = /\[([^\]]*)\]\((\{\{ *site\.baseurl *\}\})*\{% post_url ([^\s]*) %\}\)/g;
+    return content.replace(regex, (text, p1, p2, p3) => {
+        return `<a href="${p3}">${p1}</a>`;
+    })
+}
+
 export default function PostPage({ frontmatter, content }) {
     return (
         <div className='prose text-justify mx-auto max-w-screen-xl prose-img:block prose-img:m-auto prose-img:max-h-96 prose-p:w-full'>
             <h1>{frontmatter.title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: md().render(content) }} />
+            <div dangerouslySetInnerHTML={{ __html: replaceJekyllLinks(md.render(content)) }} />
         </div>
     );
 }
