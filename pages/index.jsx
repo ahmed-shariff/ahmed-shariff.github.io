@@ -1,13 +1,13 @@
 import fs from 'fs';
 import matter from 'gray-matter';
+import { useRouter } from 'next/router'
 /* import excerpt from 'gray-matter/lib/excerpt'; */
 import Image from '../components/image';
 import { SiFacebook, SiGithub, SiGooglescholar, SiLinkedin, SiTwitter } from "react-icons/si";
-import Link from 'next/link';
-import * as mdOpt from 'markdown-it';
 import Gravatar from 'react-gravatar';
+import PostsList from '../components/PostsList'
+import ArrowButon from '../components/ArrowButon';
 /* const md = import('markdown-it');//.then(m => m({html:true})); */
-const md = mdOpt({ html: true });
 
 // returns the first 4 lines of the contents
 // function firstLine(file, options) {
@@ -27,7 +27,7 @@ export async function getStaticProps() {
     const files = fs.readdirSync('posts');
 
     var posts = files
-        .reverse()//.slice(0, 4)
+        .reverse()
         .map((fileName) => {
             const slug = fileName.replace('.md', '');
             const readFile = fs.readFileSync(`posts/${fileName}`, 'utf-8');
@@ -38,7 +38,8 @@ export async function getStaticProps() {
                 excerpt
             };
         })
-        .filter(function({ frontmatter }) { return frontmatter.published !== false; });
+        .filter(function({ frontmatter }) { return frontmatter.published !== false; })
+        .slice(0, 5);
 
     return {
         props: {
@@ -49,7 +50,7 @@ export async function getStaticProps() {
 
 function PersonalLinks({link, text, iconComponent}) {
     return (
-        <a className='flex items-center space-x-3 text-sky-800' href={link}>
+        <a className='flex items-center space-x-3 text-sky-400' href={link}>
             <div>
                 {iconComponent}
             </div>
@@ -61,9 +62,11 @@ function PersonalLinks({link, text, iconComponent}) {
 }
 
 export default function Home({ posts }) {
+    const router = useRouter();
+
     return (
         <div>
-            <div className='flex flex-row  space-x-12 prose max-w-none p-0 md:px-20 text-justify'>
+            <div className='flex flex-row  space-x-12 prose dark:prose-invert  max-w-none p-0 md:px-20 text-justify'>
                 <div className='flex-auto text-sm'>
                     <Gravatar className='rounded-full' email='shariff.mfa@outlook.com' size={400} />
                     <ul className='list-none w-40 list-outside'>
@@ -97,34 +100,11 @@ export default function Home({ posts }) {
                 </div>
             </div>
             <div className='grid grid-cols-1 p-0 md:px-20 mt-10'>
-                <h1 className='text-xl text-center'>Blog posts</h1>
-                {posts.map(({ slug, frontmatter, excerpt }) => (
-                    <div
-                        key={slug}
-                        className='border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col text-ellipsis h-500'
-                    >
-                        <Link href={`/post/${slug}`} className="min-h-full">
-                            <a className='min-h-full prose p-3 prose-sm max-w-none prose-h1:text-base prose-h1:font-normal'>
-                                {/* {"socialImage" in frontmatter &&
-                                <Image
-                                    width={650}
-                                    height={340}
-                                    alt={frontmatter.title}
-                                    src={`/${frontmatter.socialImage}`}
-                                />
-                            } */}
-                                <h1>{frontmatter.title}</h1>
-                                <div className='text-xs '>{frontmatter.tagline}</div>
-                                {
-                                    excerpt.length > 0 &&
-                                    <div
-                                        dangerouslySetInnerHTML={{ __html: md.render(excerpt) }}></div>
-                                }
-                            </a>
-                        </Link>
-                    </div>
-                ))
-                }
+                <h1 className='text-xl text-center text-gray-300'> Recent posts </h1>
+                <PostsList posts={posts} />
+                <div className="justify-self-center p-2">
+                    <ArrowButon text={"See More"} onClick={() => router.push("/posts")} />
+                </div>
             </div >
         </div>
     );

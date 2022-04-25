@@ -52,7 +52,7 @@ function replaceMath(content) {
 
 export default function PostPage({ frontmatter, content }) {
     return (
-        <div className='prose text-justify mx-auto max-w-screen-xl prose-img:block prose-img:m-auto prose-img:max-h-96 prose-p:w-full'>
+        <div className='prose dark:prose-invert text-justify mx-auto max-w-screen-xl prose-img:block prose-img:m-auto prose-img:max-h-96 prose-p:w-full'>
             <h1>{frontmatter.title}</h1>
             <div dangerouslySetInnerHTML={{ __html: replaceMath(replaceJekyllLinks(md.render(content))) }} />
             <Giscus
