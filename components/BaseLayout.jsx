@@ -14,7 +14,7 @@ function NavButton({ children, onClick, className }) {
 
 function NavLink({children, href, className}) {
     return (
-        <Link href={href}>
+        <Link href={href} passHref>
             <div className={`block px-4 py-2 text-sm rounded-lg hover:bg-gray-600 hover:underline hover:decoration-2 items-center justify-left ${className}`} >
                 {children}
             </div>
@@ -43,12 +43,12 @@ export default function BaseLayout({ children }) {
                             <svg fill="currentColor"
                                 viewBox="0 0 20 20"
                                 className="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1 rotate-180 group-hover:rotate-0">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path>
                             </svg>
                         </div>
                         <div
-                            class="absolute w-full mt-2 origin-top-right rounded-md shadow-lg w-fit transition-transform transition-opacity ease-in-out duration-200 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100" >
-                            <div class="p-2 bg-gray-700 rounded-md shadow dark-mode:bg-gray-700">
+                            className="absolute w-full mt-2 origin-top-right rounded-md shadow-lg w-fit transition-transform transition-opacity ease-in-out duration-200 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100" >
+                            <div className="p-2 bg-gray-700 rounded-md shadow dark-mode:bg-gray-700">
                                 <NavLink href="https://gist.github.com/ahmed-shariff" className="flex flex-row space-x-2"> <div><SiGithub /></div><div>github-gists</div></NavLink>
                             </div>
                         </div>
