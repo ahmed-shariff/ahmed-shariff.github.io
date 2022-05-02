@@ -1,4 +1,5 @@
 import fs from 'fs';
+import React from 'react';
 import matter from 'gray-matter';
 import { useRouter } from 'next/router'
 /* import excerpt from 'gray-matter/lib/excerpt'; */
@@ -65,8 +66,8 @@ export default function Home({ posts }) {
     const router = useRouter();
 
     return (
-        <div>
-            <div className='flex flex-row  space-x-12 prose dark:prose-invert  max-w-none p-0 md:px-20 text-justify'>
+        <React.Fragment>
+            <div className='flex flex-row  space-x-12 prose dark:prose-invert max-w-none text-justify'>
                 <div className='flex-auto text-sm'>
                     <Gravatar className='rounded-full' email='shariff.mfa@outlook.com' size={400} />
                     <ul className='list-none w-40 list-outside'>
@@ -99,13 +100,13 @@ export default function Home({ posts }) {
                     <p>Previously, I was working at the University of Peradeniya on a industry collaboration project with CodeGen International. The project was started to study and develop AI systems. The focus of my work there was on using deep learning and computer vision technologies to automate various aspects of a restaurant.</p>
                 </div>
             </div>
-            <div className='grid grid-cols-1 p-0 md:px-20 mt-10'>
+            <div className='grid grid-cols-1 mt-10'>
                 <h1 className='text-xl text-center text-gray-300'> Recent posts </h1>
                 <PostsList posts={posts} />
                 <div className="justify-self-center p-2">
                     <ArrowButon text={"See More"} onClick={() => router.push("/posts")} />
                 </div>
             </div >
-        </div>
+        </React.Fragment>
     );
 }
