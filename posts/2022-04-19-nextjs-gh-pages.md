@@ -2,14 +2,14 @@
 layout: post
 comments: true
 title: Personal website with nextjs and github pages
-tags: ["javascript", "react", "next"]
-tagline: In order to reduce the clutter, I keep track of the experiments using a emacs org-mode.
+tags: ["javascript", "react", "next", "guide"]
+tagline: Summery of how I went about setting up my personal website which with markdown blog on github pages using nextjs.
 ---
 I had implemented my personal website using Jekyll and hosted it using github pages. I have been wanting to implement it using react. So I took the leap and spent a weekend porting my old website to use react. While I had worked with react, I've been hearing good things about Next.js. I've been wanting to try Next.js as well for some time now. So I figured I'll use this as an opportunity to learn a little bit of Next.js as well. Googling around how I can get started with using Next.js for a static markdown blog, I came across an article by [Chris Bongers on generating a Next.js markdown blog](https://blog.openreplay.com/creating-a-markdown-blog-powered-by-next-js-in-under-an-hour). This basically shows the steps to setup the markdown blog:
 
 1. Initiate the project with `npm create-next-app .`
 2. Setting up [Tailwind CSS](https://tailwindcss.com)
-3. Setting up a base layout for the pages (See my [BaseLayout.jsx](https://github.com/ahmed-shariff/ahmed-shariff.github.io/blob/master/components/BaseLayout.jsx)).
+3. Setting up a base layout for the pages (See my [BaseLayout.jsx](https://github.com/ahmed-shariff/ahmed-shariff.github.io/blob/a29f5026a2b8b9726710385abe1c3a6f3eb30ae7/components/BaseLayout.jsx)).
 4. Move all my markdown posts and realted images from the old Jekyll implementation.
    - The posts were all placed inside a `posts` directory in the root directory
    - The images were all moved to the directory `public/images` and the paths on the posts were also updated
@@ -32,7 +32,7 @@ This allows me to have the site be deployed in the `gh-pages` branch (plus a fix
 
 ### Images with `export`
 
-When using `next export` Next.js requires an image loader to be used. At this point I wasn't interested in any of the optimizations, I wanted to load the images as is. Hence, I followed in instructions in the [discussion post in the Next.js repo](https://github.com/vercel/next.js/discussions/19065) and created an [`Image` component](https://github.com/ahmed-shariff/ahmed-shariff.github.io/blob/master/components/Image.js) to use when loading images. On top of that I had to set the `unoptimized` prop to `true` for it to work.
+When using `next export` Next.js requires an image loader to be used. At this point I wasn't interested in any of the optimizations, I wanted to load the images as is. Hence, I followed in instructions in the [discussion post in the Next.js repo](https://github.com/vercel/next.js/discussions/19065) and created an [`Image` component](https://github.com/ahmed-shariff/ahmed-shariff.github.io/blob/a29f5026a2b8b9726710385abe1c3a6f3eb30ae7/components/Image.js) to use when loading images. On top of that I had to set the `unoptimized` prop to `true` for it to work.
 
 ## Improve markdown rendering
 
@@ -84,4 +84,4 @@ I used the [Footnote plug-in](https://github.com/markdown-it/markdown-it-footnot
 
 Previously I had used disqus for comments section in each post. This time around I wanted to use something a little less invasive. I went with [giscus](https://giscus.app). That was fairly easy to set up, just follow the instructions.
 
-The complete code can be found in my [github repo](https://github.com/ahmed-shariff/ahmed-shariff.github.io).
+The complete code can be found in my [github repo](https://github.com/ahmed-shariff/ahmed-shariff.github.io) ([link to code which is relevant to this post](https://github.com/ahmed-shariff/ahmed-shariff.github.io/blob/a29f5026a2b8b9726710385abe1c3a6f3eb30ae7)).
