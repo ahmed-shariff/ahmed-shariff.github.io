@@ -23,12 +23,12 @@ export function TestTags(tags) {
     tags.map((tags) => {
         if (Array.isArray(tags)) {
             tags.forEach((tag) => {
-                if (!(tag in tagList)) {
+                if (!(tag.toLowerCase() in tagList)) {
                     unlistedTags.add(tag);
                 }
             })
         } else if (typeof tags === 'string' || tags instanceof String) {
-            if (!(tags in tagList)) {
+            if (!(tag.toLowerCase() in tagList)) {
                 unlistedTags.add(tags);
             }
         } // don't care about others
