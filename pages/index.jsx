@@ -8,6 +8,7 @@ import { SiFacebook, SiGithub, SiGooglescholar, SiLinkedin, SiTwitter } from "re
 import Gravatar from 'react-gravatar';
 import PostsList from '../components/PostsList'
 import ArrowButon from '../components/ArrowButon';
+import { TestTags } from '../components/Tags';
 /* const md = import('markdown-it');//.then(m => m({html:true})); */
 
 // returns the first 4 lines of the contents
@@ -26,13 +27,15 @@ import ArrowButon from '../components/ArrowButon';
 
 export async function getStaticProps() {
     const files = fs.readdirSync('posts');
-
+    const tags = [];
+    
     var posts = files
         .reverse()
         .map((fileName) => {
             const slug = fileName.replace('.md', '');
             const readFile = fs.readFileSync(`posts/${fileName}`, 'utf-8');
             const { data: frontmatter, excerpt } = matter(readFile, { excerpt: false });
+            tags.push(frontmatter.tags);
             return {
                 slug,
                 frontmatter,
@@ -41,6 +44,8 @@ export async function getStaticProps() {
         })
         .filter(function({ frontmatter }) { return frontmatter.published !== false; })
         .slice(0, 5);
+
+    TestTags(tags);
 
     return {
         props: {

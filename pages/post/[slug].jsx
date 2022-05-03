@@ -5,7 +5,7 @@ import mf from 'markdown-it-footnote';
 import katex from 'katex';
 import Giscus from '@giscus/react';
 import SlugToDate from '../../components/SlugToDate';
-
+import TagsList from '../../components/Tags';
 
 const md = mdOpt({ html: true }).use(mf);
 
@@ -52,11 +52,12 @@ function replaceMath(content) {
     });
 }
 
-export default function PostPage({ slug,frontmatter, content }) {
+export default function PostPage({ slug, frontmatter, content }) {
     return (
         <div className='prose dark:prose-invert text-justify mx-auto max-w-screen-xl prose-img:block prose-img:m-auto prose-img:max-h-96 prose-p:w-full'>
             <div className='text-xs text-slate-400'>
-                <SlugToDate slug={slug}/>
+                <SlugToDate slug={slug} />
+                <TagsList tags={frontmatter.tags} link />
             </div>
             <h1>{frontmatter.title}</h1>
             <div dangerouslySetInnerHTML={{ __html: replaceMath(replaceJekyllLinks(md.render(content))) }} />

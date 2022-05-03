@@ -1,5 +1,6 @@
 import fs from 'fs';
 import matter from 'gray-matter';
+import { useRouter } from 'next/router';
 /* import excerpt from 'gray-matter/lib/excerpt'; */
 import PostsList from '../../components/PostsList'
 
@@ -41,6 +42,25 @@ export async function getStaticProps() {
 }
 
 export default function Posts({ posts }) {
+    const router = useRouter();
+
+    if ("tags" in router.query && router.query.tags !== null && router.query.tags !== undefined) {
+        var tags = router.query.tags;
+        if (typeof tags === 'string' || tags instanceof String) {
+            tags = [tags];
+        }
+        posts = posts.filter(({ frontmatter }) => {
+            if (frontmatter.tags === null || frontmatter.tags === undefined)
+                return false;
+            else {
+                const res = frontmatter.tags.reduce((prev, curr) => {
+                    return tags.includes(curr) || prev;
+                }, false)
+                return res;
+            }
+        });
+    }
+
     return (
         <div>
             <div className='grid grid-cols-1 p-0 md:px-20 mt-10'>
