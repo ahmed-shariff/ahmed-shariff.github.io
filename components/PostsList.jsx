@@ -1,5 +1,6 @@
 import * as mdOpt from 'markdown-it';
 import RoundedBox from './RoundedBox';
+import SlugToDate from './SlugToDate';
 
 /* const md = import('markdown-it');//.then(m => m({html:true})); */
 const md = mdOpt({ html: true });
@@ -17,6 +18,9 @@ export default function PostsList({ posts }) {
                                 />
                             } */}
                 <h1>{frontmatter.title}</h1>
+                <div className='text-xs -mt-2 text-slate-400'>
+                    <SlugToDate slug={slug} />
+                </div>
                 <div className='text-xs '>{frontmatter.tagline}</div>
                 {
                     excerpt.length > 0 &&
