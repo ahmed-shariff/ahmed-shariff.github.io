@@ -54,6 +54,12 @@ export function Tag({tag, link}) {
     }
 }
 
+export function AllTagsList({ className, link }) {
+    return (
+        <TagsList tags={Object.keys(tagList)} className={className} link={link}/>
+    );
+}
+
 export default function TagsList({ tags, className, link }) {
     if (tags === null || tags === undefined) {
         return "";
