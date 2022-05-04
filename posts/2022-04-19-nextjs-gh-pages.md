@@ -46,7 +46,7 @@ My old implementation linked to other posts using Liquid templates. Here, I used
 function replaceJekyllLinks(content) {
     const regex = /\[([^\]]*)\]\((\{\{ *site\.baseurl *\}\})*\{% post_url ([^\s]*) %\}\)/g;
     return content.replace(regex, (text, p1, p2, p3) => {
-        return `<a href="${p3}">${p1}</a>`;
+        return "<a href=" + p3 + ">" + {p1} + "</a>";
     })
 }
 ```

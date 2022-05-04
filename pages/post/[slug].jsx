@@ -2,12 +2,18 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import mdOpt from 'markdown-it';
 import mf from 'markdown-it-footnote';
+import mh from 'markdown-it-highlightjs';
 import katex from 'katex';
 import Giscus from '@giscus/react';
 import SlugToDate from '../../components/SlugToDate';
 import TagsList from '../../components/Tags';
 
-const md = mdOpt({ html: true }).use(mf);
+const md = mdOpt({
+    html: true
+})
+    .use(mf).use(mh, {
+        auto: true, code: false, ignoreIllegals:false
+    });
 
 export async function getStaticPaths() {
     const files = fs.readdirSync('posts');

@@ -4,6 +4,9 @@ module.exports = {
         './pages/**/*.{js,ts,jsx,tsx}',
         './components/**/*.{js,ts,jsx,tsx}',
     ],
+    safelist: [{
+        pattern: /hljs+/,
+    }],
     theme: {
         extend: {
             typography: (theme) => ({
@@ -38,7 +41,7 @@ module.exports = {
                         '--tw-prose-invert-captions': theme('colors.gray[400]'),
                         '--tw-prose-invert-code': theme('colors.white'),
                         '--tw-prose-invert-pre-code': theme('colors.gray[300]'),
-                        '--tw-prose-invert-pre-bg': 'rgb(0 0 0 / 50%)',
+                        '--tw-prose-invert-pre-bg': '#1C1D21',
                         '--tw-prose-invert-th-borders': theme('colors.gray[600]'),
                         '--tw-prose-invert-td-borders': theme('colors.gray[700]'),
                     },
@@ -133,6 +136,12 @@ module.exports = {
                 ],
             },
         },
+        hljs: {
+            theme: 'an-old-hope',
+        },
     },
-    plugins: [require('@tailwindcss/typography')],
+    plugins: [
+        require('@tailwindcss/typography'),
+        require('tailwind-highlightjs')
+    ],
 }
