@@ -1,6 +1,6 @@
 export default function ArrowButon({text, onClick}) {
     return (
-        <button className="relative group overflow-hidden px-6 h-12 rounded-full flex space-x-2 items-center bg-sky-600 hover:bg-sky-500" onClick={onClick}>
+        <button className="relative group overflow-hidden px-6 h-12 rounded-full flex space-x-2 items-center border border-gray-200 shadow-md shadow-gray-800 hover:bg-gray-800" onClick={onClick}>
             <span className="relative text-sm text-white">{text}</span>
             <div className="flex items-center -space-x-3 translate-x-3">
                 <div className="w-2.5 h-[1.6px] rounded bg-white origin-left scale-x-0 transition duration-300 group-hover:scale-x-100"></div>

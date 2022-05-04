@@ -9,6 +9,7 @@ import Gravatar from 'react-gravatar';
 import PostsList from '../components/PostsList'
 import ArrowButon from '../components/ArrowButon';
 import { TestTags } from '../components/Tags';
+import Link from 'next/link';
 /* const md = import('markdown-it');//.then(m => m({html:true})); */
 
 // returns the first 4 lines of the contents
@@ -73,7 +74,7 @@ export default function Home({ posts }) {
     return (
         <React.Fragment>
             <div className='flex flex-row  space-x-12 prose dark:prose-invert max-w-none text-justify'>
-                <div className='flex-auto text-sm'>
+                <div className='flex-auto text-xs'>
                     <Gravatar className='rounded-full' email='shariff.mfa@outlook.com' size={400} />
                     <ul className='list-none w-40 list-outside'>
                         <li>
@@ -94,7 +95,7 @@ export default function Home({ posts }) {
                     </ul>
                 </div>
                 <div className='flex-auto'>
-                    <p className="text-sm m-10">
+                    <p className="text-xs m-10 bg-gray-900 p-3">
                         Hey there! Thanks for coming to this obscure corner of the internet to visit my site. This site is work in progress. So be patient, I&apos;ll update here soon.
                     </p>
 
@@ -106,7 +107,7 @@ export default function Home({ posts }) {
                 </div>
             </div>
             <div className='grid grid-cols-1 mt-10'>
-                <h1 className='text-xl text-center text-gray-300'> Recent posts </h1>
+                <Link href="/posts"><a className='text-xl text-gray-300'><h1 className='text-center '>Recent posts</h1></a></Link>
                 <PostsList posts={posts} />
                 <div className="justify-self-center p-2">
                     <ArrowButon text={"See More"} onClick={() => router.push("/posts")} />

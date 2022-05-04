@@ -74,7 +74,7 @@ export default function Posts({ posts }) {
                 <h1 className='text-xl text-center text-slate-100'>Blog posts</h1>
                 <hr className='m-2' />
                 <div className='m-2'>
-                    <button className={"p-1 hover:bg-slate-600 rounded"} onClick={() => setShowTags(!showTags)}>
+                    <button className={"transition duration-100 shadow-none p-1 hover:shadow hover:bg-slate-600 rounded"} onClick={() => setShowTags(!showTags)}>
                         Tags
                         <svg fill="currentColor"
                             viewBox="0 0 20 20"
