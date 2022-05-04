@@ -37,6 +37,7 @@ export default function BaseLayout({ children }) {
                 <div className='container mx-auto flex flex-wrap space-x-12 items-center justify-center'>
                     <NavButton className="font-semibold text-lg" onClick={() => router.push("/")}>Shariff Faleel</NavButton>
                     <NavButton onClick={() => router.push("/posts")}>Posts</NavButton>
+                    <NavButton onClick={() => router.push("/publications")}>Publications</NavButton>
                     <NavButton className="group">
                         <div>
                             Quick links
@@ -47,8 +48,8 @@ export default function BaseLayout({ children }) {
                             </svg>
                         </div>
                         <div
-                            className="absolute w-full mt-2 origin-top-right rounded-md shadow-lg w-fit transition-transform transition-opacity ease-in-out duration-200 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100" > 
-                           <div className="p-2 bg-gray-700 rounded-md shadow dark-mode:bg-gray-700">
+                            className="absolute w-full mt-2 origin-top-right rounded-md shadow-lg w-fit transition-transform transition-opacity ease-in-out duration-200 opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100" >
+                            <div className="p-2 bg-gray-700 rounded-md shadow dark-mode:bg-gray-700">
                                 <NavLink href="https://gist.github.com/ahmed-shariff" className="flex flex-row space-x-2"> <div><SiGithub /></div><div>github-gists</div></NavLink>
                             </div>
                         </div>

@@ -7,6 +7,7 @@ import Image from '../components/image';
 import { SiFacebook, SiGithub, SiGooglescholar, SiLinkedin, SiTwitter } from "react-icons/si";
 import Gravatar from 'react-gravatar';
 import PostsList from '../components/PostsList'
+import PublicationsList from '../components/PublicationsList'
 import ArrowButon from '../components/ArrowButon';
 import { TestTags } from '../components/Tags';
 import Link from 'next/link';
@@ -27,10 +28,10 @@ import Link from 'next/link';
 // }
 
 export async function getStaticProps() {
-    const files = fs.readdirSync('posts');
+    const postFiles = fs.readdirSync('posts');
     const tags = [];
-    
-    var posts = files
+
+    var posts = postFiles
         .reverse()
         .map((fileName) => {
             const slug = fileName.replace('.md', '');
@@ -48,9 +49,27 @@ export async function getStaticProps() {
 
     TestTags(tags);
 
+    const publicationFiles = fs.readdirSync('publications');
+
+    var publications = publicationFiles
+        .reverse()
+        .map((fileName) => {
+            const slug = fileName.replace('.md', '');
+            const readFile = fs.readFileSync(`publications/${fileName}`, 'utf-8');
+            const { data: frontmatter, excerpt } = matter(readFile, { excerpt: false });
+            tags.push(frontmatter.tags);
+            return {
+                slug,
+                frontmatter,
+                excerpt
+            };
+        })
+        .slice(0, 3);
+
     return {
         props: {
-            posts
+            posts,
+            publications
         },
     };
 }
@@ -68,11 +87,11 @@ function PersonalLinks({link, text, iconComponent}) {
     )
 }
 
-export default function Home({ posts }) {
+export default function Home({ posts, publications }) {
     const router = useRouter();
 
     return (
-        <React.Fragment>
+        <div className='divide-y-4 divide-slate-400/25'>
             <div className='flex flex-row  space-x-12 prose dark:prose-invert max-w-none text-justify'>
                 <div className='flex-auto text-xs'>
                     <Gravatar className='rounded-full' email='shariff.mfa@outlook.com' size={400} />
@@ -106,13 +125,20 @@ export default function Home({ posts }) {
                     <p>Previously, I was working at the University of Peradeniya on a industry collaboration project with CodeGen International. The project was started to study and develop AI systems. The focus of my work there was on using deep learning and computer vision technologies to automate various aspects of a restaurant.</p>
                 </div>
             </div>
-            <div className='grid grid-cols-1 mt-10'>
+            <div className='grid grid-cols-1 py-8'>
+                <Link href="/publications"><a className='text-xl text-gray-300'><h1 className='text-center '>Publications</h1></a></Link>
+                <PublicationsList publications={publications} />
+                <div className="justify-self-center p-2">
+                    <ArrowButon text={"See More"} onClick={() => router.push("/publications")} />
+                </div>
+            </div >
+            <div className='grid grid-cols-1 py-10'>
                 <Link href="/posts"><a className='text-xl text-gray-300'><h1 className='text-center '>Recent posts</h1></a></Link>
                 <PostsList posts={posts} />
                 <div className="justify-self-center p-2">
                     <ArrowButon text={"See More"} onClick={() => router.push("/posts")} />
                 </div>
             </div >
-        </React.Fragment>
+        </div>
     );
 }
