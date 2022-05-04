@@ -12,7 +12,7 @@ pdf: '/pdf/shariff20_user_gesture.pdf'
 ---
 
 ```latex
-@inproceedings{10.1145/3396339.3396363,
+@inproceedings{shariff20_user_gesture,
    author = {Faleel, Shariff A. M. and Gammon, Michael and Sakamoto, Yumiko and Menon, Carlo and Irani, Pourang},
    title = {User Gesture Elicitation of Common Smartphone Tasks for Hand Proximate User Interfaces},
    year = {2020},
