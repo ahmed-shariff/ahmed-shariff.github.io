@@ -59,7 +59,7 @@ export default function Posts({ posts }) {
                 return false;
             else {
                 const res = frontmatter.tags.reduce((prev, curr) => {
-                    return tags.includes(curr) || prev;
+                    return tags.includes(curr.toLowerCase()) || prev;
                 }, false)
                 return res;
             }
