@@ -37,7 +37,7 @@ export default function BaseLayout({ children }) {
                 <div className='container mx-auto flex flex-wrap space-x-12 items-center justify-center'>
                     <NavButton className="font-semibold text-lg" onClick={() => router.push("/")}>Shariff Faleel</NavButton>
                     <NavButton onClick={() => router.push("/posts")}>Posts</NavButton>
-                    <NavButton onClick={() => router.push("/publications")}>Publications</NavButton>
+                    <NavButton onClick={() => router.push({ "pathname": "/posts", "query": { pub: true } })}>Publications</NavButton>
                     <NavButton className="group">
                         <div>
                             Quick links

@@ -2,7 +2,7 @@
 title: "Writely: Force Feedback for Non-Dominant Hand Writing Training"
 date: '2021-07-06'
 authors: "<b>Shariff AM Faleel</b>; Bibhushan Raj Joshi; Bradley Rey"
-venue: "WHC '18"
+venue: "WHC '21"
 type: 'Conference'
 paperurl: https://doi.org/10.1109/WHC49131.2021.9517209'
 doi: 'WHC49131.2021.9517209'

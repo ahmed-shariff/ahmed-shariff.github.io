@@ -49,27 +49,9 @@ export async function getStaticProps() {
 
     TestTags(tags);
 
-    const publicationFiles = fs.readdirSync('publications');
-
-    var publications = publicationFiles
-        .reverse()
-        .map((fileName) => {
-            const slug = fileName.replace('.md', '');
-            const readFile = fs.readFileSync(`publications/${fileName}`, 'utf-8');
-            const { data: frontmatter, excerpt } = matter(readFile, { excerpt: false });
-            tags.push(frontmatter.tags);
-            return {
-                slug,
-                frontmatter,
-                excerpt
-            };
-        })
-        .slice(0, 3);
-
     return {
         props: {
-            posts,
-            publications
+            posts
         },
     };
 }
@@ -87,7 +69,7 @@ function PersonalLinks({link, text, iconComponent}) {
     )
 }
 
-export default function Home({ posts, publications }) {
+export default function Home({ posts }) {
     const router = useRouter();
 
     return (
@@ -126,10 +108,10 @@ export default function Home({ posts, publications }) {
                 </div>
             </div>
             <div className='grid grid-cols-1 py-8'>
-                <Link href="/publications"><a className='text-xl text-gray-300'><h1 className='text-center '>Publications</h1></a></Link>
-                <PublicationsList publications={publications} />
+                <Link href={{ "pathname": "/posts", "query": { pub: true } }}><a className='text-xl text-gray-300'><h1 className='text-center '>Publications</h1></a></Link>
+                <PublicationsList posts={posts} />
                 <div className="justify-self-center p-2">
-                    <ArrowButon text={"See More"} onClick={() => router.push("/publications")} />
+                    <ArrowButon text={"See More"} onClick={() => router.push({ "pathname": "/posts", "query": { pub: true } })} />
                 </div>
             </div >
             <div className='grid grid-cols-1 py-10'>
@@ -139,6 +121,6 @@ export default function Home({ posts, publications }) {
                     <ArrowButon text={"See More"} onClick={() => router.push("/posts")} />
                 </div>
             </div >
-        </div>
+        </div >
     );
 }

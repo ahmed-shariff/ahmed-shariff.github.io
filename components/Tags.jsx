@@ -28,7 +28,7 @@ export function TestTags(tags) {
                 }
             })
         } else if (typeof tags === 'string' || tags instanceof String) {
-            if (!(tag.toLowerCase() in tagList)) {
+            if (!(tags.toLowerCase() in tagList)) {
                 unlistedTags.add(tags);
             }
         } // don't care about others

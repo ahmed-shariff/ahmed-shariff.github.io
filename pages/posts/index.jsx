@@ -48,6 +48,9 @@ export default function Posts({ posts }) {
     const router = useRouter();
 
     var tags = null;
+    var title = "Posts and Publications";
+    var publicationsBtnTxt = "Publications Only";
+    var publicatoinsBtnQuery = { pub: true };
 
     if ("tags" in router.query && router.query.tags !== null && router.query.tags !== undefined) {
         tags = router.query.tags;
@@ -66,12 +69,19 @@ export default function Posts({ posts }) {
         });
     }
 
+    if ("pub" in router.query) {
+        title = "Publications";
+        publicationsBtnTxt = "All Posts";
+        publicatoinsBtnQuery = {};
+        posts = posts.filter(({ frontmatter }) => ("doi" in frontmatter));
+    }
+
     const [showTags, setShowTags] = useState(tags === null ? false : true);
 
     return (
         <div>
             <div className='grid grid-cols-1 p-0 md:px-20 mt-10'>
-                <h1 className='text-xl text-center text-slate-100'>Blog posts</h1>
+                <h1 className='text-xl text-center text-slate-100'>{title}</h1>
                 <hr className='m-2' />
                 <div className='m-2'>
                     <button className={"transition duration-100 shadow-none p-1 hover:shadow hover:bg-slate-600 rounded"} onClick={() => setShowTags(!showTags)}>
@@ -86,6 +96,9 @@ export default function Posts({ posts }) {
                         tags !== null &&
                         <Link href="/posts"><a className='p-1 inline'>clear <div className='inline text-sm text-slate-900' >({tags.map((el => `#${el}`)).join(",")})</div></a></Link>
                     }
+                    <button className={"ml-4 transition duration-100 shadow-none p-1 hover:shadow hover:bg-slate-600 rounded"} onClick={() => router.push({ "pathname": "/posts", "query": publicatoinsBtnQuery})}>
+                        {publicationsBtnTxt}
+                    </button>
                     <AllTagsList link className={`transition-all duration-200 ${showTags ? "h-full scale-y-100 translate-y-0 opacity-100" : "h-0 scale-y-0 -translate-y-1/2 opacity-0"}`} />
                 </div>
                 <PostsList posts={posts} />
