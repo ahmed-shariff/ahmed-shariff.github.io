@@ -74,9 +74,9 @@ export default function Home({ posts }) {
 
     return (
         <div className='divide-y-4 divide-slate-400/25'>
-            <div className='flex flex-row  space-x-12 prose dark:prose-invert max-w-none text-justify'>
-                <div className='flex-auto text-xs'>
-                    <Gravatar className='rounded-full' email='shariff.mfa@outlook.com' size={400} />
+            <div className='flex flex-col sm:flex-row gap-x-12 m-5 prose dark:prose-invert max-w-none text-justify justify-center'>
+                <div className='flex flex-col'>
+                    <Gravatar className='rounded-full place-self-center' email='shariff.mfa@outlook.com' size={220} />
                     <ul className='list-none w-40 list-outside'>
                         <li>
                             <PersonalLinks link="https://github.com/ahmed-shariff" text="Github" iconComponent={<SiGithub />} />
@@ -95,7 +95,7 @@ export default function Home({ posts }) {
                         </li>
                     </ul>
                 </div>
-                <div className='flex-auto'>
+                <div>
                     <p className="text-xs m-10 bg-gray-900 p-3">
                         Hey there! Thanks for coming to this obscure corner of the internet to visit my site. This site is work in progress. So be patient, I&apos;ll update here soon.
                     </p>

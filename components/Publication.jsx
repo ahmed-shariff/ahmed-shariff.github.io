@@ -19,7 +19,7 @@ export default function PublicationsList({ slug, frontmatter, excerpt }) {
                             } */}
                 <h1>{frontmatter.title}</h1>
                 <div className='text-xs -mt-2' dangerouslySetInnerHTML={{ __html: md.render(frontmatter.authors) }} />
-                <div className='text-xs -mt-2 text-slate-400 flex flex-row space-x-4'>
+                <div className='text-xs -mt-2 text-slate-400 flex flex-wrap gap-x-4'>
                     <div><SlugToDate slug={frontmatter.date} /></div>
                     <div>{frontmatter.venue}</div>
                     <a href={frontmatter.paperurl}>{frontmatter.doi}</a>

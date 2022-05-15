@@ -66,7 +66,7 @@ export default function TagsList({ tags, className, link }) {
     }
 
     return (
-        <div className={`${className} flex space-x-1`}>
+        <div className={`${className} flex gap-x-1 flex-wrap`}>
             {
                 tags.map((tag, index) => <Tag key={index} tag={tag} link={link} />)
             }

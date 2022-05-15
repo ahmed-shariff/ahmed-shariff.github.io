@@ -1,6 +1,7 @@
 import { IconContext } from "react-icons";
 import Link from "next/link";
 import { SiGithub } from "react-icons/si";
+import { IoIosArrowDropupCircle } from "react-icons/io";
 
 
 function NavButton({ children, href, className }) {
@@ -26,14 +27,14 @@ function NavLink({children, href, className}) {
 export default function BaseLayout({ children }) {
     return (
         <div className='flex flex-col min-h-screen bg-slate-700'>
-            <header className='bg-gray-800 mb-8 py-1 text-gray-300'>
+            <header className='bg-gray-800 mb-8 py-1 text-gray-300 md:sticky top-0 left-0 right-0'>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossOrigin="anonymous" />
 
                 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossOrigin="anonymous"></script>
 
                 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossOrigin="anonymous"
                     onLoad={() => renderMathInElement(document.body)}></script>
-                <div className='container mx-auto flex flex-wrap space-x-12 items-center justify-center'>
+                <div className='container mx-auto flex flex-col md:flex-row gap-x-12 items-center justify-center'>
                     <NavButton className="font-semibold text-lg" href="/">Shariff Faleel</NavButton>
                     <NavButton href="/posts">Posts</NavButton>
                     <NavButton href={{ "pathname": "/posts", "query": { pub: true } }}>Publications</NavButton>
@@ -57,6 +58,11 @@ export default function BaseLayout({ children }) {
             </header >
             <IconContext.Provider value={{ className: "fill-sky-400" }}>
                 <main className='container mx-auto flex-1'>{children}</main>
+                <div className="fixed bottom-4 right-4" >
+                    <button onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }) }}>
+                        <IoIosArrowDropupCircle size={60} className="fill-gray-900 rounded-full bg-slate-600" />
+                    </button>
+                </div>
             </IconContext.Provider>
             <footer className='bg-gray-800 mt-8 py-4 text-gray-300'>
                 <div className='container mx-auto flex justify-center text-sm'>
