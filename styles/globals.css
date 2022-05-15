@@ -6,4 +6,8 @@
     a:hover {
         @apply underline decoration-2
     }
+
+    a.button {
+        @apply no-underline decoration-0
+    }
 }

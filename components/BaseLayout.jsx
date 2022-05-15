@@ -1,14 +1,15 @@
 import { IconContext } from "react-icons";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import { SiGithub } from "react-icons/si";
 
 
-function NavButton({ children, onClick, className }) {
+function NavButton({ children, href, className }) {
     return (
-        <button className={`transition duration-100 bg-transparent shadow-md shadow-transparent rounded-lg hover:shadow-gray-900 hover:bg-gray-700 hover:underline hover:decoration-2 px-4 py-2 items-center ${className}`} onClick={onClick}>
-            {children}
-        </button>
+        <Link href={href} passHref>
+            <a className={`transition duration-100 bg-transparent shadow-md shadow-transparent rounded-lg hover:shadow-gray-900 hover:bg-gray-700 hover:underline hover:decoration-2 px-4 py-2 items-center ${className}`}>
+                {children}
+            </a>
+        </Link>
     );
 }
 
@@ -23,8 +24,6 @@ function NavLink({children, href, className}) {
 }
 
 export default function BaseLayout({ children }) {
-    const router = useRouter();
-
     return (
         <div className='flex flex-col min-h-screen bg-slate-700'>
             <header className='bg-gray-800 mb-8 py-1 text-gray-300'>
@@ -35,10 +34,10 @@ export default function BaseLayout({ children }) {
                 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossOrigin="anonymous"
                     onLoad={() => renderMathInElement(document.body)}></script>
                 <div className='container mx-auto flex flex-wrap space-x-12 items-center justify-center'>
-                    <NavButton className="font-semibold text-lg" onClick={() => router.push("/")}>Shariff Faleel</NavButton>
-                    <NavButton onClick={() => router.push("/posts")}>Posts</NavButton>
-                    <NavButton onClick={() => router.push({ "pathname": "/posts", "query": { pub: true } })}>Publications</NavButton>
-                    <NavButton className="group">
+                    <NavButton className="font-semibold text-lg" href="/">Shariff Faleel</NavButton>
+                    <NavButton href="/posts">Posts</NavButton>
+                    <NavButton href={{ "pathname": "/posts", "query": { pub: true } }}>Publications</NavButton>
+                    <NavButton className="group" href="">
                         <div>
                             Quick links
                             <svg fill="currentColor"

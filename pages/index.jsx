@@ -111,14 +111,14 @@ export default function Home({ posts }) {
                 <Link href={{ "pathname": "/posts", "query": { pub: true } }}><a className='text-xl text-gray-300'><h1 className='text-center '>Publications</h1></a></Link>
                 <PublicationsList posts={posts} />
                 <div className="justify-self-center p-2">
-                    <ArrowButon text={"See More"} onClick={() => router.push({ "pathname": "/posts", "query": { pub: true } })} />
+                    <ArrowButon text={"See More"} href={{ "pathname": "/posts", "query": { pub: true } }} />
                 </div>
             </div >
             <div className='grid grid-cols-1 py-10'>
                 <Link href="/posts"><a className='text-xl text-gray-300'><h1 className='text-center '>Recent posts</h1></a></Link>
                 <PostsList posts={posts} />
                 <div className="justify-self-center p-2">
-                    <ArrowButon text={"See More"} onClick={() => router.push("/posts")} />
+                    <ArrowButon text={"See More"} href={"/posts"} />
                 </div>
             </div >
         </div >
