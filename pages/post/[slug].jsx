@@ -59,11 +59,11 @@ function PublicationPage({ frontmatter, content }) {
                 keyStr="Citation"
                 valueStr={(<div dangerouslySetInnerHTML={{ __html: replaceMath(md.render(frontmatter.citation)) }} />)} />
 
-            <div class="m-4 border-t-4 border-slate-400/25" />
+            <div className="m-4 border-t-4 border-slate-400/25" />
 
             <div dangerouslySetInnerHTML={{ __html: replaceMath(replaceJekyllLinks(md.render(content))) }} />
 
-            <div class="m-4 border-t-4 border-slate-400/25" />
+            <div className="m-4 border-t-4 border-slate-400/25" />
 
             <Giscus
                 id="comments"
@@ -95,7 +95,7 @@ function PostPage({ slug, frontmatter, content }) {
             <h1 className='text-left'>{frontmatter.title}</h1>
             <div dangerouslySetInnerHTML={{ __html: replaceMath(replaceJekyllLinks(md.render(content))) }} />
 
-            <div class="m-4 border-t-4 border-slate-400/25" />
+            <div className="m-4 border-t-4 border-slate-400/25" />
 
             <Giscus
                 id="comments"
