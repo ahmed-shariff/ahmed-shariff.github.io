@@ -42,9 +42,9 @@ function Information({keyStr, valueStr}) {
 
 function PublicationPage({ frontmatter, content }) {
     return (
-        <div className='prose dark:prose-invert text-justify mx-auto max-w-screen-xl prose-img:block prose-img:m-auto prose-img:max-h-96 prose-p:w-full'>
+        <div className='prose dark:prose-invert text-justify mx-auto max-w-screen-xl prose-img:block prose-img:m-auto prose-img:max-h-96 prose-p:w-full '>
             <h1>{frontmatter.title}</h1>
-            <Information keyStr="Journal" valueStr={frontmatter.type} />
+            <Information keyStr="Type" valueStr={frontmatter.type} />
             <Information
                 keyStr="Authors"
                 valueStr={(<div dangerouslySetInnerHTML={{ __html: md.render(frontmatter.authors) }} />)} />
@@ -59,8 +59,12 @@ function PublicationPage({ frontmatter, content }) {
                 keyStr="Citation"
                 valueStr={(<div dangerouslySetInnerHTML={{ __html: replaceMath(md.render(frontmatter.citation)) }} />)} />
 
+            <div class="m-4 w-full border-t-4 border-slate-400/25" />
 
             <div dangerouslySetInnerHTML={{ __html: replaceMath(replaceJekyllLinks(md.render(content))) }} />
+
+            <div class="m-4 w-full border-t-4 border-slate-400/25" />
+
             <Giscus
                 id="comments"
                 repo="ahmed-shariff/ahmed-shariff.github.io"
@@ -90,6 +94,9 @@ function PostPage({ slug, frontmatter, content }) {
             </div>
             <h1>{frontmatter.title}</h1>
             <div dangerouslySetInnerHTML={{ __html: replaceMath(replaceJekyllLinks(md.render(content))) }} />
+
+            <div class="m-4 w-full border-t-4 border-slate-400/25" />
+
             <Giscus
                 id="comments"
                 repo="ahmed-shariff/ahmed-shariff.github.io"

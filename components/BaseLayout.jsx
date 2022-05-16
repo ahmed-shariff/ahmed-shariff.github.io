@@ -27,7 +27,7 @@ function NavLink({children, href, className}) {
 export default function BaseLayout({ children }) {
     return (
         <div className='flex flex-col min-h-screen bg-slate-700'>
-            <header className='bg-gray-800 mb-8 py-1 text-gray-300 md:sticky top-0 left-0 right-0'>
+            <header className='bg-gray-800 mb-8 py-1 text-gray-300 md:sticky top-0 left-0 right-0 drop-shadow-lg shadow-gray-900'>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossOrigin="anonymous" />
 
                 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossOrigin="anonymous"></script>
@@ -58,13 +58,13 @@ export default function BaseLayout({ children }) {
             </header >
             <IconContext.Provider value={{ className: "fill-sky-400" }}>
                 <main className='container mx-auto flex-1'>{children}</main>
-                <div className="fixed bottom-4 right-4" >
+                <div className="fixed bottom-4 right-4 drop-shadow-lg z-50 shadow-gray-900" >
                     <button onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }) }}>
-                        <IoIosArrowDropupCircle size={60} className="fill-gray-900 rounded-full bg-slate-600" />
+                        <IoIosArrowDropupCircle size={60} className="fill-gray-900 rounded-full bg-slate-600 hover:bg-slate-500" />
                     </button>
                 </div>
             </IconContext.Provider>
-            <footer className='bg-gray-800 mt-8 py-4 text-gray-300'>
+            <footer className='bg-gray-800 mt-8 py-4 text-gray-300 drop-shadow-lg shadow-gray-900'>
                 <div className='container mx-auto flex justify-center text-sm'>
                     &copy; 2022 Shariff Faleel
                 </div>
