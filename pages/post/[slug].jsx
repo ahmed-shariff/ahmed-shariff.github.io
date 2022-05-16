@@ -42,8 +42,8 @@ function Information({keyStr, valueStr}) {
 
 function PublicationPage({ frontmatter, content }) {
     return (
-        <div className='prose dark:prose-invert text-justify mx-auto max-w-screen-xl prose-img:block prose-img:m-auto prose-img:max-h-96 prose-p:w-full '>
-            <h1>{frontmatter.title}</h1>
+        <div className='p-5 md:p-0 prose dark:prose-invert text-justify mx-auto max-w-screen-xl prose-img:block prose-img:m-auto prose-img:max-h-96 prose-p:w-full '>
+            <h1 className='text-left'>{frontmatter.title}</h1>
             <Information keyStr="Type" valueStr={frontmatter.type} />
             <Information
                 keyStr="Authors"
@@ -59,11 +59,11 @@ function PublicationPage({ frontmatter, content }) {
                 keyStr="Citation"
                 valueStr={(<div dangerouslySetInnerHTML={{ __html: replaceMath(md.render(frontmatter.citation)) }} />)} />
 
-            <div class="m-4 w-full border-t-4 border-slate-400/25" />
+            <div class="m-4 border-t-4 border-slate-400/25" />
 
             <div dangerouslySetInnerHTML={{ __html: replaceMath(replaceJekyllLinks(md.render(content))) }} />
 
-            <div class="m-4 w-full border-t-4 border-slate-400/25" />
+            <div class="m-4 border-t-4 border-slate-400/25" />
 
             <Giscus
                 id="comments"
@@ -87,15 +87,15 @@ function PublicationPage({ frontmatter, content }) {
 
 function PostPage({ slug, frontmatter, content }) {
     return (
-        <div className='prose dark:prose-invert text-justify mx-auto max-w-screen-xl prose-img:block prose-img:m-auto prose-img:max-h-96 prose-p:w-full'>
+        <div className='p-5 md:p-0 prose dark:prose-invert text-justify mx-auto max-w-screen-xl prose-img:block prose-img:m-auto prose-img:max-h-96 prose-p:w-full'>
             <div className='text-xs text-slate-400'>
                 <SlugToDate slug={slug} />
                 <TagsList tags={frontmatter.tags} link />
             </div>
-            <h1>{frontmatter.title}</h1>
+            <h1 className='text-left'>{frontmatter.title}</h1>
             <div dangerouslySetInnerHTML={{ __html: replaceMath(replaceJekyllLinks(md.render(content))) }} />
 
-            <div class="m-4 w-full border-t-4 border-slate-400/25" />
+            <div class="m-4 border-t-4 border-slate-400/25" />
 
             <Giscus
                 id="comments"

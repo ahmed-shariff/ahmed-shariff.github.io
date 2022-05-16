@@ -99,7 +99,7 @@ export default function Posts({ posts }) {
                     <button className={"ml-4 transition duration-100 shadow-none p-1 hover:shadow hover:bg-slate-600 rounded"} onClick={() => router.push({ "pathname": "/posts", "query": publicatoinsBtnQuery})}>
                         {publicationsBtnTxt}
                     </button>
-                    <AllTagsList link className={`transition-all duration-200 ${showTags ? "h-full scale-y-100 translate-y-0 opacity-100" : "h-0 scale-y-0 -translate-y-1/2 opacity-0"}`} />
+                    <AllTagsList link className={`transition-all duration-200 ${showTags ? "scale-y-100 translate-y-0 opacity-100" : "h-0 scale-y-0 -translate-y-1/2 opacity-0"}`} />
                 </div>
                 <PostsList posts={posts} />
             </div >
