@@ -6,7 +6,7 @@ import { md } from "./markdownHelpers";
 export default function Post({ slug, frontmatter, excerpt }) {
     return (
         <RoundedBox key={slug} href={`/post/${slug}`}>
-            <div className='min-h-full prose dark:prose-invert prose-sm max-w-none prose-h1:text-base prose-h1:font-normal'>
+            <div className='p-3 min-h-full prose dark:prose-invert prose-sm max-w-none prose-h1:text-base prose-h1:font-normal'>
                 {/* {"socialImage" in frontmatter &&
                                 <Image
                                     width={650}

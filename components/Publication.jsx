@@ -1,4 +1,5 @@
 import * as mdOpt from 'markdown-it';
+import { IoMdSchool } from 'react-icons/io';
 import RoundedBox from './RoundedBox';
 import SlugToDate from './SlugToDate';
 
@@ -8,7 +9,7 @@ const md = mdOpt({ html: true });
 export default function PublicationsList({ slug, frontmatter, excerpt }) {
     return (
         <RoundedBox key={slug} href={`/post/${slug}`}>
-            <div className='min-h-full prose dark:prose-invert prose-sm max-w-none prose-h1:text-base prose-h1:font-normal'>
+            <div className='p-3 grow min-h-full prose dark:prose-invert prose-sm max-w-none prose-h1:text-base prose-h1:font-normal'>
                 {/* {"socialImage" in frontmatter &&
                                 <Image
                                     width={650}
@@ -29,6 +30,9 @@ export default function PublicationsList({ slug, frontmatter, excerpt }) {
                     <div
                         dangerouslySetInnerHTML={{ __html: md.render(excerpt) }}></div>
                 }
+            </div>
+            <div className='flex h-full bg-slate-500 p-3 content-center items-center '>
+                <IoMdSchool className="fill-slate-100" size={20} />
             </div>
         </RoundedBox>
     );
