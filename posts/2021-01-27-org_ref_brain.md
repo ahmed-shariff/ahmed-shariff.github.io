@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: Using org mode for bibliography management
-tags: ["emacs", "org"]
+tags: ["emacs", "org", "reference-management"]
 tagline: All hail emacs! All hail org-mode!
 ---
 

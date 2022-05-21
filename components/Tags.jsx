@@ -14,7 +14,8 @@ export const tagList = {
     'machine learning': "text-gray-400",
     'deep learning': "text-gray-400",
     'nlp': "text-gray-400",
-    'random thoughts': "text-gray-400"
+    'random thoughts': "text-gray-400",
+    'reference-management': "text-gray-400"
 }
 
 // FIXME: Very questionable way of testing.......
