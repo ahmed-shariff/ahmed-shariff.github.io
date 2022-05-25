@@ -38,7 +38,7 @@ export default function BaseLayout({ children }) {
                     <NavButton className="font-semibold text-lg" href="/">Shariff Faleel</NavButton>
                     <NavButton href="/posts">Posts</NavButton>
                     <NavButton href={{ "pathname": "/posts", "query": { pub: true } }}>Publications</NavButton>
-                    <NavButton className="group" href="">
+                    <NavButton className="group" href="/">
                         <div>
                             Quick links
                             <svg fill="currentColor"

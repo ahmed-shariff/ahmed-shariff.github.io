@@ -23,7 +23,7 @@ export default function PublicationsList({ slug, frontmatter, excerpt }) {
                 <div className='text-xs -mt-2 text-slate-400 flex flex-wrap gap-x-4'>
                     <div><SlugToDate slug={frontmatter.date} /></div>
                     <div>{frontmatter.venue}</div>
-                    <a href={frontmatter.paperurl}>{frontmatter.doi}</a>
+                    <div>{frontmatter.doi}</div>
                 </div>
                 {
                     excerpt.length > 0 &&
