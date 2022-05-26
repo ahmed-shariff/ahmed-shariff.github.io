@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Shariff Faleel</title>
+        <link>https://ahmed-shariff.github.io/</link>
+        <description>My personal feed.</description>
+        <lastBuildDate>Thu, 26 May 2022 02:43:57 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>awesome</generator>
+        <language>en</language>
+        <image>
+            <title>Shariff Faleel</title>
+            <url>https://s.gravatar.com/avatar/5ebdf4aac1cb0791ce87210238ec9919?s=600</url>
+            <link>https://ahmed-shariff.github.io/</link>
+        </image>
+        <copyright>All rights reserved 2022, John Doe</copyright>
+        <item>
+            <title><![CDATA[Reference Management: What am I managing?]]></title>
+            <link>https://ahmed-shariff.github.io/post/2022-05-21-lit-mangaement</link>
+            <guid>2022-05-21-lit-mangaement</guid>
+            <pubDate>Sat, 21 May 2022 07:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[Setting up Oculus Quest 2 for development with Unity]]></title>
+            <link>https://ahmed-shariff.github.io/post/2022-05-02-oculus_setup</link>
+            <guid>2022-05-02-oculus_setup</guid>
+            <pubDate>Mon, 02 May 2022 07:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[Personal website with nextjs and github pages]]></title>
+            <link>https://ahmed-shariff.github.io/post/2022-04-19-nextjs-gh-pages</link>
+            <guid>2022-04-19-nextjs-gh-pages</guid>
+            <pubDate>Tue, 19 Apr 2022 07:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[HPUI: Hand Proximate User Interfaces for One-Handed Interactions on Head Mounted Displays]]></title>
+            <link>https://ahmed-shariff.github.io/post/2021-08-27-pub-shariff21_hpui</link>
+            <guid>2021-08-27-pub-shariff21_hpui</guid>
+            <pubDate>Fri, 27 Aug 2021 07:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[Writely: Force Feedback for Non-Dominant Hand Writing Training]]></title>
+            <link>https://ahmed-shariff.github.io/post/2021-07-06-pub-shariff21_writely</link>
+            <guid>2021-07-06-pub-shariff21_writely</guid>
+            <pubDate>Tue, 06 Jul 2021 07:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[BezelGlide: Interacting with Graphs on Smartwatches with Minimal Screen Occlusion]]></title>
+            <link>https://ahmed-shariff.github.io/post/2021-05-07-pub-ali21_bezelglide</link>
+            <guid>2021-05-07-pub-ali21_bezelglide</guid>
+            <pubDate>Fri, 07 May 2021 07:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[Writely (Part 2) - Face the kraken]]></title>
+            <link>https://ahmed-shariff.github.io/post/2021-03-29-canhap_writel_i2</link>
+            <guid>2021-03-29-canhap_writel_i2</guid>
+            <pubDate>Mon, 29 Mar 2021 07:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[Talking with haptics]]></title>
+            <link>https://ahmed-shariff.github.io/post/2021-03-12-canhap-lab3</link>
+            <guid>2021-03-12-canhap-lab3</guid>
+            <pubDate>Fri, 12 Mar 2021 08:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[Writely (Part 1) - Into the belly of the beast]]></title>
+            <link>https://ahmed-shariff.github.io/post/2021-03-08-canhap_writely_i1</link>
+            <guid>2021-03-08-canhap_writely_i1</guid>
+            <pubDate>Mon, 08 Mar 2021 08:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[PID with Haply]]></title>
+            <link>https://ahmed-shariff.github.io/post/2021-02-26-canhap-lab4</link>
+            <guid>2021-02-26-canhap-lab4</guid>
+            <pubDate>Fri, 26 Feb 2021 08:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[Exploring Haply]]></title>
+            <link>https://ahmed-shariff.github.io/post/2021-02-05-canhap-lab2</link>
+            <guid>2021-02-05-canhap-lab2</guid>
+            <pubDate>Fri, 05 Feb 2021 08:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[Make forky walk - Sketching lab]]></title>
+            <link>https://ahmed-shariff.github.io/post/2021-01-29-forky</link>
+            <guid>2021-01-29-forky</guid>
+            <pubDate>Fri, 29 Jan 2021 08:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[Using org mode for bibliography management]]></title>
+            <link>https://ahmed-shariff.github.io/post/2021-01-27-org_ref_brain</link>
+            <guid>2021-01-27-org_ref_brain</guid>
+            <pubDate>Wed, 27 Jan 2021 08:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[Using guessability framework: age-related differences in hand gesture interaction]]></title>
+            <link>https://ahmed-shariff.github.io/post/2020-05-27-pub-yurii20_using_guess</link>
+            <guid>2020-05-27-pub-yurii20_using_guess</guid>
+            <pubDate>Wed, 27 May 2020 07:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[User Gesture Elicitation of Common Smartphone Tasks for Hand Proximate User Interfaces]]></title>
+            <link>https://ahmed-shariff.github.io/post/2020-05-27-pub-shariff20_user_gesture</link>
+            <guid>2020-05-27-pub-shariff20_user_gesture</guid>
+            <pubDate>Wed, 27 May 2020 07:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[A Novel Dialogue Manager Model for Spoken Dialogue Systems Based on User Input Learning]]></title>
+            <link>https://ahmed-shariff.github.io/post/2019-07-05-pub-shariff19_dialog_manager</link>
+            <guid>2019-07-05-pub-shariff19_dialog_manager</guid>
+            <pubDate>Fri, 05 Jul 2019 07:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[The game of labeling]]></title>
+            <link>https://ahmed-shariff.github.io/post/2019-02-18-labeling_process</link>
+            <guid>2019-02-18-labeling_process</guid>
+            <pubDate>Mon, 18 Feb 2019 08:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[Building a dialogue manager - A retrospective]]></title>
+            <link>https://ahmed-shariff.github.io/post/2019-01-08-nlp_retrospective</link>
+            <guid>2019-01-08-nlp_retrospective</guid>
+            <pubDate>Tue, 08 Jan 2019 08:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[Article review using git]]></title>
+            <link>https://ahmed-shariff.github.io/post/2018-11-01-article_review_using_git</link>
+            <guid>2018-11-01-article_review_using_git</guid>
+            <pubDate>Thu, 01 Nov 2018 07:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[Quantum computing]]></title>
+            <link>https://ahmed-shariff.github.io/post/2018-09-10-quantum_computing</link>
+            <guid>2018-09-10-quantum_computing</guid>
+            <pubDate>Mon, 10 Sep 2018 07:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[Steven Pinker's 'How the mind works']]></title>
+            <link>https://ahmed-shariff.github.io/post/2018-08-31-how-the-mind-works</link>
+            <guid>2018-08-31-how-the-mind-works</guid>
+            <pubDate>Fri, 31 Aug 2018 07:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[Practices I follow with the machine learning pipeline]]></title>
+            <link>https://ahmed-shariff.github.io/post/2018-08-01-mlp_file_structure</link>
+            <guid>2018-08-01-mlp_file_structure</guid>
+            <pubDate>Wed, 01 Aug 2018 07:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[ML problems I run into]]></title>
+            <link>https://ahmed-shariff.github.io/post/2018-07-26-ml-problems</link>
+            <guid>2018-07-26-ml-problems</guid>
+            <pubDate>Thu, 26 Jul 2018 07:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[Teaching a computer to play Tic-Tac-Toe.]]></title>
+            <link>https://ahmed-shariff.github.io/post/2018-07-17-tic-tac-toe</link>
+            <guid>2018-07-17-tic-tac-toe</guid>
+            <pubDate>Tue, 17 Jul 2018 07:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[Opening of the qubits lab]]></title>
+            <link>https://ahmed-shariff.github.io/post/2018-06-13-qubits-opened</link>
+            <guid>2018-06-13-qubits-opened</guid>
+            <pubDate>Wed, 13 Jun 2018 07:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[Experiment log - How I keep track of my ML experiments]]></title>
+            <link>https://ahmed-shariff.github.io/post/2018-06-11-Experiment-log</link>
+            <guid>2018-06-11-Experiment-log</guid>
+            <pubDate>Mon, 11 Jun 2018 07:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[Why you no posting stuff?]]></title>
+            <link>https://ahmed-shariff.github.io/post/2018-04-25-why-no-posting</link>
+            <guid>2018-04-25-why-no-posting</guid>
+            <pubDate>Wed, 25 Apr 2018 07:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+    </channel>
+</rss>
