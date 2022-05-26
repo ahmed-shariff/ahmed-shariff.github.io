@@ -1,6 +1,6 @@
 import { IconContext } from "react-icons";
 import Link from "next/link";
-import { SiGithub } from "react-icons/si";
+import { SiGithub, SiRss } from "react-icons/si";
 import { IoIosArrowDropupCircle } from "react-icons/io";
 
 
@@ -51,6 +51,7 @@ export default function BaseLayout({ children }) {
                             className="absolute w-full mt-2 origin-top-right rounded-md shadow-lg w-fit transition-transform transition-opacity ease-in-out duration-200 opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100" >
                             <div className="p-2 bg-gray-700 rounded-md shadow dark-mode:bg-gray-700">
                                 <NavLink href="https://gist.github.com/ahmed-shariff" className="flex flex-row space-x-2"> <div><SiGithub /></div><div>github-gists</div></NavLink>
+                                <NavLink href="/posts.xml" className="flex flex-row space-x-2"> <div><SiRss /></div><div>RSS feed</div></NavLink>
                             </div>
                         </div>
                     </NavButton>

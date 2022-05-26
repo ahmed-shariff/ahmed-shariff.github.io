@@ -27,6 +27,9 @@ const nextConfig = {
     reactStrictMode: true,
     images: {
         loader: "custom",
+    },
+    env: {
+        SITE_URL: "https://ahmed-shariff.github.io/"
     }
 };
 
