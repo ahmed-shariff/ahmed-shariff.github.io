@@ -2,8 +2,8 @@ import fs from 'fs';
 import React from 'react';
 import matter from 'gray-matter';
 import { useRouter } from 'next/router'
-/* import excerpt from 'gray-matter/lib/excerpt'; */
-import Image from '../components/image';
+// import excerpt from 'gray-matter/lib/excerpt';
+// import Image from '../components/Image';
 import { SiFacebook, SiGithub, SiGooglescholar, SiLinkedin, SiTwitter } from "react-icons/si";
 import Gravatar from 'react-gravatar';
 import PostsList from '../components/PostsList'
