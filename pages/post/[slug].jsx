@@ -7,11 +7,23 @@ import { md, replaceJekyllLinks, replaceMath } from '../../components/markdownHe
 
 export async function getStaticPaths() {
     const files = fs.readdirSync('posts');
-    const paths = files.map((fileName) => ({
-        params: {
-            slug: fileName.replace('.md', ''),
-        },
-    }));
+    const paths = files.map((fileName) => {
+        const slug = fileName.replace('.md', '');
+        const readFile = fs.readFileSync(`posts/${fileName}`, 'utf-8');
+        const { data: frontmatter } = matter(readFile, { excerpt: false });
+        return {
+            params: {
+                slug: slug,
+                published: frontmatter.published
+            }
+        };
+    }).filter(function ({ params: { published } }) {
+        if (process.env.NODE_ENV === "production" && published === false) {
+            return false;
+        }
+        else
+            return true;
+    });
     return {
         paths,
         fallback: false,
@@ -92,7 +104,13 @@ function PostPage({ slug, frontmatter, content }) {
                 <SlugToDate slug={slug} />
                 <TagsList tags={frontmatter.tags} link />
             </div>
-            <h1 className='text-left'>{frontmatter.title}</h1>
+            <h1 className='text-left'>
+                {
+                    frontmatter.published === false &&
+                    <div className='inline text-red-400'>[DRAFT] </div>
+                }
+                {frontmatter.title}
+            </h1>
             <div dangerouslySetInnerHTML={{ __html: replaceMath(replaceJekyllLinks(md.render(content))) }} />
 
             <div className="m-4 border-t-4 border-slate-400/25" />

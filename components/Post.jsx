@@ -15,7 +15,13 @@ export default function Post({ slug, frontmatter, excerpt }) {
                                     src={`/${frontmatter.socialImage}`}
                                 />
                             } */}
-                <h1>{frontmatter.title}</h1>
+                <h1>
+                    {
+                        frontmatter.published === false &&
+                        <div className='inline text-red-400'>[DRAFT] </div>
+                    }
+                    {frontmatter.title}
+                </h1>
                 <div className='text-xs -mt-2 text-slate-400'>
                     <SlugToDate slug={slug} />
                     <TagsList tags={frontmatter.tags} />

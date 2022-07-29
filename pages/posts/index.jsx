@@ -38,7 +38,13 @@ export async function getStaticProps() {
                 excerpt
             };
         })
-        .filter(function({ frontmatter }) { return frontmatter.published !== false; });
+        .filter(function ({ frontmatter }) {
+            if (process.env.NODE_ENV === "production" && frontmatter.published === false) {
+                return false;
+            }
+            else
+                return true;
+        });
 
     // Generate RSS feed
     const feed = new Feed({
