@@ -4,7 +4,7 @@
         <title>Shariff Faleel</title>
         <link>https://ahmed-shariff.github.io/</link>
         <description>My personal feed.</description>
-        <lastBuildDate>Thu, 28 Jul 2022 22:57:03 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 29 Jul 2022 22:54:20 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>awesome</generator>
         <language>en</language>
@@ -15,9 +15,16 @@
         </image>
         <copyright>All rights reserved 2022, John Doe</copyright>
         <item>
+            <title><![CDATA[EdgeSelect: Smartwatch Data Interaction with Minimal Screen Occlusion]]></title>
+            <link>https://ahmed-shariff.github.io/post/2022-07-29-pub-ali22_edgeselect</link>
+            <guid>2022-07-29-pub-ali22_edgeselect</guid>
+            <pubDate>Fri, 29 Jul 2022 00:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
             <title><![CDATA[SSCA: Situated Space-time Cube Analytics]]></title>
-            <link>https://ahmed-shariff.github.io/post/2022-06-13-alallah22_ssca</link>
-            <guid>2022-06-13-alallah22_ssca</guid>
+            <link>https://ahmed-shariff.github.io/post/2022-06-13-pub-alallah22_ssca</link>
+            <guid>2022-06-13-pub-alallah22_ssca</guid>
             <pubDate>Mon, 13 Jun 2022 00:00:00 GMT</pubDate>
             <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
         </item>
