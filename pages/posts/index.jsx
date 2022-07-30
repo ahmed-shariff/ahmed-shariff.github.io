@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { SiRss } from "react-icons/si";
+import ReactPaginate from 'react-paginate';
+import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 /* import excerpt from 'gray-matter/lib/excerpt'; */
 import PostsList from '../../components/PostsList'
 import { slugToDate } from '../../components/SlugToDate';
@@ -23,6 +25,8 @@ import { AllTagsList } from '../../components/Tags';
 //     }
 //     console.log(file.excerpt)
 // }
+
+const paginationLiClassName = 'transition duration-100 bg-transparent shadow-md shadow-transparent rounded-lg hover:shadow-gray-900 hover:bg-gray-700 hover:underline hover:decoration-2 px-2 py-1 mt-1 mx-1 items-center inline-block text-base'
 
 export async function getStaticProps() {
     const files = fs.readdirSync('posts');
@@ -109,6 +113,9 @@ export default function Posts({ posts }) {
     var title = "Posts and Publications";
     var publicationsBtnTxt = "Publications Only";
     var publicatoinsBtnQuery = { pub: true };
+    var postsOffset = 0;
+    var page = 1;
+    const postsPerPage = 7;
 
     if ("tags" in router.query && router.query.tags !== null && router.query.tags !== undefined) {
         tags = router.query.tags;
@@ -134,7 +141,22 @@ export default function Posts({ posts }) {
         posts = posts.filter(({ frontmatter }) => ("doi" in frontmatter));
     }
 
+    if ("page" in router.query) {
+        page = Math.abs(parseInt(router.query.page)) - 1
+        postsOffset = (page * postsPerPage) % posts.length;
+    }
+
     const [showTags, setShowTags] = useState(tags === null ? false : true);
+
+    const endOffset = postsOffset + postsPerPage;
+    const currentPosts = posts.slice(postsOffset, endOffset);
+    const pageCount = Math.ceil(posts.length / postsPerPage);
+    page = page % (pageCount + 1);
+
+    // Invoke when user click to request another page.
+    const handlePageClick = (event) => {
+        router.push({ "pathname": "/posts", "query": { page: event.selected + 1 } });
+    };
 
     return (
         <div>
@@ -160,7 +182,25 @@ export default function Posts({ posts }) {
                     <a href='/posts.xml' className='flex items-center flex-grow justify-end px-3'><SiRss size={20} className="fill-slate-500" /></a>
                 </div>
                 <AllTagsList link className={`mx-2 transition-all duration-200 ${showTags ? "scale-y-100 translate-y-0 opacity-100" : "h-0 scale-y-0 -translate-y-1/2 opacity-0"}`} />
-                <PostsList posts={posts} />
+                <PostsList posts={currentPosts} />
+                <div className='flex place-content-center m-2 text-stone-200 bg-gray-800'>
+                    <ReactPaginate
+                        breakLabel="..."
+                        nextLabel={<BiChevronRight size={30} className="fill-stone-200" />}
+                        onPageChange={handlePageClick}
+                        forcePage={page}
+                        pageRangeDisplayed={5}
+                        pageCount={pageCount}
+                        previousLabel={<BiChevronLeft size={30} className="fill-stone-200" />}
+                        renderOnZeroPageCount={null}
+                        containerClassName="items-stretch justify-center inline-flex items"
+                        pageLinkClassName={paginationLiClassName}
+                        previousLinkClassName={paginationLiClassName}
+                        nextLinkClassName={paginationLiClassName}
+                        breakLinkClassName={paginationLiClassName}
+                        activeLinkClassName="bg-gray-600"
+                    />
+                </div>
             </div >
         </div>
     );
