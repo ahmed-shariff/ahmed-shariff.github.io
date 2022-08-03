@@ -10,7 +10,8 @@ import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 /* import excerpt from 'gray-matter/lib/excerpt'; */
 import PostsList from '../../components/PostsList'
 import { slugToDate } from '../../components/SlugToDate';
-import { AllTagsList } from '../../components/Tags';
+import { AllTagsList, tagList } from '../../components/Tags';
+import { useEffect } from 'react';
 
 // returns the first 4 lines of the contents
 // function firstLine(file, options) {
@@ -109,49 +110,88 @@ export async function getStaticProps() {
 export default function Posts({ posts }) {
     const router = useRouter();
 
-    var tags = null;
-    var title = "Posts and Publications";
-    var publicationsBtnTxt = "Publications Only";
-    var publicatoinsBtnQuery = { pub: true };
-    var postsOffset = 0;
-    var page = 1;
+    const [tags, setTags] = useState([]);
+    const [showTags, setShowTags] = useState(tags === null || tags.length === 0 ? false : true);
+    const [ title, setTitle ] = useState("Posts and Publications");
+    const [ publicationsBtnTxt, setPublicationsBtnTxt ] = useState("Publications Only");
+    const [ pub, setPub ] = useState(false);
+    const [ postsOffset, setPostsOffset] = useState(0);
+    const [ page, setPage] = useState(0);
+    const [ pageCount, setPageCount ] = useState(1);
+    const [ currentPosts, setCurrentPosts ] = useState(posts);
     const postsPerPage = 7;
 
-    if ("tags" in router.query && router.query.tags !== null && router.query.tags !== undefined) {
-        tags = router.query.tags;
-        if (typeof tags === 'string' || tags instanceof String) {
-            tags = [tags];
-        }
-        posts = posts.filter(({ frontmatter }) => {
-            if (frontmatter.tags === null || frontmatter.tags === undefined)
-                return false;
-            else {
-                const res = frontmatter.tags.reduce((prev, curr) => {
-                    return tags.includes(curr.toLowerCase()) || prev;
-                }, false)
-                return res;
+    // Processing query parameters
+    useEffect(() => {
+        var newTags = []
+        if ("tags" in router.query && router.query.tags !== null && router.query.tags !== undefined) {
+            newTags = router.query.tags;
+            if (typeof newTags === 'string' || newTags instanceof String) {
+                if (newTags === "") {
+                    newTags = [];
+                } else {
+                    newTags = [newTags];
+                }
             }
+        }
+
+        // Test if the provided tags are different from the one already there.
+        // take from https://stackoverflow.com/a/19746771/5449891
+        newTags = newTags.slice().sort();
+        if (tags.length !== newTags.length || !tags.slice().sort().every((value, index) => { value === newTags[index] })) {
+            setTags(newTags);
+        }
+
+        if ("pub" in router.query) {
+            setPub(router.query.pub === "true");
+        }
+
+        if ("page" in router.query) {
+            setPage(Math.abs(parseInt(router.query.page)) - 1);
+        }
+    }, [router]);
+
+    useEffect(() => {
+        if (pub === true) {
+            setTitle("Publications");
+            setPublicationsBtnTxt("All Posts");
+        } else {
+            setTitle("Posts and Publications");
+            setPublicationsBtnTxt("Publications Only");
+        }
+    }, [pub]);
+
+    // Filtering posts.
+    useEffect(() => {
+        const endOffset = postsOffset + postsPerPage;
+        const filteredPosts = posts.filter(({ frontmatter }) => {
+            var isValid = true;
+            if (tags.length > 0) {
+                if (frontmatter.tags === null || frontmatter.tags === undefined)
+                    isValid = false;
+                else {
+                    const res = frontmatter.tags.reduce((prev, curr) => {
+                        return tags.includes(curr.toLowerCase()) || prev;
+                    }, false)
+                    isValid = res;
+                }
+            }
+
+            if (pub === true && isValid === true && !("doi" in frontmatter)) {
+                isValid = false;
+            }
+
+            return isValid;
         });
-    }
+        
+        setPageCount(Math.ceil(filteredPosts.length / postsPerPage));
+        setCurrentPosts(filteredPosts.slice(postsOffset, endOffset));
 
-    if ("pub" in router.query) {
-        title = "Publications";
-        publicationsBtnTxt = "All Posts";
-        publicatoinsBtnQuery = {};
-        posts = posts.filter(({ frontmatter }) => ("doi" in frontmatter));
-    }
+    }, [tags, pub, postsOffset]);
 
-    if ("page" in router.query) {
-        page = Math.abs(parseInt(router.query.page)) - 1
-        postsOffset = (page * postsPerPage) % posts.length;
-    }
-
-    const [showTags, setShowTags] = useState(tags === null ? false : true);
-
-    const endOffset = postsOffset + postsPerPage;
-    const currentPosts = posts.slice(postsOffset, endOffset);
-    const pageCount = Math.ceil(posts.length / postsPerPage);
-    page = page % (pageCount + 1);
+    useEffect(() => {
+        setPostsOffset(page * postsPerPage);
+    }, [page]);
 
     // Invoke when user click to request another page.
     const handlePageClick = (event) => {
@@ -173,10 +213,12 @@ export default function Posts({ posts }) {
                         </svg>
                     </button>
                     {
-                        tags !== null &&
-                        <Link href="/posts"><a className='p-1 inline'>clear <div className='inline text-sm text-slate-900' >({tags.map((el => `#${el}`)).join(",")})</div></a></Link>
+                        (tags.length > 0) &&
+                        <Link href={{ "pathname": "/posts", "query": { tags: [] } }}>
+                            <a className='p-1 inline'>clear <div className='inline text-sm text-slate-900' >({tags.map((el => `#${el}`)).join(",")})</div></a>
+                        </Link>
                     }
-                    <button className={"ml-4 transition duration-100 shadow-none p-1 hover:shadow hover:bg-slate-600 rounded"} onClick={() => router.push({ "pathname": "/posts", "query": publicatoinsBtnQuery })}>
+                    <button className={"ml-4 transition duration-100 shadow-none p-1 hover:shadow hover:bg-slate-600 rounded"} onClick={() => router.push({ "pathname": "/posts", "query": { pub: !pub } })}>
                         {publicationsBtnTxt}
                     </button>
                     <a href='/posts.xml' className='flex items-center flex-grow justify-end px-3'><SiRss size={20} className="fill-slate-500" /></a>
