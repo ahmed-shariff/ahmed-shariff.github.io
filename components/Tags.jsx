@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
+
 
 export const tagList = {
     'oculus': "text-gray-400",
@@ -41,12 +43,17 @@ export function TestTags(tags) {
     }
 }
 
-export function Tag({tag, link}) {
+export function Tag({tag, link, query}) {
     tag = tag.toLowerCase();
 
     if (link) {
+        if (query !== undefined && query !== null) {
+            query.tags = tag;
+        } else {
+            query = { tags: tag };
+        }
         return (
-            <Link href={{ "pathname": "/posts", "query": { tags: tag } }} ><a className={`${tagList[tag]}`}>{`#${tag}`}</a></Link >
+            <Link href={{ "pathname": "/posts", "query": query }} ><a className={`${tagList[tag]}`}>{`#${tag}`}</a></Link >
         );
     } else {
         return (
@@ -55,9 +62,9 @@ export function Tag({tag, link}) {
     }
 }
 
-export function AllTagsList({ className, link }) {
+export function AllTagsList({ className, link, query }) {
     return (
-        <TagsList tags={Object.keys(tagList)} className={className} link={link}/>
+        <TagsList tags={Object.keys(tagList)} className={className} link={link} query={query} />
     );
 }
 
