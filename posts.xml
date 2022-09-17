@@ -4,7 +4,7 @@
         <title>Shariff Faleel</title>
         <link>https://ahmed-shariff.github.io/</link>
         <description>My personal feed.</description>
-        <lastBuildDate>Thu, 25 Aug 2022 18:46:31 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 17 Sep 2022 06:44:57 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>awesome</generator>
         <language>en</language>
@@ -14,6 +14,13 @@
             <link>https://ahmed-shariff.github.io/</link>
         </image>
         <copyright>All rights reserved 2022, John Doe</copyright>
+        <item>
+            <title><![CDATA[Profiling file loading times for org mode]]></title>
+            <link>https://ahmed-shariff.github.io/post/2022-09-16-profiling_loading_org_files</link>
+            <guid>2022-09-16-profiling_loading_org_files</guid>
+            <pubDate>Fri, 16 Sep 2022 00:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
         <item>
             <title><![CDATA[EdgeSelect: Smartwatch Data Interaction with Minimal Screen Occlusion]]></title>
             <link>https://ahmed-shariff.github.io/post/2022-07-29-pub-ali22_edgeselect</link>
