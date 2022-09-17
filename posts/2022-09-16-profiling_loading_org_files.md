@@ -6,19 +6,24 @@ tags: ["emacs", "org"]
 tagline: The loading times of files was starting to become an issue as I started switching to the 'one file per note` approach in my org-roam database. Documenting some profiling I did to see what I can do about it.
 ---
 
-This is an extension of the discussion started in [`org-ql`s isseus](https://github.com/alphapapa/org-ql/issues/303).
+This is an extension of the discussion started in [`org-ql`s issues](https://github.com/alphapapa/org-ql/issues/303).
 
-Recently I had broken up some of my very large org files that hosted alot of my notes, specially the org files accompanying the bibliography database. It was getting a bit wild to manage a file that had more that 40k lines and performance also was taking a hit. 
-I loved `org-roam` using the sqlite backend to speedup working with a large databse of org files, while also giving the end-users access to this databse.
-Before `org-roam` I was heavily using `org-brain`. I really liked how the relationships were tucked in the property drawers. Since `org-roam` started track links in the property drawers, I had started completely relying on `org-roam`.
+Recently I had broken up some of my very large org files that hosted alot of my notes, specially the org file accompanying the bibliography database. It was getting a bit wild to manage a file that had more that 40k lines and performance also was taking a hit. 
+I loved `org-roam` using the sqlite back-end to speedup working with a large database of org files, while also giving the end-users access to this back-end.
+Before `org-roam` I was heavily using `org-brain`. I really liked how the relationships were tucked into property drawers. Since `org-roam` started track links in the property drawers, I had started completely relying on `org-roam`.
 
-After breaking apart my large files, all was good and well apart from it breaking my `org-ql` setup.
-I was using `org-ql` alot to quickly query accorss my databse. It's a very cool package that uses the org-agenda buffers to display queries. 
-While `org-roam`s `org-roam-buffer` did some very interesting things, it didn't have the flexibility that `org-ql` afforded when I want to try and search the databse based on the links between nodes.
+After breaking apart my large files, all was good and well except for it breaking my `org-ql` setup.
+I was using `org-ql` alot to quickly query across my database. It's a very cool package that uses the `org-agenda` buffers to display queries. 
+While `org-roam`s `org-roam-buffer` did some very interesting things, it didn't have the flexibility that `org-ql` afforded when I wanted to try and search the database based on the links between nodes.
 See, `org-ql` is build on top of the `org-element` API and `org-agenda`. They depend on the corresponding org files being open. Whereas `org-roam` caches all the necessary data in the sqlite database and open the org files only when needed, which is what allows it to be fast when searching through large number of files.
-So when trying to run an `org-ql` query on the same database with a large number of files, it has to open all the files in the database. So I started writing a simple fron-end for `org-roam` with `org-ql`, where the agenda buffer entries are built from the result of a query to `org-roam`s database, then `org-ql` would do it's thing. This way all files are not being opened, instead only the file pertaining the query are being opened, cutting down the number of files that needs to be opened by a very large margin. 
+Whereas when trying to run an `org-ql` query on the same database with a large number of files, it has to open all the files in the database. So I started writing a simple front-end for `org-roam` with `org-ql`, where the agenda buffer entries are built from the result of a query to `org-roam`s database, then `org-ql` would do it's thing. This way, all files are not being opened. Instead, only the files pertaining the query are being opened, cutting down the number of files that needs to be opened by a very large margin. 
 
-While this provides an interface that's usable, the performance was still an issue as it take atleast a few seconds even if the result only had nodes from 50 files. The bottleneck turned out to being opening the files and getting the markes which are needed for `org-agenda` to work. Following the comments on the `org-ql` [issue](https://github.com/alphapapa/org-ql/issues/303), I profiled a few different options and see what happens. This post is simply a documentation of this.
+While this provides an interface that's usable, the performance was still an issue as it take atleast a few seconds even if the result only had a few dozen nodes. The bottleneck turned out to being opening the files and getting the markers which are needed for `org-agenda` to work. Following the comments on the `org-ql` [issue](https://github.com/alphapapa/org-ql/issues/303), I profiled a few different options and see what happens. This post is simply a documentation of this.
+
+All test run on emacs version:
+```sh
+GNU Emacs 28.1 (build 2, x86_64-w64-mingw32) of 2022-04-21
+```
 
 ## Testing the with roam-nodes
 I had three different approaches to opening a file I am testing:

@@ -101,10 +101,10 @@ export default function Home({ posts }) {
                     </p>
 
                     <h1 className='text-center font-normal text-lg'>Hello there ....</h1>
-                    <p>I am Ahmed Shariff, in case you didn&apos;t know ;). A tech enthusiast, a believer in the power of technology. My primary interest is in artificial intelligence. Everything about it interests me, from it&apos;s illusive definition, the philosophy behind it, the impact it has and will have on the human race to how it is done and the technicalities of building an intelligence. My current focus is on improving the interactions with immersive technologies.</p>
+                    <p>I am Ahmed Shariff, in case you didn&apos;t know ;). A tech enthusiast, a believer in the power of technology. My primary interest is on artificial intelligence. Everything about it interests me, from it&apos;s illusive definition, the philosophy behind it, the impact it has and will have on the human race to how it is done and the technicalities of building an intelligence. My current focus is on improving the interactions with immersive technologies.</p>
                     <p>Currently, I am a PhD student at the <a href="https://ok.ubc.ca">University of British Columbia - Okanagan</a>, under the supervision of <a href="http://cs.umanitoba.ca/~irani/">Dr Pourang Irani</a> at the Human Computer Interaction Lab.
                     </p>
-                    <p>Previously, I was working at the University of Peradeniya on a industry collaboration project with CodeGen International. The project was started to study and develop AI systems. The focus of my work there was on using deep learning and computer vision technologies to automate various aspects of a restaurant.</p>
+                    <p>Previously, I was working at the University of Peradeniya on an industry collaboration project with CodeGen International. The project was started to study and develop AI systems. During my time there I worked on automating various aspects of a restaurant with deep learning and computer vision.</p>
                 </div>
             </div>
             <div className='grid grid-cols-1 py-8'>
