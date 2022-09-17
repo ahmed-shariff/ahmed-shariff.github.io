@@ -334,7 +334,7 @@ org-roam-ql--get-file-marker                                       55          2
 ```
 
 
-## Testing with `emacs -Q`
+## Testing with `emacs -Q` (org version `9.5.4-g5a6442`)
 
 The tests in the above as well this uses the following org version
 ```sh
@@ -459,8 +459,8 @@ SOURCES is a list of element that will be processed by FUNC"
 
 The results are as follows:
 
-## Run 1:
-### With `with-current-buffer`
+### Run 1:
+#### With `with-current-buffer`
 ```csv
   Function Name                                          Call Count  Elapsed Time  Average Time
 --test-with-current-buffer                               25          0.3538700000  0.0141548000
@@ -521,7 +521,7 @@ org-tag-alist-to-groups                                  25          1.300...e-0
 org--tag-add-to-alist                                    25          1.200...e-05  4.800...e-07
 ```
 
-### with `org-roam-with-file`
+#### with `org-roam-with-file`
 ```csv
   Function Name                                          Call Count  Elapsed Time  Average Time
 --test-org-roam-with-file                                25          0.3233730000  0.0129349200
@@ -574,15 +574,15 @@ org-tag-alist-to-groups                                  25          1.600...e-0
 org--tag-add-to-alist                                    25          1.400...e-05  5.600...e-07
 ```
 
-### With `with-plain-file`
+#### With `with-plain-file`
 ```csv
   Function Name                                          Call Count  Elapsed Time  Average Time
 --test-with-plain-file                                   25          0.2287930000  0.00915172
 ```
 
 
-## Run 2:
-### With `with-current-buffer`
+### Run 2:
+#### With `with-current-buffer`
 ```csv
   Function Name                                          Call Count  Elapsed Time  Average Time
 --test-with-current-buffer                               25          0.3539380000  0.0141575200
@@ -643,7 +643,7 @@ org--tag-add-to-alist                                    25          1.300...e-0
 org-tag-alist-to-groups                                  25          1.200...e-05  4.800...e-07
 ```
 
-### with `org-roam-with-file`
+#### with `org-roam-with-file`
 ```csv
   Function Name                                          Call Count  Elapsed Time  Average Time
 --test-org-roam-with-file                                25          0.299792      0.01199168
@@ -696,14 +696,14 @@ org-tag-alist-to-groups                                  25          1.400...e-0
 org--tag-add-to-alist                                    25          1.100...e-05  4.400...e-07
 ```
 
-### With `with-plain-file`
+#### With `with-plain-file`
 ```csv
   Function Name                                          Call Count  Elapsed Time  Average Time
 --test-with-plain-file                                   25          0.2317820000  0.0092712800
 ```
 
-## Run 3
-### With `with-current-buffer`
+### Run 3
+#### With `with-current-buffer`
 ```csv
   Function Name                                          Call Count  Elapsed Time  Average Time
 --test-with-current-buffer                               25          0.3760549999  0.0150421999
@@ -764,7 +764,7 @@ org-element-parse-secondary-string                       25          1.900...e-0
 org--tag-add-to-alist                                    25          1e-05         4.000...e-07
 ```
 
-### with `org-roam-with-file`
+#### with `org-roam-with-file`
 ```csv
   Function Name                                          Call Count  Elapsed Time  Average Time
 --test-org-roam-with-file                                25          0.3454239999  0.0138169599
@@ -817,8 +817,437 @@ org-tag-alist-to-groups                                  25          1.900...e-0
 org--tag-add-to-alist                                    25          1.800...e-05  7.200...e-07
 ```
 
-### With `with-plain-file`
+#### With `with-plain-file`
 ```csv
   Function Name                                          Call Count  Elapsed Time  Average Time
 --test-with-plain-file                                   25          0.2099760000  0.0083990400
 ```
+
+
+## Test with org version `9.5.5-g8cc821` in `emacs -Q`
+The same test with `emacs -Q` with org version:
+```sh
+Org mode version 9.5.5 (9.5.5-g8cc821 @ c:/Users/amsha/.emacs.d/straight/build/org/)
+```
+
+### Run 1
+#### With `with-current-buffer`
+```csv
+  Function Name                                          Call Count  Elapsed Time  Average Time
+--test-with-current-buffer                               25          0.3468619999  0.0138744799
+org-mode                                                 25          0.109437      0.00437748
+org-fold-initialize                                      25          0.042489      0.00169956
+org-fold-core-initialize                                 25          0.0423939999  0.0016957599
+org-fold-core-add-folding-spec                           125         0.0417029999  0.0003336239
+org-roam-db-autosync--setup-file-h                       25          0.0403400000  0.0016136000
+org-roam-file-p                                          25          0.0402700000  0.0016108000
+org-roam-descendant-of-p                                 25          0.0393190000  0.0015727600
+org-set-regexps-and-options                              25          0.0339719999  0.0013588799
+org-collect-keywords                                     50          0.0331579999  0.0006631599
+org--collect-keywords-1                                  50          0.0328970000  0.0006579400
+org-make-options-regexp                                  50          0.0325419999  0.0006508399
+org-element-cache-reset                                  25          0.0062250000  0.0002490000
+org-fold-core--property-symbol-get-create                1200        0.0058510000  4.875...e-06
+org-persist-register                                     50          0.0054980000  0.0001099600
+org-macro-initialize-templates                           25          0.0054269999  0.0002170799
+org-persist--get-collection                              75          0.0051739999  6.898...e-05
+org-persist--normalize-associated                        100         0.0042200000  4.220...e-05
+org-fold-core-set-folding-spec-property                  1150        0.0016499999  1.434...e-06
+org-install-agenda-files-menu                            25          0.001484      5.936e-05
+org-macro--collect-macros                                25          0.001083      4.332e-05
+org-fold-core-get-folding-spec-from-alias                2400        0.0009030000  3.762...e-07
+org-cycle-set-startup-visibility                         25          0.0007920000  3.168e-05
+org-fold-show-all                                        25          0.0007310000  2.924...e-05
+org-fold-region                                          75          0.0006160000  8.213...e-06
+org-fold-core-region                                     75          0.0004960000  6.613...e-06
+org-set-font-lock-defaults                               25          0.000479      1.916e-05
+org-macro--find-keyword-value                            100         0.0004160000  4.160...e-06
+org-persist--find-index                                  75          0.0004099999  5.466...e-06
+org-element--cache-setup-change-functions                25          0.0003930000  1.572...e-05
+org-macro--find-date                                     25          0.0002310000  9.240...e-06
+org--set-faces-extend                                    50          0.000231      4.62e-06
+org-persist--normalize-container                         250         0.0002249999  8.999...e-07
+org-setup-filling                                        25          0.0002200000  8.800...e-06
+org-cite-try-load-processor                              25          0.0002130000  8.520...e-06
+org-babel-hide-all-hashes                                25          0.0001960000  7.840...e-06
+org-cite-get-processor                                   25          0.0001610000  6.440...e-06
+org-persist-load                                         25          0.000151      6.040...e-06
+org-find-invisible-foreground                            25          0.0001420000  5.680...e-06
+org-update-radio-target-regexp                           25          0.000125      5e-06
+org-persist-read                                         25          0.0001060000  4.240...e-06
+org-roam--file-name-extension                            25          8.400...e-05  3.360...e-06
+org-assign-fast-keys                                     25          7.6e-05       3.04e-06
+org-extract-log-state-settings                           50          7.399...e-05  1.479...e-06
+org-setup-comments-handling                              25          5.299...e-05  2.119...e-06
+org-macro--counter-initialize                            25          4.200...e-05  1.680...e-06
+org-fold-core--isearch-setup                             25          4.199...e-05  1.679...e-06
+org-macro--set-templates                                 25          3.700...e-05  1.480...e-06
+org-compute-latex-and-related-regexp                     25          3.7e-05       1.48e-06
+org-agenda-files                                         25          3.000...e-05  1.200...e-06
+org-element-restriction                                  25          3.000...e-05  1.200...e-06
+org-delete-all                                           25          2.600...e-05  1.040...e-06
+org-load-modules-maybe                                   25          2.5e-05       1e-06
+org-babel-result-hide-spec                               25          2.000...e-05  8.000...e-07
+org-element-parse-secondary-string                       25          1.700...e-05  6.800...e-07
+org-tag-alist-to-groups                                  25          1.400...e-05  5.600...e-07
+org--tag-add-to-alist                                    25          9e-06         3.6e-07
+
+```
+
+#### with `org-roam-with-file`
+```csv
+  Function Name                                          Call Count  Elapsed Time  Average Time
+--test-org-roam-with-file                                25          0.3024920000  0.0120996800
+org-mode                                                 25          0.0967239999  0.0038689599
+org-set-regexps-and-options                              25          0.0352130000  0.0014085200
+org-set-font-lock-defaults                               25          0.0344420000  0.0013776800
+org-fold-initialize                                      25          0.0100299999  0.0004011999
+org-fold-core-initialize                                 25          0.0099269999  0.0003970799
+org-fold-core-add-folding-spec                           125         0.0093699999  7.495...e-05
+org-element-cache-reset                                  25          0.0066259999  0.0002650399
+org-fold-core--property-symbol-get-create                1125        0.0062010000  5.512...e-06
+org-persist-register                                     50          0.0059370000  0.0001187400
+org-macro-initialize-templates                           25          0.0057430000  0.0002297200
+org-persist--get-collection                              75          0.0055909999  7.454...e-05
+org-persist--normalize-associated                        100         0.0045920000  4.592...e-05
+org-fold-core-set-folding-spec-property                  1150        0.0017669999  1.536...e-06
+org-collect-keywords                                     50          0.001493      2.986e-05
+org-install-agenda-files-menu                            25          0.0014390000  5.756...e-05
+org--collect-keywords-1                                  50          0.0012340000  2.468...e-05
+org-macro--collect-macros                                25          0.001156      4.624e-05
+org-fold-core-get-folding-spec-from-alias                2250        0.0009180000  4.080...e-07
+org-make-options-regexp                                  50          0.0008840000  1.768...e-05
+org-macro--find-keyword-value                            100         0.0004440000  4.440...e-06
+org-persist--find-index                                  75          0.000423      5.639...e-06
+org-element--cache-setup-change-functions                25          0.000332      1.328e-05
+org-cite-try-load-processor                              25          0.000253      1.012...e-05
+org-macro--find-date                                     25          0.0002520000  1.008...e-05
+org-persist--normalize-container                         250         0.0002519999  1.007...e-06
+org--set-faces-extend                                    50          0.0002170000  4.340...e-06
+org-setup-filling                                        25          0.0002099999  8.4e-06
+org-cite-get-processor                                   25          0.0001840000  7.360...e-06
+org-persist-load                                         25          0.0001770000  7.080...e-06
+org-find-invisible-foreground                            25          0.0001390000  5.560...e-06
+org-update-radio-target-regexp                           25          0.000132      5.28e-06
+org-persist-read                                         25          0.000128      5.12e-06
+org-extract-log-state-settings                           50          8.799...e-05  1.759...e-06
+org-assign-fast-keys                                     25          8e-05         3.200...e-06
+org-fold-core--isearch-setup                             25          5.400...e-05  2.160...e-06
+org-setup-comments-handling                              25          5.3e-05       2.12e-06
+org-roam-with-file                                       25          4.3e-05       1.72e-06
+org-macro--set-templates                                 25          4.200...e-05  1.680...e-06
+org-macro--counter-initialize                            25          4.1e-05       1.64e-06
+org-compute-latex-and-related-regexp                     25          3.6e-05       1.44e-06
+org-element-restriction                                  25          3.200...e-05  1.280...e-06
+org-agenda-files                                         25          3.100...e-05  1.240...e-06
+org-delete-all                                           25          2.300...e-05  9.200...e-07
+org-load-modules-maybe                                   25          2.100...e-05  8.400...e-07
+org-element-parse-secondary-string                       25          1.900...e-05  7.600...e-07
+org--tag-add-to-alist                                    25          1.500...e-05  6.000...e-07
+org-tag-alist-to-groups                                  25          1.300...e-05  5.200...e-07
+```
+
+#### With `with-plain-file`
+```csv
+  Function Name                                          Call Count  Elapsed Time  Average Time
+--test-with-plain-file                                   25          0.190576      0.00762304
+```
+
+### Run 2
+#### With `with-current-buffer`
+```csv
+  Function Name                                          Call Count  Elapsed Time  Average Time
+--test-with-current-buffer                               25          0.3675650000  0.0147026000
+org-roam-db-autosync--setup-file-h                       25          0.0761019999  0.0030440799
+org-roam-file-p                                          25          0.0760250000  0.0030410000
+org-mode                                                 25          0.0478        0.001912
+org-roam-descendant-of-p                                 25          0.0418020000  0.0016720800
+org-roam--file-name-extension                            25          0.033206      0.00132824
+org-fold-initialize                                      25          0.0102250000  0.0004090000
+org-fold-core-initialize                                 25          0.0101079999  0.0004043199
+org-fold-core-add-folding-spec                           125         0.0092419999  7.393...e-05
+org-element-cache-reset                                  25          0.006654      0.00026616
+org-fold-core--property-symbol-get-create                1200        0.0062640000  5.220...e-06
+org-persist-register                                     50          0.005767      0.00011534
+org-macro-initialize-templates                           25          0.0057529999  0.0002301199
+org-persist--get-collection                              75          0.0053749999  7.166...e-05
+org-persist--normalize-associated                        100         0.0043510000  4.351...e-05
+org-set-regexps-and-options                              25          0.0025109999  0.00010044
+org-install-agenda-files-menu                            25          0.0017969999  7.187...e-05
+org-fold-core-set-folding-spec-property                  1150        0.0017119999  1.488...e-06
+org-collect-keywords                                     50          0.001584      3.167...e-05
+org--collect-keywords-1                                  50          0.001289      2.578e-05
+org-macro--collect-macros                                25          0.0011589999  4.635...e-05
+org-fold-core-get-folding-spec-from-alias                2400        0.0009350000  3.895...e-07
+org-make-options-regexp                                  50          0.0009330000  1.866...e-05
+org-cycle-set-startup-visibility                         25          0.000837      3.348e-05
+org-fold-show-all                                        25          0.000764      3.056e-05
+org-fold-region                                          75          0.000628      8.373...e-06
+org-set-font-lock-defaults                               25          0.0005530000  2.212...e-05
+org-fold-core-region                                     75          0.0005140000  6.853...e-06
+org-element--cache-setup-change-functions                25          0.0005120000  2.048...e-05
+org-persist--find-index                                  75          0.0004490000  5.986...e-06
+org-macro--find-keyword-value                            100         0.0003950000  3.950...e-06
+org--set-faces-extend                                    50          0.0002870000  5.740...e-06
+org-macro--find-date                                     25          0.000271      1.084e-05
+org-persist--normalize-container                         250         0.0002529999  1.011...e-06
+org-cite-try-load-processor                              25          0.00025       1e-05
+org-setup-filling                                        25          0.0002120000  8.480...e-06
+org-babel-hide-all-hashes                                25          0.0002000000  8.000...e-06
+org-persist-load                                         25          0.0001800000  7.200...e-06
+org-cite-get-processor                                   25          0.0001770000  7.080...e-06
+org-find-invisible-foreground                            25          0.00017       6.8e-06
+org-update-radio-target-regexp                           25          0.0001390000  5.560...e-06
+org-persist-read                                         25          0.0001170000  4.68e-06
+org-assign-fast-keys                                     25          8.800...e-05  3.520...e-06
+org-extract-log-state-settings                           50          7.699...e-05  1.539...e-06
+org-fold-core--isearch-setup                             25          6.300...e-05  2.520...e-06
+org-setup-comments-handling                              25          5.500...e-05  2.200...e-06
+org-macro--counter-initialize                            25          4.900...e-05  1.960...e-06
+org-macro--set-templates                                 25          4.000...e-05  1.600...e-06
+org-agenda-files                                         25          3.599...e-05  1.439...e-06
+org-compute-latex-and-related-regexp                     25          3.500...e-05  1.400...e-06
+org-load-modules-maybe                                   25          3.4e-05       1.36e-06
+org-element-restriction                                  25          3.4e-05       1.36e-06
+org-delete-all                                           25          2.900...e-05  1.160...e-06
+org-element-parse-secondary-string                       25          2.200...e-05  8.800...e-07
+org-babel-result-hide-spec                               25          2.000...e-05  8.000...e-07
+org-tag-alist-to-groups                                  25          2.000...e-05  8.000...e-07
+org--tag-add-to-alist                                    25          1.800...e-05  7.200...e-07
+```
+
+#### with `org-roam-with-file`
+```csv
+  Function Name                                          Call Count  Elapsed Time  Average Time
+--test-org-roam-with-file                                25          0.297846      0.01191384
+org-mode                                                 25          0.0663639999  0.00265456
+org-macro-initialize-templates                           25          0.0414050000  0.0016562000
+org-macro--counter-initialize                            25          0.03567       0.0014268
+org-fold-initialize                                      25          0.0099350000  0.0003974000
+org-fold-core-initialize                                 25          0.009818      0.00039272
+org-fold-core-add-folding-spec                           125         0.0091620000  7.329...e-05
+org-element-cache-reset                                  25          0.006497      0.00025988
+org-fold-core--property-symbol-get-create                1125        0.0060750000  5.400...e-06
+org-persist-register                                     50          0.0057070000  0.0001141400
+org-persist--get-collection                              75          0.0053299999  7.106...e-05
+org-persist--normalize-associated                        100         0.0043460000  4.346...e-05
+org-set-regexps-and-options                              25          0.002475      9.900...e-05
+org-install-agenda-files-menu                            25          0.0017709999  7.083...e-05
+org-fold-core-set-folding-spec-property                  1150        0.0017329999  1.506...e-06
+org-collect-keywords                                     50          0.001583      3.166e-05
+org--collect-keywords-1                                  50          0.0012859999  2.571...e-05
+org-macro--collect-macros                                25          0.001171      4.684e-05
+org-make-options-regexp                                  50          0.0009220000  1.844...e-05
+org-fold-core-get-folding-spec-from-alias                2250        0.0008730000  3.880...e-07
+org-set-font-lock-defaults                               25          0.0005250000  2.100...e-05
+org-persist--find-index                                  75          0.000432      5.76e-06
+org-element--cache-setup-change-functions                25          0.0004260000  1.704...e-05
+org-macro--find-keyword-value                            100         0.0003990000  3.990...e-06
+org--set-faces-extend                                    50          0.0002879999  5.759...e-06
+org-macro--find-date                                     25          0.000267      1.068e-05
+org-setup-filling                                        25          0.0002500000  1.000...e-05
+org-persist--normalize-container                         250         0.0002469999  9.879...e-07
+org-cite-try-load-processor                              25          0.0002300000  9.200...e-06
+org-find-invisible-foreground                            25          0.0001780000  7.120...e-06
+org-cite-get-processor                                   25          0.0001760000  7.040...e-06
+org-persist-load                                         25          0.000171      6.840...e-06
+org-update-radio-target-regexp                           25          0.000143      5.72e-06
+org-persist-read                                         25          0.0001130000  4.520...e-06
+org-assign-fast-keys                                     25          8.600...e-05  3.440...e-06
+org-extract-log-state-settings                           50          7.599...e-05  1.519...e-06
+org-setup-comments-handling                              25          6.100...e-05  2.440...e-06
+org-fold-core--isearch-setup                             25          5.700...e-05  2.28e-06
+org-roam-with-file                                       25          5.400...e-05  2.160...e-06
+org-macro--set-templates                                 25          4.300...e-05  1.720...e-06
+org-agenda-files                                         25          4.100...e-05  1.640...e-06
+org-compute-latex-and-related-regexp                     25          4.000...e-05  1.600...e-06
+org-element-restriction                                  25          3.500...e-05  1.400...e-06
+org-load-modules-maybe                                   25          3.200...e-05  1.280...e-06
+org-delete-all                                           25          3.100...e-05  1.240...e-06
+org-element-parse-secondary-string                       25          2.300...e-05  9.200...e-07
+org-tag-alist-to-groups                                  25          1.900...e-05  7.600...e-07
+org--tag-add-to-alist                                    25          1.200...e-05  4.800...e-07
+```
+
+#### With `with-plain-file`
+```csv
+  Function Name                                          Call Count  Elapsed Time  Average Time
+--test-with-plain-file                                   25          0.214249      0.00856996
+```
+
+### Run 3
+#### With `with-current-buffer`
+```csv
+  Function Name                                          Call Count  Elapsed Time  Average Time
+--test-with-current-buffer                               25          0.358344      0.01433376
+org-roam-db-autosync--setup-file-h                       25          0.0754349999  0.0030173999
+org-roam-file-p                                          25          0.075358      0.0030143199
+org-roam-descendant-of-p                                 25          0.0742949999  0.0029717999
+org-mode                                                 25          0.0468290000  0.0018731600
+org-fold-initialize                                      25          0.0098470000  0.0003938800
+org-fold-core-initialize                                 25          0.0097399999  0.0003895999
+org-fold-core-add-folding-spec                           125         0.008941      7.1528e-05
+org-element-cache-reset                                  25          0.0064449999  0.0002578
+org-fold-core--property-symbol-get-create                1200        0.0060140000  5.011...e-06
+org-persist-register                                     50          0.0056399999  0.0001127999
+org-macro-initialize-templates                           25          0.00553       0.0002212
+org-persist--get-collection                              75          0.0052869999  7.049...e-05
+org-persist--normalize-associated                        100         0.0043050000  4.305...e-05
+org-set-regexps-and-options                              25          0.0023629999  9.451...e-05
+org-install-agenda-files-menu                            25          0.0017250000  6.900...e-05
+org-fold-core-set-folding-spec-property                  1150        0.0016719999  1.453...e-06
+org-collect-keywords                                     50          0.0014929999  2.985...e-05
+org--collect-keywords-1                                  50          0.0012090000  2.418...e-05
+org-macro--collect-macros                                25          0.001072      4.288e-05
+org-fold-core-get-folding-spec-from-alias                2400        0.0008980000  3.741...e-07
+org-make-options-regexp                                  50          0.0008630000  1.726...e-05
+org-cycle-set-startup-visibility                         25          0.0008450000  3.380...e-05
+org-fold-show-all                                        25          0.0007689999  3.075...e-05
+org-fold-region                                          75          0.0006370000  8.493...e-06
+org-set-font-lock-defaults                               25          0.0005360000  2.144...e-05
+org-fold-core-region                                     75          0.0005210000  6.946...e-06
+org-element--cache-setup-change-functions                25          0.0004589999  1.835...e-05
+org-persist--find-index                                  75          0.0004320000  5.760...e-06
+org-macro--find-keyword-value                            100         0.0003720000  3.720...e-06
+org--set-faces-extend                                    50          0.0002739999  5.479...e-06
+org-persist--normalize-container                         250         0.0002549999  1.019...e-06
+org-cite-try-load-processor                              25          0.000252      1.008e-05
+org-macro--find-date                                     25          0.0002400000  9.600...e-06
+org-setup-filling                                        25          0.0002030000  8.120...e-06
+org-babel-hide-all-hashes                                25          0.0001970000  7.880...e-06
+org-cite-get-processor                                   25          0.0001860000  7.440...e-06
+org-find-invisible-foreground                            25          0.0001790000  7.160...e-06
+org-persist-load                                         25          0.0001760000  7.040...e-06
+org-update-radio-target-regexp                           25          0.0001390000  5.560...e-06
+org-persist-read                                         25          0.0001080000  4.320...e-06
+org-roam--file-name-extension                            25          8.300...e-05  3.320...e-06
+org-extract-log-state-settings                           50          8.299...e-05  1.659...e-06
+org-assign-fast-keys                                     25          8.200...e-05  3.280...e-06
+org-setup-comments-handling                              25          5.700...e-05  2.28e-06
+org-fold-core--isearch-setup                             25          5.600...e-05  2.240...e-06
+org-macro--set-templates                                 25          4.600...e-05  1.840...e-06
+org-macro--counter-initialize                            25          4.5e-05       1.800...e-06
+org-compute-latex-and-related-regexp                     25          3.899...e-05  1.559...e-06
+org-element-restriction                                  25          3.800...e-05  1.520...e-06
+org-agenda-files                                         25          3.7e-05       1.48e-06
+org-load-modules-maybe                                   25          3.000...e-05  1.200...e-06
+org-delete-all                                           25          2.900...e-05  1.160...e-06
+org-babel-result-hide-spec                               25          2.400...e-05  9.600...e-07
+org-element-parse-secondary-string                       25          2.400...e-05  9.600...e-07
+org--tag-add-to-alist                                    25          1.900...e-05  7.600...e-07
+org-tag-alist-to-groups                                  25          1.600...e-05  6.400...e-07
+```
+
+#### with `org-roam-with-file`
+```csv
+  Function Name                                          Call Count  Elapsed Time  Average Time
+--test-org-roam-with-file                                25          0.3011910000  0.0120476400
+org-mode                                                 25          0.065139      0.0026055600
+org-macro-initialize-templates                           25          0.0411049999  0.0016441999
+org-collect-keywords                                     50          0.036973      0.0007394599
+org--collect-keywords-1                                  50          0.0366959999  0.0007339199
+org-macro--collect-macros                                25          0.036578      0.00146312
+org-make-options-regexp                                  50          0.036341      0.00072682
+org-fold-initialize                                      25          0.0099750000  0.0003990000
+org-fold-core-initialize                                 25          0.0098709999  0.0003948399
+org-fold-core-add-folding-spec                           125         0.0092929999  7.434...e-05
+org-element-cache-reset                                  25          0.006196      0.00024784
+org-fold-core--property-symbol-get-create                1125        0.0061050000  5.426...e-06
+org-persist-register                                     50          0.0055499999  0.0001109999
+org-persist--get-collection                              75          0.0052079999  6.943...e-05
+org-persist--normalize-associated                        100         0.0042200000  4.220...e-05
+org-set-regexps-and-options                              25          0.0023600000  9.440...e-05
+org-fold-core-set-folding-spec-property                  1150        0.0017279999  1.502...e-06
+org-install-agenda-files-menu                            25          0.00158       6.32e-05
+org-fold-core-get-folding-spec-from-alias                2250        0.0008660000  3.848...e-07
+org-set-font-lock-defaults                               25          0.0005090000  2.036...e-05
+org-persist--find-index                                  75          0.0004350000  5.8e-06
+org-macro--find-keyword-value                            100         0.0003630000  3.630...e-06
+org-element--cache-setup-change-functions                25          0.0003070000  1.228...e-05
+org-macro--find-date                                     25          0.000266      1.064e-05
+org--set-faces-extend                                    50          0.000264      5.28e-06
+org-persist--normalize-container                         250         0.0002469999  9.879...e-07
+org-cite-try-load-processor                              25          0.000228      9.12e-06
+org-setup-filling                                        25          0.0001930000  7.72e-06
+org-persist-load                                         25          0.0001780000  7.120...e-06
+org-cite-get-processor                                   25          0.0001640000  6.560...e-06
+org-find-invisible-foreground                            25          0.0001610000  6.440...e-06
+org-update-radio-target-regexp                           25          0.00014       5.6e-06
+org-persist-read                                         25          0.0001130000  4.520...e-06
+org-assign-fast-keys                                     25          8.1e-05       3.240...e-06
+org-extract-log-state-settings                           50          7.199...e-05  1.439...e-06
+org-setup-comments-handling                              25          6.1e-05       2.44e-06
+org-fold-core--isearch-setup                             25          5.200...e-05  2.080...e-06
+org-roam-with-file                                       25          4.700...e-05  1.880...e-06
+org-compute-latex-and-related-regexp                     25          4.499...e-05  1.8e-06
+org-macro--set-templates                                 25          4.400...e-05  1.760...e-06
+org-macro--counter-initialize                            25          4.100...e-05  1.640...e-06
+org-element-restriction                                  25          3.400...e-05  1.360...e-06
+org-agenda-files                                         25          3.200...e-05  1.280...e-06
+org-element-parse-secondary-string                       25          2.800...e-05  1.120...e-06
+org-load-modules-maybe                                   25          2.600...e-05  1.040...e-06
+org-delete-all                                           25          2.300...e-05  9.200...e-07
+org--tag-add-to-alist                                    25          1.900...e-05  7.600...e-07
+org-tag-alist-to-groups                                  25          1.500...e-05  6.000...e-07
+```
+
+#### With `with-plain-file`
+```csv
+  Function Name                                          Call Count  Elapsed Time  Average Time
+--test-with-plain-file                                   25          0.2157019999  0.00862808
+```
+
+
+## Summery from the `emacs -Q` profiles
+<table class="table-auto">
+ <colgroup><col>
+ <col>
+ </colgroup><tbody><tr>
+  <td class="border border-slate-600 p-2" rowspan="2">Functions</td>
+  <td class="border border-slate-600" colspan="4">Org version 9.5.5-g8cc821</td>
+  <td class="border border-slate-600" colspan="4">Org version 9.5.4-g5a6442</td>
+ </tr>
+ <tr>
+  <td class="border border-slate-600 p-2" >Run1</td>
+  <td class="border border-slate-600 p-2" >Run2</td>
+  <td class="border border-slate-600 p-2" >Run3</td>
+  <td class="border border-slate-600 p-2" >Avg</td>
+  <td class="border border-slate-600 p-2" >Run1</td>
+  <td class="border border-slate-600 p-2" >Run2</td>
+  <td class="border border-slate-600 p-2" >Run3</td>
+  <td class="border border-slate-600 p-2" >Avg</td>
+ </tr>
+ <tr>
+  <td class="border border-slate-600 p-2" >test-with-current-buffer</td>
+  <td class="border border-slate-600 p-2" >0.0141548</td>
+  <td class="border border-slate-600 p-2" >0.01415752</td>
+  <td class="border border-slate-600 p-2" >0.0150422</td>
+  <td class="border border-slate-600 p-2" >0.014451507</td>
+  <td class="border border-slate-600 p-2" >0.01387448</td>
+  <td class="border border-slate-600 p-2" >0.0147026</td>
+  <td class="border border-slate-600 p-2" >0.01433376</td>
+  <td class="border border-slate-600 p-2" >0.014303613</td>
+ </tr>
+ <tr>
+  <td class="border border-slate-600 p-2" height="20" >test-org-roam-with-file</td>
+  <td class="border border-slate-600 p-2" >0.01293492</td>
+  <td class="border border-slate-600 p-2" >0.01199168</td>
+  <td class="border border-slate-600 p-2" >0.01381696</td>
+  <td class="border border-slate-600 p-2" >0.01291452</td>
+  <td class="border border-slate-600 p-2" >0.01209968</td>
+  <td class="border border-slate-600 p-2" >0.01191384</td>
+  <td class="border border-slate-600 p-2" >0.01204764</td>
+  <td class="border border-slate-600 p-2" >0.012020387</td>
+ </tr>
+ <tr>
+  <td class="border border-slate-600 p-2" height="20" >test-with-plain-file</td>
+  <td class="border border-slate-600 p-2" >0.00915172</td>
+  <td class="border border-slate-600 p-2" >0.00927128</td>
+  <td class="border border-slate-600 p-2" >0.00839904</td>
+  <td class="border border-slate-600 p-2" >0.00894068</td>
+  <td class="border border-slate-600 p-2" >0.00762304</td>
+  <td class="border border-slate-600 p-2" >0.00856996</td>
+  <td class="border border-slate-600 p-2" >0.00862808</td>
+  <td class="border border-slate-600 p-2" >0.008273693</td>
+ </tr>
+</tbody></table>
