@@ -832,7 +832,7 @@ org--tag-add-to-alist                                    25          1.800...e-0
 ## Test with org version `9.5.5-g8cc821` in `emacs -Q`
 The same test with `emacs -Q` with org version:
 ```sh
-Org mode version 9.5.5 (9.5.5-g8cc821 @ c:/Users/amsha/.emacs.d/straight/build/org/)
+Org mode version 9.5.5 (9.5.5-g8cc821 @ ~/.emacs.d/straight/build/org/)
 ```
 
 ### Run 1
