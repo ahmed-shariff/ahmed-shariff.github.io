@@ -3,8 +3,8 @@ import AnimatedSection from './AnimatedSection';
 
 export default function ArrowButon({ text, href }) {
     return (
-        <Link href={href} passHref>
-            <AnimatedSection>
+        <AnimatedSection>
+            <Link href={href} passHref>
                 <a className="button relative group overflow-hidden px-6 h-12 rounded-full flex space-x-2 items-center border border-gray-200 shadow-md shadow-gray-800 hover:bg-gray-800">
                     <span className="relative text-sm text-white">{text}</span>
                     <div className="flex items-center -space-x-3 translate-x-3">
@@ -14,7 +14,7 @@ export default function ArrowButon({ text, href }) {
                         </svg>
                     </div>
                 </a>
-            </AnimatedSection>
-        </Link>
+            </Link >
+        </AnimatedSection>
     );
 }
