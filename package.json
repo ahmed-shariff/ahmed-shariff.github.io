@@ -23,6 +23,7 @@
     "markdown-it-footnote": "^3.0.3",
     "markdown-it-highlightjs": "^4.0.1",
     "next": "12.1.5",
+    "next-seo": "^5.15.0",
     "react": "18.0.0",
     "react-awesome-reveal": "^4.1.0",
     "react-dom": "18.0.0",

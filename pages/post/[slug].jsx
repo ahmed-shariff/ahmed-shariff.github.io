@@ -4,6 +4,7 @@ import Giscus from '@giscus/react';
 import SlugToDate from '../../components/SlugToDate';
 import TagsList from '../../components/Tags';
 import { md, replaceJekyllLinks, replaceMath } from '../../components/markdownHelpers';
+import { NextSeo } from 'next-seo';
 
 export async function getStaticPaths() {
     const files = fs.readdirSync('posts');
@@ -134,10 +135,23 @@ function PostPage({ slug, frontmatter, content }) {
     );
 }
 
-export default function Page({slug, frontmatter, content}) {
+function Page({slug, frontmatter, content}) {
     if ("doi" in frontmatter) {
         return (<PublicationPage frontmatter={frontmatter} content={content} />);
     } else {
         return (<PostPage slug={slug} frontmatter={frontmatter} content={content} />);
     }
+}
+
+export default function SeoPage({ slug, frontmatter, content }) {
+    return (
+        <>
+            <NextSeo
+                title={frontmatter.title}
+                description={frontmatter.title}
+                canonical={`https://shariff-faleel.com/post/${slug}`}
+            />
+            <Page slug={slug} frontmatter={frontmatter} content={content} />
+        </>
+    );
 }

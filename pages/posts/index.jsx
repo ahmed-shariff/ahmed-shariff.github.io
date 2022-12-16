@@ -12,6 +12,7 @@ import PostsList from '../../components/PostsList'
 import { slugToDate } from '../../components/SlugToDate';
 import { AllTagsList, tagList } from '../../components/Tags';
 import { useEffect } from 'react';
+import { NextSeo } from 'next-seo';
 
 // returns the first 4 lines of the contents
 // function firstLine(file, options) {
@@ -199,51 +200,58 @@ export default function Posts({ posts }) {
     };
 
     return (
-        <div>
-            <div className='grid grid-cols-1 p-0 md:px-20 mt-10'>
-                <h1 className='text-xl text-center text-slate-100'>{title}</h1>
-                <hr className='m-2' />
-                <div className='m-2 flex w-100 item-center content-center flex-row'>
-                    <button className={"transition duration-100 shadow-none p-1 hover:shadow hover:bg-slate-600 rounded"} onClick={() => setShowTags(!showTags)}>
-                        Tags
-                        <svg fill="currentColor"
-                            viewBox="0 0 20 20"
-                            className={`inline w-4 h-4 m-1 transition-transform duration-200 transform md:-mt-1 ${showTags ? "rotate-180" : "rotate-0"}`}>
-                            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path>
-                        </svg>
-                    </button>
-                    {
-                        (tags.length > 0) &&
-                        <Link href={{ "pathname": "/posts", "query": { tags: [] } }}>
-                            <a className='p-1 inline'>clear <div className='inline text-sm text-slate-900' >({tags.map((el => `#${el}`)).join(",")})</div></a>
-                        </Link>
-                    }
-                    <button className={"ml-4 transition duration-100 shadow-none p-1 hover:shadow hover:bg-slate-600 rounded"} onClick={() => router.push({ "pathname": "/posts", "query": { pub: !pub } })}>
-                        {publicationsBtnTxt}
-                    </button>
-                    <a href='/posts.xml' className='flex items-center flex-grow justify-end px-3'><SiRss size={20} className="fill-slate-500" /></a>
-                </div>
-                <AllTagsList link className={`mx-2 transition-all duration-200 ${showTags ? "scale-y-100 translate-y-0 opacity-100" : "h-0 scale-y-0 -translate-y-1/2 opacity-0"}`} />
-                <PostsList posts={currentPosts} />
-                <div className='flex place-content-center m-2 text-stone-200 bg-gray-800'>
-                    <ReactPaginate
-                        breakLabel="..."
-                        nextLabel={<BiChevronRight size={30} className="fill-stone-200" />}
-                        onPageChange={handlePageClick}
-                        forcePage={page}
-                        pageRangeDisplayed={5}
-                        pageCount={pageCount}
-                        previousLabel={<BiChevronLeft size={30} className="fill-stone-200" />}
-                        renderOnZeroPageCount={null}
-                        containerClassName="items-stretch justify-center inline-flex items"
-                        pageLinkClassName={paginationLiClassName}
-                        previousLinkClassName={paginationLiClassName}
-                        nextLinkClassName={paginationLiClassName}
-                        breakLinkClassName={paginationLiClassName}
-                        activeLinkClassName="bg-gray-600"
-                    />
-                </div>
-            </div >
-        </div>
+        <>
+            <NextSeo
+                title="Posts in Shariff Faleel's website."
+                description="List of posts published by Shariff Faleel."
+                canonical="https://shariff-faleel.com/posts"
+            />
+            <div>
+                <div className='grid grid-cols-1 p-0 md:px-20 mt-10'>
+                    <h1 className='text-xl text-center text-slate-100'>{title}</h1>
+                    <hr className='m-2' />
+                    <div className='m-2 flex w-100 item-center content-center flex-row'>
+                        <button className={"transition duration-100 shadow-none p-1 hover:shadow hover:bg-slate-600 rounded"} onClick={() => setShowTags(!showTags)}>
+                            Tags
+                            <svg fill="currentColor"
+                                viewBox="0 0 20 20"
+                                className={`inline w-4 h-4 m-1 transition-transform duration-200 transform md:-mt-1 ${showTags ? "rotate-180" : "rotate-0"}`}>
+                                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path>
+                            </svg>
+                        </button>
+                        {
+                            (tags.length > 0) &&
+                            <Link href={{ "pathname": "/posts", "query": { tags: [] } }}>
+                                <a className='p-1 inline'>clear <div className='inline text-sm text-slate-900' >({tags.map((el => `#${el}`)).join(",")})</div></a>
+                            </Link>
+                        }
+                        <button className={"ml-4 transition duration-100 shadow-none p-1 hover:shadow hover:bg-slate-600 rounded"} onClick={() => router.push({ "pathname": "/posts", "query": { pub: !pub } })}>
+                            {publicationsBtnTxt}
+                        </button>
+                        <a href='/posts.xml' className='flex items-center flex-grow justify-end px-3'><SiRss size={20} className="fill-slate-500" /></a>
+                    </div>
+                    <AllTagsList link className={`mx-2 transition-all duration-200 ${showTags ? "scale-y-100 translate-y-0 opacity-100" : "h-0 scale-y-0 -translate-y-1/2 opacity-0"}`} />
+                    <PostsList posts={currentPosts} />
+                    <div className='flex place-content-center m-2 text-stone-200 bg-gray-800'>
+                        <ReactPaginate
+                            breakLabel="..."
+                            nextLabel={<BiChevronRight size={30} className="fill-stone-200" />}
+                            onPageChange={handlePageClick}
+                            forcePage={page}
+                            pageRangeDisplayed={5}
+                            pageCount={pageCount}
+                            previousLabel={<BiChevronLeft size={30} className="fill-stone-200" />}
+                            renderOnZeroPageCount={null}
+                            containerClassName="items-stretch justify-center inline-flex items"
+                            pageLinkClassName={paginationLiClassName}
+                            previousLinkClassName={paginationLiClassName}
+                            nextLinkClassName={paginationLiClassName}
+                            breakLinkClassName={paginationLiClassName}
+                            activeLinkClassName="bg-gray-600"
+                        />
+                    </div>
+                </div >
+            </div>
+        </>
     );
 }
