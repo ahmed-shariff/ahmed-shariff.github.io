@@ -28,12 +28,6 @@ export default function BaseLayout({ children }) {
     return (
         <div className='flex flex-col min-h-screen bg-slate-700'>
             <header className='bg-gray-800 mb-0 md:mb-8 py-1 text-gray-300 md:sticky top-0 left-0 right-0 drop-shadow-lg shadow-gray-900 z-10'>
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossOrigin="anonymous" />
-
-                <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossOrigin="anonymous"></script>
-
-                <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossOrigin="anonymous"
-                    onLoad={() => renderMathInElement(document.body)}></script>
                 <div className='container mx-auto flex flex-col md:flex-row gap-x-12 items-center justify-center'>
                     <NavButton className="font-semibold text-lg" href="/">Shariff Faleel</NavButton>
                     <NavButton href="/posts">Posts</NavButton>
