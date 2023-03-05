@@ -77,7 +77,7 @@ SOURCES is a list of element that will be processed by FUNC"
     (goto-char (org-roam-node-point node))
     (point-marker)))
 
-(let ((nodes (--map (org-roam-node-from-id it) radom-node-ids)))
+(let ((nodes (--map (org-roam-node-from-id it) random-node-ids)))
   (--map (when-let (buf (find-buffer-visiting (org-roam-node-file it))) (kill-buffer buf)) nodes)
   (run-elp 'org-roam-ql--get-file-marker nodes))
 ```
@@ -254,7 +254,7 @@ org-element-lineage                                                1           1
     (goto-char (org-roam-node-point node))
     (point-marker)))
 
-(let ((nodes (--map (org-roam-node-from-id it) radom-node-ids)))
+(let ((nodes (--map (org-roam-node-from-id it) random-node-ids)))
   (--map (when-let (buf (find-buffer-visiting (org-roam-node-file it))) (kill-buffer buf)) nodes)
   (run-elp 'org-roam-ql--get-file-marker nodes))
 ```
@@ -326,7 +326,7 @@ org--tag-add-to-alist                                              55          2
     (goto-char (org-roam-node-point node))
     (point-marker)))
 
-(let ((nodes (--map (org-roam-node-from-id it) radom-node-ids)))
+(let ((nodes (--map (org-roam-node-from-id it) random-node-ids)))
   (--map (when-let (buf (find-buffer-visiting (org-roam-node-file it))) (kill-buffer buf)) nodes)
   (run-elp 'org-roam-ql--get-file-marker nodes))
 ```
