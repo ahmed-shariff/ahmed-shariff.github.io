@@ -4,7 +4,7 @@
         <title>Shariff Faleel</title>
         <link>https://ahmed-shariff.github.io/</link>
         <description>My personal feed.</description>
-        <lastBuildDate>Sat, 17 Dec 2022 04:07:46 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 05 Mar 2023 06:49:34 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>awesome</generator>
         <language>en</language>
@@ -14,6 +14,20 @@
             <link>https://ahmed-shariff.github.io/</link>
         </image>
         <copyright>All rights reserved 2022, John Doe</copyright>
+        <item>
+            <title><![CDATA[T-Force: Exploring the Use of Typing Force for Three State Virtual Keyboards]]></title>
+            <link>https://ahmed-shariff.github.io/post/2023-03-04-faleel23_t_force</link>
+            <guid>2023-03-04-faleel23_t_force</guid>
+            <pubDate>Sat, 04 Mar 2023 00:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
+        <item>
+            <title><![CDATA[Profiling file loading times for org mode (part 2)]]></title>
+            <link>https://ahmed-shariff.github.io/post/2022-09-18-profiling_loading_org_files-2</link>
+            <guid>2022-09-18-profiling_loading_org_files-2</guid>
+            <pubDate>Sun, 18 Sep 2022 00:00:00 GMT</pubDate>
+            <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
+        </item>
         <item>
             <title><![CDATA[Profiling file loading times for org mode]]></title>
             <link>https://ahmed-shariff.github.io/post/2022-09-16-profiling_loading_org_files</link>
