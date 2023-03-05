@@ -1,0 +1,15 @@
+---
+title: "T-Force: Exploring the Use of Typing Force for Three State Virtual Keyboards"
+date: '2023-04-23'
+authors: "<b>Shariff AM Faleel</b>, Yishuo Liu, Roya A Cody, Bradley Rey, Linghao Du, Jiangyue Yu, Da-Yuan Huang, Pourang Irani, Wei Li"
+venue: "CHI '23"
+type: 'Conference'
+paperurl: 
+doi: 10.1145/3536221.3556586
+citation: ""
+abstract: " Three state virtual keyboards which differentiate contact events between released, touched, and pressed states have the potential to improve overall typing experience and reduce the gap between virtual keyboards and physical keyboards. Incorporating force sensitivity, three-state virtual keyboards can utilize a force threshold to better classify a contact event. However, our limited knowledge of how force plays a role during typing on virtual keyboards limits further progress. Through a series of studies we observe that using a uniform threshold is not an optimal approach. Furthermore, the force being applied while typing varies significantly across the keys and among participants. As such, we propose three different approaches to further improve the uniform threshold. We show that a carefully selected non-uniform threshold function could be sufficient in delineating typing events on a three-state keyboard. Finally, we conclude our work with lessons learned, suggestion for future improvements, and comparisons with current methods available."
+pdf: '/pdf/faleel23_t_force.pdf'
+---
+
+```latex
+```
