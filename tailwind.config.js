@@ -1,8 +1,11 @@
+/** @type {import('tailwindcss').Config} */
 const baseFontSize = 13;
+
 module.exports = {
     content: [
-        './pages/**/*.{js,ts,jsx,tsx}',
-        './components/**/*.{js,ts,jsx,tsx}',
+        './pages/**/*.{js,ts,jsx,tsx,mdx}',
+        './components/**/*.{js,ts,jsx,tsx,mdx}',
+        './app/**/*.{js,ts,jsx,tsx,mdx}',
     ],
     safelist: [{
         pattern: /hljs+/,
@@ -135,10 +138,15 @@ module.exports = {
                     },
                 ],
             },
+            backgroundImage: {
+                'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                'gradient-conic':
+                    'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+            }
         },
         hljs: {
             theme: 'an-old-hope',
-        },
+        }
     },
     plugins: [
         require('@tailwindcss/typography'),
