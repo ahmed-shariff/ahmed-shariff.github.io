@@ -12,8 +12,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
+    "@emotion/react": "^11.0.0-next.10",
+    "@emotion/server": "^11.0.0-next.10",
     "@giscus/react": "^2.3.0",
+    "@mantine/core": "^7.0.0-alpha.17",
+    "@mantine/hooks": "^7.0.0-alpha.17",
+    "@mantine/next": "^6.0.0-alpha.8",
+    "@mantine/prism": "^6.0.0-alpha.8",
     "autoprefixer": "10.4.14",
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.9",
@@ -44,6 +49,7 @@
     "eslint-config-next": "12.1.5",
     "gh-pages": "^3.2.3",
     "postcss": "^8.4.12",
+    "postcss-preset-mantine": "^1.7.0",
     "tailwindcss": "^3.0.24"
   }
 }

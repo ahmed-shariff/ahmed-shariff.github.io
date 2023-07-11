@@ -41,13 +41,6 @@ export default function BaseLayout({ children }) {
                                 <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path>
                             </svg>
                         </div>
-                        <div
-                            className="absolute w-full mt-2 origin-top-right rounded-md shadow-lg w-fit transition-transform transition-opacity ease-in-out duration-200 opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100" >
-                            <div className="p-2 bg-gray-700 rounded-md shadow dark-mode:bg-gray-700">
-                                <NavLink href="https://gist.github.com/ahmed-shariff" className="flex flex-row space-x-2"> <div><SiGithub /></div><div>github-gists</div></NavLink>
-                                <NavLink href="/posts.xml" className="flex flex-row space-x-2"> <div><SiRss /></div><div>RSS feed</div></NavLink>
-                            </div>
-                        </div>
                     </NavButton>
                 </div >
             </header >
