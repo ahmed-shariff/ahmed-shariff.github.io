@@ -64,6 +64,7 @@ function PublicationPage({ frontmatter, content }) {
             <Information keyStr="Venue" valueStr={frontmatter.venue} />
             <Information keyStr="Date of publication" valueStr={<SlugToDate slug={frontmatter.date} />} />
             <Information keyStr="URL" valueStr={(<a href={frontmatter.paperurl}>{frontmatter.doi}</a>)} />
+            <Information keyStr="pdf download" valueStr={(<a href={frontmatter.pdf}>{frontmatter.pdf}</a>)} />
             <Information
                 keyStr="Abstract"
                 valueStr={(<div dangerouslySetInnerHTML={{ __html: replaceMath(replaceJekyllLinks(md.render(frontmatter.abstract))) }} />)} />
