@@ -4,7 +4,7 @@
         <title>Shariff Faleel</title>
         <link>https://ahmed-shariff.github.io/</link>
         <description>My personal feed.</description>
-        <lastBuildDate>Mon, 10 Jul 2023 03:59:50 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 23 Jul 2023 02:22:47 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>awesome</generator>
         <language>en</language>
@@ -16,15 +16,15 @@
         <copyright>All rights reserved 2022, John Doe</copyright>
         <item>
             <title><![CDATA[Evaluating design guidelines for hand proximate user interfaces]]></title>
-            <link>https://ahmed-shariff.github.io/post/2023-07-10_holfeld23_eval_desig_study</link>
-            <guid>2023-07-10_holfeld23_eval_desig_study</guid>
+            <link>https://ahmed-shariff.github.io/post/2023-07-10_pub-holfeld23_eval_desig_study</link>
+            <guid>2023-07-10_pub-holfeld23_eval_desig_study</guid>
             <pubDate>Mon, 10 Jul 2023 00:00:00 GMT</pubDate>
             <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
         </item>
         <item>
             <title><![CDATA[T-Force: Exploring the Use of Typing Force for Three State Virtual Keyboards]]></title>
-            <link>https://ahmed-shariff.github.io/post/2023-03-04-faleel23_t_force</link>
-            <guid>2023-03-04-faleel23_t_force</guid>
+            <link>https://ahmed-shariff.github.io/post/2023-03-04-pub-faleel23_t_force</link>
+            <guid>2023-03-04-pub-faleel23_t_force</guid>
             <pubDate>Sat, 04 Mar 2023 00:00:00 GMT</pubDate>
             <author>shariff.mfa@outlook.com (Shariff Faleel)</author>
         </item>
