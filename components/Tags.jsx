@@ -18,6 +18,7 @@ export const tagList = {
     'nlp': "text-gray-400",
     'random thoughts': "text-gray-400",
     'reference-management': "text-gray-400",
+    'programming': "text-gray-400",
     'ubco': "text-gray-400"
 }
 
