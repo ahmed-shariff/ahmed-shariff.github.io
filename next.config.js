@@ -29,7 +29,7 @@ const nextConfig = {
         loader: "custom",
     },
     env: {
-        SITE_URL: "https://ahmed-shariff.github.io/"
+        SITE_URL: "https://shariff-faleel.com/"
     }
 };
 

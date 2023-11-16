@@ -1,7 +1,7 @@
 {
-  "name": "ahmed-shariff.github.io",
+  "name": "shariff-faleel.com",
   "version": "0.1.0",
-  "homepage": "https://ahmed-shariff.github.io",
+  "homepage": "https://shariff-faleel.com",
   "private": true,
   "scripts": {
     "predeploy": "npm run build",
