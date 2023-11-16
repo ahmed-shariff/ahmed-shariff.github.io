@@ -76,6 +76,9 @@ This lets the study progress without input, but when necessary, I can step in an
 
 ![full pipeline](/assets/2023-11-03/full-setup.jpg)
 
+Most of what I am talking about here will not be much of a surprise for anyone with a software engineering background.
+But once you start to dig in, even with the SE experience, you tend to miss stuff.
+
 As of writing this article, this is how I am approaching projects.
 As with anything else, it's always evolving.
 
