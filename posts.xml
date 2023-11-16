@@ -4,7 +4,7 @@
         <title>Shariff Faleel</title>
         <link>https://shariff-faleel.com/</link>
         <description>My personal feed.</description>
-        <lastBuildDate>Thu, 16 Nov 2023 21:10:16 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 16 Nov 2023 21:13:35 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>awesome</generator>
         <language>en</language>
@@ -13,7 +13,7 @@
             <url>https://s.gravatar.com/avatar/5ebdf4aac1cb0791ce87210238ec9919?s=600</url>
             <link>https://shariff-faleel.com/</link>
         </image>
-        <copyright>All rights reserved 2022, John Doe</copyright>
+        <copyright>All rights reserved 2023, Shariff Faleel</copyright>
         <item>
             <title><![CDATA[Software development for research projects]]></title>
             <link>https://shariff-faleel.com/post/2023-11-03-sw-4-research</link>
