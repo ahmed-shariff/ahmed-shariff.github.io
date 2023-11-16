@@ -61,7 +61,7 @@ export async function getStaticProps() {
         language: "en", // optional, used only in RSS 2.0, possible values: http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
         image: "https://s.gravatar.com/avatar/5ebdf4aac1cb0791ce87210238ec9919?s=600",
         favicon: `${process.env.SITE_URL}favicon.ico`,
-        copyright: "All rights reserved 2022, John Doe",
+        copyright: "All rights reserved 2023, Shariff Faleel",
         generator: "awesome", // optional, default = 'Feed for Node.js'
         feedLinks: {
             json: `${process.env.SITE_URL}json`,
