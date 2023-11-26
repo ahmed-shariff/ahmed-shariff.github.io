@@ -1,6 +1,8 @@
 <script>
-	export let data;
+ export let data;
 </script>
 
-<h1>{data.post.title}</h1>
-<div>{@html data.post.content}</div>
+<article>
+    <h1>{data.title}</h1>
+    <svelte:component this={data.content} />
+</article>

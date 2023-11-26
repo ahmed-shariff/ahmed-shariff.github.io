@@ -1,5 +1,7 @@
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/kit/vite';
+import { mdsvex } from 'mdsvex';
+import remarkGfm from 'remark-gfm'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -13,9 +15,21 @@ const config = {
 	}),
 	paths: {
 	    base: process.argv.includes('dev') ? '' : "https://shariff-faleel.com"
+	},
+	alias: {
+	    posts: "src/posts"
 	}
     },
-    preprocess: vitePreprocess()
+    extensions: ['.svelte', '.md'],
+    preprocess: [
+	vitePreprocess(),
+	mdsvex({
+	    extensions: ['.md'],
+	    remarkPlugins: [
+		remarkGfm,
+	    ]
+	})
+    ]
 };
 
 export default config;
