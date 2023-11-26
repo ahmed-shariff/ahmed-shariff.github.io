@@ -21,16 +21,16 @@ When I train a model, the model's graph itself is not stored. Only the weights a
 * Save the code with the weights.
 * Use version control (git) and save a reference to the version along with the weights, and record which experiment the saved weights belong to.
 
-Both feel like not so good approaches: If I want to reproduce results either save multiple copies of code or have to work through the version control tool while maintaining a separate log to know which saved files belong to which experiment. I use  [experiment logs]({{ site.baseurl }}{% post_url 2018-06-11-Experiment-log %}) in which I record the versions (commits hash, as I use git), which kinda eases the pain of maintaining experiment-code-weight-data combo. But I would like to have better control over things. For now I record the commit hash in the experiment log and save a copy of the code with the saved weights. In the future I hope to have the pipeline log the commit hash when it's saving weights. As an extension to that, perhaps I can run a diff between the current file and the file from the commit to assess of the code has changed, and use that output.
+Both feel like not so good approaches: If I want to reproduce results either save multiple copies of code or have to work through the version control tool while maintaining a separate log to know which saved files belong to which experiment. I use  [experiment logs](./2018-06-11-Experiment-log}) in which I record the versions (commits hash, as I use git), which kinda eases the pain of maintaining experiment-code-weight-data combo. But I would like to have better control over things. For now I record the commit hash in the experiment log and save a copy of the code with the saved weights. In the future I hope to have the pipeline log the commit hash when it's saving weights. As an extension to that, perhaps I can run a diff between the current file and the file from the commit to assess of the code has changed, and use that output.
 
 ### Meta data models
 Each dataset comes with it's own metadata model. This tends to get annoying when you have to build a data-loader separately for each dataset. A solution to this problem is to adopt a meta-data model. An interesting approach in this regard that I have come across is the *feature store* in Uber's *Michelangelo*. For now I am following a json format for image data. Where each dataset is represented as a json array. Each image is represented as a array, with the first element pointing to the name of the image. The remaining elements are structured based on what they represent:
 - class labels: a string, if images contain multiple classes, an array of strings.
-  - eg: [car, bike, person]
+  - eg: `[car, bike, person]`
 - counts: similar to the above, but instead of strings, an object with one attribute - the name is a class label, the value is the count of that item.
-  - eg: [{car:2}, {bike:3}, {person: 10}]
+  - eg: `[{car:2}, {bike:3}, {person: 10}]`
 - Bounding boxes: a list of json objects. Each containing 5 attributes - class labels and the coordinates.
-  - eg: [{name: car, x1:10, x2: 250, y1:22, y2: 320}, {name: bike, x1:42, x2: 33, y1:67, y2: 53}]
+  - eg: `[{name: car, x1:10, x2: 250, y1:22, y2: 320}, {name: bike, x1:42, x2: 33, y1:67, y2: 53}]`
 - Segmentation mask: a string pointing to the file containing the mask for the respective image.
 
 Generally, instead of having the class labels as strings, it's ideal to have them as integers. In such circumstances, I maintain a separate file for the mapping from class label to a unique integer.

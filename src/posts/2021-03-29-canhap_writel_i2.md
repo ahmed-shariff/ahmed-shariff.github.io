@@ -6,7 +6,7 @@ tags: ["course", "hci"]
 tagline: Second iteration of the canhap project, where wrestle the haptic implementations on our system.
 ---
 
-### Recap from [iteration 1]({{ site.baseurl }}{% post_url 2021-03-08-canhap_writely_i1 %}):
+### Recap from [iteration 1](./2021-03-08-canhap_writely_i1):
 
 Our goal was to train the non-dominant hand to write items. In the first iteration we had tried to narrow down what could be done for this project and identify the types of feedback we would want to render to the user, which were:
 1. Partial feedback: Where the participants would receive a force feedback when they veer off too much from their path.
@@ -14,7 +14,7 @@ Our goal was to train the non-dominant hand to write items. In the first iterati
 3. Anti-guiding: In this method, the system actively forces the user off the path the user is expected to follow.
 4. Disturbance: Here the user is provided a random nudge now and then.
 
-Consequently we had set out to build a foundational platform and the gather the necessary tools. Primarily, we built a [3D printed pen effector](https://bradleyrrr.github.io/sample/pi1.html#haply-modifications) the [UI component, tested out a pressure sensor]({{ site.baseurl }}{% post_url 2021-03-08-canhap_writely_i1 %}) and did some preliminary exploration on [how to actually "write" using the haply](https://joshibibhushan.medium.com/writely-iteration-1-438068380fcc#4077).
+Consequently we had set out to build a foundational platform and the gather the necessary tools. Primarily, we built a [3D printed pen effector](https://bradleyrrr.github.io/sample/pi1.html#haply-modifications) the [UI component, tested out a pressure sensor](./2021-03-08-canhap_writely_i1) and did some preliminary exploration on [how to actually "write" using the haply](https://joshibibhushan.medium.com/writely-iteration-1-438068380fcc#4077).
 
 ### The Kraken
 
@@ -22,7 +22,7 @@ The goal of this iteration implement and test the different haptic feedback mech
 
 #### Rendering the force
 
-Initially we thought we'd need the force calculation we had used for the [PID lab]({{ site.baseurl }}{% post_url 2021-02-26-canhap-lab4 %}). We started by trying to set the values for the P, I and D to do what we wanted. It was only later we had realized that fisca (which we used in [lab 2]({{ site.baseurl }}{% post_url 2021-02-05-canhap-lab2 %}) and then in [lab 3]({{ site.baseurl }}{% post_url 2021-03-12-canhap-lab3 %})) also basically uses a PID system internally to address the issue of positioning the end effector of the haply. After playing around with the library, to use the positioning functions used by fisca and also add an additional force, we simply had to manipulate the force fisca's physics engine calculates before rending it into haply. This also helped with my lab 3 submission, where I used fisca to render different types of haptic feedback to [convey a "word"]({{ site.baseurl }}{% post_url 2021-03-12-canhap-lab3 %}). So we wound up completely stripping the PID code and refactoring the system to use fisca. 
+Initially we thought we'd need the force calculation we had used for the [PID lab](./2021-02-26-canhap-lab4). We started by trying to set the values for the P, I and D to do what we wanted. It was only later we had realized that fisca (which we used in [lab 2](./2021-02-05-canhap-lab2) and then in [lab 3](./2021-03-12-canhap-lab3)) also basically uses a PID system internally to address the issue of positioning the end effector of the haply. After playing around with the library, to use the positioning functions used by fisca and also add an additional force, we simply had to manipulate the force fisca's physics engine calculates before rending it into haply. This also helped with my lab 3 submission, where I used fisca to render different types of haptic feedback to [convey a "word"](./2021-03-12-canhap-lab3). So we wound up completely stripping the PID code and refactoring the system to use fisca. 
 
 #### Position calculations
 
