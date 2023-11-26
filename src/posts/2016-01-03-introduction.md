@@ -8,6 +8,9 @@ published: False
 *The Strange Case of Dr. Jekyll and Mr. Hyde* tells the story of a lawyer investigating the connection of two persons, Dr. Henry Jekyll and Mr. Edward Hyde. Chief among the novel's supporting cast is a man by the name of Mr. Poole, Dr. Jekyll's loyal butler.
 
 -----
+<script>
+  let baseurl = './testing'
+</script>
 
 Poole is the butler for [Jekyll](http://jekyllrb.com), the static site generator. It's designed and developed by [@mdo](https://twitter.com/mdo) to provide a clear and concise foundational setup for any Jekyll site. It does so by furnishing a full vanilla Jekyll install with example layouts, pages, posts, and styles.
 
@@ -17,13 +20,13 @@ There are currently three themes built on Poole:
 * [Lanyon](http://lanyon.getpoole.com)
 * [Enfield](http://enfield.getpoole.com)
 
-Learn more and contribute on [GitHub]({{ site.github.repo }}).
+Learn more and contribute on [GitHub]({baseurl}).
 
 ### What's included
 
 Poole is a streamlined Jekyll site designed and built as a foundation for building more meaningful themes. Poole, and every theme built on it like this one, includes the following:
 
-* Complete Jekyll setup included (layouts, config, [404]({{ site.baseurl }}/404.html), [RSS feed]({{ site.baseurl }}/atom.xml), posts, and [example page]({{ site.baseurl }}/about))
+* Complete Jekyll setup included (layouts, config, [404]({baseurl}/404.html), [RSS feed]({baseurl}/atom.xml), posts, and [example page]({baseurl}/about))
 * Mobile friendly design and development
 * Easily scalable text and component sizing with `rem` units in the CSS
 * Support for a wide gamut of HTML elements
@@ -38,6 +41,6 @@ Poole and its themes are by preference a forward-thinking project. In addition t
 
 ### Download
 
-These themes are developed on and hosted with GitHub. Head to the [GitHub repository]({{ site.github.repo }}) for downloads, bug reports, and features requests.
+These themes are developed on and hosted with GitHub. Head to the [GitHub repository]({baseurl}) for downloads, bug reports, and features requests.
 
 Thanks!
