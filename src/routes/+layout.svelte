@@ -13,7 +13,7 @@
         <div class='container mx-auto flex flex-col md:flex-row gap-x-12 items-center justify-center'>
             <NavButton class="font-semibold text-lg" href="/">Shariff Faleel</NavButton>
             <NavButton href="/posts">Posts</NavButton>
-            <NavButton href={{ "pathname": "/posts", "query": { pub: true } }}>Publications</NavButton>
+            <NavButton href="/posts?pub=true">Publications</NavButton>
             <NavButton class="group" href="/">
                 <div>
                             Quick links
