@@ -26,5 +26,11 @@ export function getAllPosts() {
         return new Date(b.date) - new Date(a.date);
     }));
 
-    return { posts: sortedPosts };
+    const tags = sortedPosts.then((posts) => {
+        const tagsList = posts.map(post => post.meta.tags);
+        const filteredTags = tagsList.filter(tags => tags !== undefined).flat();
+        return [...new Set(filteredTags)].filter(tag => tag !== null);
+    });
+
+    return { posts: sortedPosts, tags: tags };
 }
