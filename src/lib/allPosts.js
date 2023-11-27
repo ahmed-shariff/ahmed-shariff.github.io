@@ -1,4 +1,5 @@
 import { parse, format } from 'fecha';
+import { dev } from '$app/environment';
 
 export function slugToDate(slug) {
     return parse(slug.substring(0, 10), "YYYY-MM-DD");
@@ -22,7 +23,9 @@ export function getAllPosts() {
         })
     );
 
-    const sortedPosts = allPosts.then((posts) => posts.sort((a, b) => {
+    const filteredPosts = allPosts.then((posts) => posts.filter(post => (dev || post.meta.published === undefined || post.meta.publised)));
+
+    const sortedPosts = filteredPosts.then((posts) => posts.sort((a, b) => {
         return new Date(b.date) - new Date(a.date);
     }));
 

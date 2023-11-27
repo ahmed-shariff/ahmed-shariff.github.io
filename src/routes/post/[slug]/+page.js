@@ -7,8 +7,9 @@ export async function load({ params }) {
 
     const { title, } = post.metadata;
     const content = post.default;
+    const published = post.metadata.published !== undefined && !post.metadata.published;
 
     return {
-        content, title
+        content, title, published
     };
 }
