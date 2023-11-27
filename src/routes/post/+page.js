@@ -1,10 +1,5 @@
-import { posts } from './data.js';
+import { redirect } from '@sveltejs/kit';
 
 export function load() {
-    return {
-        summaries: posts.map((post) => ({
-            slug: post.slug,
-            title: post.title
-        }))
-    };
+	throw redirect(307, '/posts');
 }

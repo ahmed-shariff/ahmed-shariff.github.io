@@ -15,9 +15,6 @@ const config = {
 	}),
 	paths: {
 	    base: process.argv.includes('dev') ? '' : "https://shariff-faleel.com"
-	},
-	alias: {
-	    posts: "src/posts"
 	}
     },
     extensions: ['.svelte', '.md'],
