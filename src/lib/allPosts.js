@@ -13,7 +13,7 @@ export function getAllPosts() {
         iterablePostFiles.map(async ([path, resolver]) => {
             const { metadata } = await resolver();
             const postPath = path.split("/").at(-1).split(".md").at(0);
-            const date = format(slugToDate(postPath.slice(0, 10)), "MMMM D, YYYY");
+            const date = format(slugToDate(postPath.slice(0, 10)), "YYYY MMMM D");
 
             return {
                 meta: metadata,
