@@ -5,7 +5,7 @@
  const tags = (post.meta.tags !== undefined) && (post.meta.tags !== null) && (post.meta.tags.length > 0) ? post.meta.tags: null;
 </script>
 
-<a href="/post/{post.path}" class="border border-gray-200 m-2 rounded-xl shadow-md shadow-gray-800 overflow-hidden flex flex-row text-ellipsis min-h-24 max-h-64">
+<a href="/post/{post.path}" class="rounded-btn min-h-24 max-h-64 flex flex-row">
     <div class="grow text-left h-full p-3 prose dark:prose-invert prose-sm max-w-none prose-h1:text-base prose-h1:font-normal">
         <div class="text-slate-400">
             {post.date}

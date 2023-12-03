@@ -34,4 +34,6 @@
  }
 </script>
 
-<button on:click={onClick}>#{tag}</button>
+<div>
+    <button class="hover:underline" on:click={onClick}>#{tag}</button>
+</div>

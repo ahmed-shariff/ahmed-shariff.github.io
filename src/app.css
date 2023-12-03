@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .rounded-btn {
+        @apply border border-gray-200 m-2 rounded-xl shadow-md shadow-gray-800 overflow-hidden text-ellipsis transition duration-100 hover:shadow hover:bg-slate-600
+    }
+}
