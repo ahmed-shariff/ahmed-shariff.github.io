@@ -1,45 +1,41 @@
 <script>
  import getMD5 from 'md5';
+ import { siGithub, siGooglescholar, siFacebook, siTwitter, siLinkedin } from 'simple-icons';
+ import PersonalLink from '$lib/PersonalLink.svelte';
 
  let gavatarSize = 220;
- let gavatarQueryString = `//en.gravatar.com/avatar/${getMD5("shariff.mfa@outlook.com", {encoding: 'binary'})}?s=${220}&r=pg&d=retro`
-    
+ let gavatarQueryString = `//en.gravatar.com/avatar/${getMD5("shariff.mfa@outlook.com", {encoding: 'binary'})}?s=${gavatarSize}&r=pg&d=retro`
 </script>
 
 <div class='divide-y-4 divide-slate-400/25'>
-    <div class='flex flex-col sm:flex-row gap-x-12 m-5 prose dark:prose-invert max-w-none text-justify justify-center'>
-        <div class='flex flex-col'>
+    <div class='flex flex-col sm:flex-row gap-x-12 m-1 prose dark:prose-invert max-w-none text-justify justify-center'>
+        <div class='flex flex-col space-y-1 items-center'>
             <img
                 alt='Gravatar for Shariff Faleel'
                 src="{gavatarQueryString}"
                 height={gavatarSize}
                 width={gavatarSize}
             />
-            <ul class='list-none w-40 list-outside'>
+            <ul class='list-none w-40 list-outside text-sm pl-3'>
                 <li>
-                    Github
-                    <!-- <PersonalLinks link="https://github.com/ahmed-shariff" text="Github" iconComponent={<SiGithub />} /> -->
+                    <PersonalLink link={"https://github.com/ahmed-shariff"} text={"Github"} icon={siGithub}/>
                 </li>
                 <li>
-                    Google scholar
-                    <!-- <PersonalLinks link="https://scholar.google.ca/citations?user=wxMtqMMAAAAJ&hl=en" text="Google scholar" iconComponent={<SiGooglescholar />} /> -->
+                    <PersonalLink link="https://scholar.google.ca/citations?user=wxMtqMMAAAAJ&hl=en" text="Google scholar" icon={siGooglescholar} />
                 </li>
                 <li>
-                    facebook
-                    <!-- <PersonalLinks link="https://www.facebook.com/amsha1" text="facebook" iconComponent={<SiFacebook />} /> -->
+                    <PersonalLink link="https://www.facebook.com/amsha1" text="facebook" icon={siFacebook} />
                 </li>
                 <li>
-                    twitter
-                    <!-- <PersonalLinks link="https://twitter.com/_ahmedshariff_" text="Twitter" iconComponent={<SiTwitter />} /> -->
+                    <PersonalLink link="https://twitter.com/_ahmedshariff_" text="Twitter" icon={siTwitter} />
                 </li>
                 <li>
-                    linkedin
-                    <!-- <PersonalLinks link="https://www.linkedin.com/in/ahmed-shariff-b2b25496/" text="Linkedin" iconComponent={<SiLinkedin />} /> -->
+                    <PersonalLink link="https://www.linkedin.com/in/ahmed-shariff-b2b25496/" text="Linkedin" icon={siLinkedin} />
                 </li>
             </ul>
         </div>
-        <div>
-            <p class="text-xs m-10 bg-gray-900 p-3">
+        <div class="p-2">
+            <p class="m-4 bg-gray-900 p-3">
         Hey there! Thanks for coming to this obscure corner of the internet to visit my site. This site is work in progress. So be patient, I&apos;ll update here soon.
             </p>
 
