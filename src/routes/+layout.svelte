@@ -1,10 +1,10 @@
 <script>
  import "../app.css";
- import NavLink from "../lib/NavLink.svelte";
- import NavButton from "../lib/NavButton.svelte";
- import Github from "../lib/icons/github.svelte";
- import Rss from "../lib/icons/rss.svelte";
- import IoCevronUpCircleArrow from "../lib/icons/ioCevronUpCircleArrow.svelte";
+ import NavLink from "$lib/NavLink.svelte";
+ import NavButton from "$lib/NavButton.svelte";
+ import Github from "$lib/icons/github.svelte";
+ import Rss from "$lib/icons/rss.svelte";
+ import IoCevronUpCircleArrow from "$lib/icons/ioCevronUpCircleArrow.svelte";
 </script>
 
 
@@ -45,7 +45,7 @@
     </div>
     <footer class='bg-gray-800 mt-8 py-4 text-gray-300 drop-shadow-lg shadow-gray-900'>
         <div class='container mx-auto flex justify-center text-sm'>
-                    &copy; 2022 Shariff Faleel
+                    &copy; 2023 Shariff Faleel
         </div>
     </footer>
 </div >
