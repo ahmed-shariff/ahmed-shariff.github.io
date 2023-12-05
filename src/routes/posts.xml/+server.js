@@ -1,5 +1,8 @@
 import { getAllPosts } from '$lib/allPosts'
+import { parse } from 'fecha';
 import { Feed } from 'feed';
+
+const base_url = "https://shariff-faleel.com"
 
 export async function GET() {
     let posts = await getAllPosts();
@@ -8,21 +11,17 @@ export async function GET() {
     const feed = new Feed({
         title: "Shariff AM Faleel",
         description: "My personal feed.",
-        id: process.env.SITE_URL,
-        link: process.env.SITE_URL,
+        id: base_url,
+        link: base_url,
         language: "en", // optional, used only in RSS 2.0, possible values: http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
         image: "https://s.gravatar.com/avatar/5ebdf4aac1cb0791ce87210238ec9919?s=600",
-        favicon: `${process.env.SITE_URL}favicon.ico`,
+        favicon: `${base_url}/favicon.png`,
         copyright: "All rights reserved 2023, Shariff Faleel",
         generator: "awesome", // optional, default = 'Feed for Node.js'
-        feedLinks: {
-            json: `${process.env.SITE_URL}json`,
-            atom: `${process.env.SITE_URL}atom`
-        },
         author: {
             name: "Shariff AM Faleel",
             email: "shariff.mfa@outlook.com",
-            link: process.env.SITE_URL
+            link: base_url
         }
     });
 
@@ -30,16 +29,16 @@ export async function GET() {
         feed.addItem({
             title: post.meta.title,
             id: post.slug,
-            link: `${process.env.SITE_URL}post/${post.slug}`,
+            link: `${base_url}/post/${post.slug.slice(0, -3)}`,
             description: post.meta.description,
             author: [
                 {
                     name: "Shariff Faleel",
                     email: "shariff.mfa@outlook.com",
-                    link: process.env.SITE_URL
+                    link: base_url
                 }
             ],
-            date: post.date,
+            date: parse(post.date, "YYYY MMMM D"),
             image: post.meta.image
         })
     });
