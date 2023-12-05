@@ -9,28 +9,31 @@
  // if  not add it on click.
  function onClick()
  {
-     let query = new URLSearchParams($page.url.searchParams.toString());
-     let tags = query.getAll("tag");
-     query.delete("tag");
+     if ($page.url.pathname.startsWith("/post/")) {
+         goto(`/posts?tag=${tag}`);
+     } else {
+         let query = new URLSearchParams($page.url.searchParams.toString());
+         let tags = query.getAll("tag");
+         query.delete("tag");
 
-     if (inverseOp) {
-         tags = tags.filter(_tag => _tag !== tag);
-     }
-     else {
-         tags.push(tag);
-     }
+         if (inverseOp) {
+             tags = tags.filter(_tag => _tag !== tag);
+         }
+         else {
+             tags.push(tag);
+         }
 
-     let queryStr = query.toString();
+         let queryStr = query.toString();
 
-     if (tags.length > 0) {
-         if (queryStr.length > 0)
-             queryStr += "&";
+         if (tags.length > 0) {
+             if (queryStr.length > 0)
+                 queryStr += "&";
              
-         queryStr += tags.map(tag => `tag=${tag}`).join("&");
+             queryStr += tags.map(tag => `tag=${tag}`).join("&");
+         }
+
+         goto(`?${queryStr}`);
      }
-
-     goto(`?${queryStr}`);
-
  }
 </script>
 
