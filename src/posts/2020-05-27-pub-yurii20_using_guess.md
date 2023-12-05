@@ -8,7 +8,7 @@ paperurl: 'https://doi.org/10.1145/3396339.3396394'
 doi: '10.1145/3396339.3396394'
 citation: "Yurii Vasylkiv, Ali Neshati, Shariff A. M. Faleel, Yumiko Sakamoto, and Pourang Irani. 2020. Using guessability framework: age-related differences in hand gesture interaction. In <i>Proceedings of the 11th Augmented Human International Conference</i> (<i>AH '20</i>). Association for Computing Machinery, New York, NY, USA, Article 24, 1–2. https://doi.org/10.1145/3396339.3396394"
 abstract: 'Mid-air gestures have been heavily studied in HCI but with mostly younger adults (YAs). Older adults (OAs) can equally benefit from such a modality, but given their heterogeneous motor abilities, designing suitable gestures is challenging [2]. Our research specifically looks at age-related differences in hand gesture preferences between older and younger adults. This subject is important since it relates to the idea of a proper age-inclusive technological design and the means towards the successful adoption of technologies by all the layers of the population, including older adults.'
-pdf: '/pdf/yurii20_using_guess.pdf'
+pdf: 'https://dl.acm.org/doi/10.1145/3396339.3396394?cid=99659534363'
 ---
 
 ```latex
