@@ -3,12 +3,20 @@
  import { goto } from "$app/navigation";
  import PostCard from "$lib/PostCard.svelte";
  import Tag from "$lib/Tag.svelte";
+ import { beforeUpdate } from 'svelte';
 
  export let data;
+
+ let pubVal, tagsVal;
+ beforeUpdate(() => {
+     pubVal = $page.url.searchParams.get("pub");
+     tagsVal = $page.url.searchParams.getAll("tag");
+ })
+
  let isPubOnly, tags, publicationFilterBtnTxt, title;
- $: isPubOnly= $page.url.searchParams.get("pub");
+ $: isPubOnly= pubVal;
  $: publicationFilterBtnTxt = isPubOnly ? "Show all posts" : "Show publications only";
- $: tags = $page.url.searchParams.getAll("tag");
+ $: tags = tagsVal;
 
  $: title = isPubOnly ? "Publications" : "Posts";
 
@@ -19,13 +27,27 @@
      } else {
          query.set("pub", true);
      }
+     // NOTE: goto doesn't change the state on static site, but sets the query params
      goto(`?${query.toString()}`);
+     isPubOnly = query.get("pub");
  }
 
  function clearTagsBtnOnClick() {
      let query = new URLSearchParams($page.url.searchParams.toString());
      query.delete("tag");
+     // NOTE: goto doesn't change the state on static site, but sets the query params
      goto(`?${query.toString()}`);
+     tags = query.getAll("tag");
+ }
+
+ function handleTagChange(event) {
+     let tag = event.detail.tag;
+     if (event.detail.inverseOp) {
+         tags = tags.filter(_tag => _tag !== tag);
+     }
+     else {
+         tags = [...tags, tag]
+     }
  }
 </script>
 
@@ -33,11 +55,11 @@
     <h1 class='text-xl text-center text-slate-100'>{title}</h1>
     <div class="flex px-1 space-x-1 items-center">
         <button class="rounded-btn px-2 py-1" on:click={publicationFilterBtnOnClick}>{publicationFilterBtnTxt}</button>
-        {#if (tags !== undefined) && (tags.length > 0)}
+        {#if (tags !== undefined) && (tags !== null) && (tags.length > 0)}
             <button class="rounded-btn px-2 py-1" on:click={clearTagsBtnOnClick}>Clear all tags</button>
             <div class="font-semibold pl-4"> Selected tags:</div>
             {#each tags as tag}
-                <Tag {tag} inverseOp={true} />
+                <Tag {tag} inverseOp={true} on:change={handleTagChange} />
             {/each}
         {/if}
     </div>
@@ -46,13 +68,13 @@
             <div class="font-semibold">Filter by tag:</div>
             {#each postsData.tags as tag}
                 {#if tags === undefined || !tags.includes(tag)}
-                    <Tag {tag} />
+                    <Tag {tag} on:change={handleTagChange} />
                 {/if}
             {/each}
         </div>
         <ul class="pt-2">
         {#each postsData.posts as post, i}
-            {#if (tags.length == 0 || (post.meta.tags != undefined && post.meta.tags.filter((tag) => tags.includes(tag)).length == tags.length)) && (!isPubOnly || ("doi" in post.meta))}
+            {#if (tags == null || tags.length == 0 || (post.meta.tags != undefined && post.meta.tags.filter((tag) => tags.includes(tag)).length == tags.length)) && (!isPubOnly || ("doi" in post.meta))}
                 <li>
                     <PostCard {post}/>
                 </li>
