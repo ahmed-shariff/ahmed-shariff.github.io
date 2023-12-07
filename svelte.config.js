@@ -14,7 +14,7 @@ const config = {
 	    strict: true
 	}),
 	paths: {
-	    base: process.argv.includes('dev') ? '' : "https://shariff-faleel.com"
+	    /* base: process.argv.includes('dev') ? '' : "https://shariff-faleel.com" */
 	}
     },
     extensions: ['.svelte', '.md'],
