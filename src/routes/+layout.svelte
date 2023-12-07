@@ -39,7 +39,7 @@
     </main>
     <div class="fixed bottom-4 right-4 drop-shadow-lg z-50 shadow-gray-900" >
         <button on:click={() => { window.scrollTo({ top: 0, behavior: 'smooth' }) }}>
-            <IoCevronUpCircleArrow class="fill-slate-500 hover:fill-slate-400"/>
+            <IoCevronUpCircleArrow class="fill-slate-800 hover:fill-slate-500 stroke-slate-200"/>
         </button>
     </div>
     <footer class='bg-gray-800 mt-8 py-4 text-gray-300 drop-shadow-lg shadow-gray-900'>

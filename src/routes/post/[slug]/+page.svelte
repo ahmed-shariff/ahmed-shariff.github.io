@@ -2,11 +2,12 @@
  import Information from "$lib/Information.svelte";
  import Tag from "$lib/Tag.svelte";
  import Giscus from '@giscus/svelte';
+ import FilePdf from "$lib/icons/FilePDF.svelte";
 
  export let data;
 </script>
 
-<article class="p-5 md:p-0 prose dark:prose-invert text-justify mx-auto max-w-screen-xl prose-img:block prose-img:m-auto prose-img:max-h-96 prose-p:w-full">
+<article class="p-5 md:p-0 prose dark:prose-invert mx-auto max-w-screen-xl prose-img:block prose-img:m-auto prose-img:max-h-96 prose-p:w-full prose-h1:text-left">
 
     <div class='text-xs text-slate-400'>
         {data.date}
@@ -30,17 +31,12 @@
         <Information
             keyStr="Authors"
             valueStr={data.meta.authors} />
-        <Information keyStr="Venue" valueStr={data.meta.venue} />
-        <Information keyStr="Date of publication" valueStr={data.date} />
-        <Information keyStr="URL" valueStr={`<a href=${data.meta.paperurl}>${data.meta.doi}</a>`} />
-        <Information keyStr="pdf download" valueStr={`<a href=${data.meta.pdf}>${data.meta.pdf}</a>`} />
-        <Information
-            keyStr="Abstract"
-            valueStr={data.meta.abstract} />
-
-        <Information
-            keyStr="Citation"
-            valueStr={data.meta.citation} />
+        <Information keyStr="Venue">{data.meta.venue}</Information>
+        <Information keyStr="Date of publication">{data.date}</Information>
+        <Information keyStr="URL"><a href={data.meta.paperurl}>{data.meta.doi}</a></Information>
+        <Information keyStr="pdf download"><a href={data.meta.pdf} class=""><FilePdf /></a></Information>
+        <Information keyStr="Abstract">{data.meta.abstract}</Information>
+        <Information keyStr="Citation">{data.meta.citation}</Information>
     {/if}
 
     <svelte:component this={data.content} />
