@@ -1,10 +1,9 @@
 <script>
- import IconBase from "./_iconBase.svelte";
- export let color = 'currentColor';
- export let size = 24;
+ import Icon from "./Icon.svelte";
+ export let color = '#bbbbbb';
+ export let size = "60";
 </script>
 
-<IconBase width={size} height={size} fill={color} title="ioCevronUpCircleArrow">
-    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M352 296l-96-96-96 96"/>
-    <path d="M256 64C150 64 64 150 64 256s86 192 192 192 192-86 192-192S362 64 256 64z" fill="none" stroke="currentColor" stroke-miterlimit="3" stroke-width="5"/>
-</IconBase>
+<Icon size={size} color={color} title="ioCevronUpCircleArrow" viewBox="0 0 512 512" {...$$restProps}>
+    <path d="M256 48C141.13 48 48 141.13 48 256s93.13 208 208 208 208-93.13 208-208S370.87 48 256 48zm107.31 259.31a16 16 0 01-22.62 0L256 222.63l-84.69 84.68a16 16 0 01-22.62-22.62l96-96a16 16 0 0122.62 0l96 96a16 16 0 010 22.62z"/>
+</Icon>

@@ -2,9 +2,9 @@
  import "../app.css";
  import NavLink from "$lib/NavLink.svelte";
  import NavButton from "$lib/NavButton.svelte";
- import Github from "$lib/icons/github.svelte";
- import Rss from "$lib/icons/rss.svelte";
+ import { siGithub, siRss } from 'simple-icons';
  import IoCevronUpCircleArrow from "$lib/icons/ioCevronUpCircleArrow.svelte";
+ import Icon from "../lib/icons/Icon.svelte";
 </script>
 
 
@@ -26,8 +26,12 @@
                 <div
                     class="absolute w-full mt-2 origin-top-right rounded-md shadow-lg w-fit transition-transform transition-opacity ease-in-out duration-200 opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100" >
                     <div class="p-2 bg-gray-700 rounded-md shadow dark-mode:bg-gray-700">
-                        <NavLink href="https://gist.github.com/ahmed-shariff" class="flex flex-row space-x-2"> <div><Github /></div><div>github-gists</div></NavLink>
-                        <NavLink href="/posts.xml" class="flex flex-row space-x-2"> <div><Rss /></div><div>RSS feed</div></NavLink>
+                        <NavLink href="https://gist.github.com/ahmed-shariff" class="flex flex-row space-x-2">
+                            <div><Icon title="github"><path d={siGithub.path}/></Icon></div><div>github-gists</div>
+                        </NavLink>
+                        <NavLink href="/posts.xml" class="flex flex-row space-x-2">
+                            <div><Icon title="github"><path d={siRss.path}/></Icon></div><div>RSS feed</div>
+                        </NavLink>
                     </div>
                 </div>
             </NavButton>
@@ -37,10 +41,8 @@
         <slot/>
     </main>
     <div class="fixed bottom-4 right-4 drop-shadow-lg z-50 shadow-gray-900" >
-        <button onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }) }}>
-            <IoCevronUpCircleArrow/>
-            UOP
-                <!-- class="fill-gray-900 rounded-full bg-slate-600 hover:bg-slate-500" -->
+        <button on:click={() => { window.scrollTo({ top: 0, behavior: 'smooth' }) }}>
+            <IoCevronUpCircleArrow class="fill-slate-500 hover:fill-slate-400"/>
         </button>
     </div>
     <footer class='bg-gray-800 mt-8 py-4 text-gray-300 drop-shadow-lg shadow-gray-900'>
