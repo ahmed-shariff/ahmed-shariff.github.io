@@ -6,4 +6,8 @@
     .rounded-btn {
         @apply border border-gray-200 m-2 rounded-xl shadow-md shadow-gray-800 overflow-hidden text-ellipsis transition duration-100 hover:shadow hover:bg-slate-600
     }
+
+    .nav-btn {
+        @apply transition duration-100 bg-transparent shadow-md shadow-transparent rounded-lg hover:shadow-gray-900 hover:bg-gray-700 hover:underline hover:decoration-2 px-4 py-2 items-center
+    }
 }

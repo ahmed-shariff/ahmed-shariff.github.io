@@ -4,6 +4,8 @@
  import PostCard from "$lib/PostCard.svelte";
  import Tag from "$lib/Tag.svelte";
  import { beforeUpdate } from 'svelte';
+ import Icon from '$lib/icons/Icon.svelte';
+ import { siRss } from 'simple-icons';
 
  export let data;
 
@@ -53,7 +55,7 @@
 
 <div>
     <h1 class='text-xl text-center text-slate-100'>{title}</h1>
-    <div class="flex px-1 space-x-1 items-center">
+    <div class="flex px-1 space-x-1 items-center w-100">
         <button class="rounded-btn px-2 py-1" on:click={publicationFilterBtnOnClick}>{publicationFilterBtnTxt}</button>
         {#if (tags !== undefined) && (tags !== null) && (tags.length > 0)}
             <button class="rounded-btn px-2 py-1" on:click={clearTagsBtnOnClick}>Clear all tags</button>
@@ -62,6 +64,12 @@
                 <Tag {tag} inverseOp={true} on:change={handleTagChange} />
             {/each}
         {/if}
+        <div class="grow flex justify-end">
+            <a href="/posts.xml" class="p-2 flex space-x-2">
+                <span>RSS Feed</span>
+                <Icon title="rss" size="20" class="fill-slate-400"><path d={siRss.path}/></Icon>
+            </a>
+        </div>
     </div>
     {#await data then postsData}
         <div class="flex flex-wrap flex-row px-3 space-x-1">

@@ -1,20 +1,17 @@
 <script>
  import "../app.css";
- import NavLink from "$lib/NavLink.svelte";
- import NavButton from "$lib/NavButton.svelte";
  import { siGithub, siRss } from 'simple-icons';
  import IoCevronUpCircleArrow from "$lib/icons/ioCevronUpCircleArrow.svelte";
  import Icon from "../lib/icons/Icon.svelte";
 </script>
 
-
 <div class='flex flex-col min-h-screen bg-slate-700'>
     <header class='bg-gray-800 mb-0 md:mb-8 py-1 text-gray-300 md:sticky top-0 left-0 right-0 drop-shadow-lg shadow-gray-900 z-10'>
         <div class='container mx-auto flex flex-col md:flex-row gap-x-12 items-center justify-center'>
-            <NavButton class="font-semibold text-lg" href="/">Shariff Faleel</NavButton>
-            <NavButton href="/posts">Posts</NavButton>
-            <NavButton href="/posts?pub=true">Publications</NavButton>
-            <NavButton class="group" href="/">
+            <a class="nav-btn font-semibold text-lg" href="/">Shariff Faleel</a>
+            <a class="nav-btn" href="/posts" data-sveltekit-reload>Posts</a>
+            <a class="nav-btn" href="/posts?pub=true" data-sveltekit-reload>Publications</a>
+            <button class="nav-btn group" href="/">
                 <div>
                             Quick links
                     <svg fill="currentColor"
@@ -24,17 +21,17 @@
                     </svg>
                 </div>
                 <div
-                    class="absolute w-full mt-2 origin-top-right rounded-md shadow-lg w-fit transition-transform transition-opacity ease-in-out duration-200 opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100" >
-                    <div class="p-2 bg-gray-700 rounded-md shadow dark-mode:bg-gray-700">
-                        <NavLink href="https://gist.github.com/ahmed-shariff" class="flex flex-row space-x-2">
-                            <div><Icon title="github"><path d={siGithub.path}/></Icon></div><div>github-gists</div>
-                        </NavLink>
-                        <NavLink href="/posts.xml" class="flex flex-row space-x-2">
-                            <div><Icon title="github"><path d={siRss.path}/></Icon></div><div>RSS feed</div>
-                        </NavLink>
+                    class="absolute mt-2 origin-top-right rounded-md shadow-lg transition-transform transition-opacity ease-in-out duration-200 opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100" >
+                    <div class="p-2 bg-gray-900 rounded-md shadow dark-mode:bg-gray-700">
+                        <a href="https://gist.github.com/ahmed-shariff" class="flex space-x-2 nav-btn w-100">
+                            <div><Icon title="github" size="18"><path d={siGithub.path}/></Icon></div><div>github-gists</div>
+                        </a>
+                        <a href="/posts.xml" class="flex space-x-2 nav-btn w-100">
+                            <Icon title="rss" size="18"><path d={siRss.path}/></Icon><span>RSS feed</span>
+                        </a>
                     </div>
                 </div>
-            </NavButton>
+            </button>
         </div >
     </header >
     <main class='container mx-auto flex-1'>
