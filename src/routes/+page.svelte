@@ -34,7 +34,7 @@
                     <PersonalLink link="https://twitter.com/_ahmedshariff_" text="Twitter" icon={siTwitter} />
                 </li>
                 <li>
-                    <PersonalLink link="https://www.linkedin.com/in/ahmed-shariff-b2b25496/" text="Linkedin" icon={siLinkedin} />
+                    <PersonalLink link="https://www.linkedin.com/in/shariff-faleel" text="Linkedin" icon={siLinkedin} />
                 </li>
             </ul>
         </div>
