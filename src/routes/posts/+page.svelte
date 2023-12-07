@@ -55,15 +55,19 @@
 
 <div>
     <h1 class='text-xl text-center text-slate-100'>{title}</h1>
-    <div class="flex px-1 space-x-1 items-center w-100">
-        <button class="rounded-btn px-2 py-1" on:click={publicationFilterBtnOnClick}>{publicationFilterBtnTxt}</button>
-        {#if (tags !== undefined) && (tags !== null) && (tags.length > 0)}
-            <button class="rounded-btn px-2 py-1" on:click={clearTagsBtnOnClick}>Clear all tags</button>
-            <div class="font-semibold pl-4"> Selected tags:</div>
-            {#each tags as tag}
-                <Tag {tag} inverseOp={true} on:change={handleTagChange} />
-            {/each}
-        {/if}
+    <div class="flex mx-1 w-100">
+        <div class="flex flex-col sm:flex-row space-x-1 justify-start items-center">
+            <button class="rounded-btn w-48 px-2 py-1" on:click={publicationFilterBtnOnClick}>{publicationFilterBtnTxt}</button>
+            {#if (tags !== undefined) && (tags !== null) && (tags.length > 0)}
+                <button class="rounded-btn w-48 px-2 py-1" on:click={clearTagsBtnOnClick}>Clear all tags</button>
+                <div class="flex flex-wrap">
+                    <div class="font-semibold pl-4"> Selected tags:</div>
+                    {#each tags as tag}
+                        <Tag {tag} inverseOp={true} on:change={handleTagChange} />
+                    {/each}
+                </div>
+            {/if}
+        </div>
         <div class="grow flex justify-end">
             <a href="/posts.xml" class="p-2 flex space-x-2">
                 <span>RSS Feed</span>
