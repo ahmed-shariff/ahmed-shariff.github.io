@@ -1204,55 +1204,57 @@ org-tag-alist-to-groups                                  25          1.500...e-0
 
 
 ## Summery from the `emacs -Q` profiles
-<table class="table-auto">
+<div style="overflow-x:auto">
+<table>
  <colgroup><col>
  <col>
  </colgroup><tbody><tr>
-  <td class="border border-slate-600 p-2" rowspan="2">Functions</td>
-  <td class="border border-slate-600" colspan="4">Org version 9.5.5-g8cc821</td>
-  <td class="border border-slate-600" colspan="4">Org version 9.5.4-g5a6442</td>
+  <td rowspan="2">Functions</td>
+  <td colspan="4">Org version 9.5.5-g8cc821</td>
+  <td colspan="4">Org version 9.5.4-g5a6442</td>
  </tr>
  <tr>
-  <td class="border border-slate-600 p-2" >Run1</td>
-  <td class="border border-slate-600 p-2" >Run2</td>
-  <td class="border border-slate-600 p-2" >Run3</td>
-  <td class="border border-slate-600 p-2" >Avg</td>
-  <td class="border border-slate-600 p-2" >Run1</td>
-  <td class="border border-slate-600 p-2" >Run2</td>
-  <td class="border border-slate-600 p-2" >Run3</td>
-  <td class="border border-slate-600 p-2" >Avg</td>
+  <td >Run1</td>
+  <td >Run2</td>
+  <td >Run3</td>
+  <td >Avg</td>
+  <td >Run1</td>
+  <td >Run2</td>
+  <td >Run3</td>
+  <td >Avg</td>
  </tr>
  <tr>
-  <td class="border border-slate-600 p-2" >test-with-current-buffer</td>
-  <td class="border border-slate-600 p-2" >0.0141548</td>
-  <td class="border border-slate-600 p-2" >0.01415752</td>
-  <td class="border border-slate-600 p-2" >0.0150422</td>
-  <td class="border border-slate-600 p-2" >0.014451507</td>
-  <td class="border border-slate-600 p-2" >0.01387448</td>
-  <td class="border border-slate-600 p-2" >0.0147026</td>
-  <td class="border border-slate-600 p-2" >0.01433376</td>
-  <td class="border border-slate-600 p-2" >0.014303613</td>
+  <td >test-with-current-buffer</td>
+  <td >0.0141548</td>
+  <td >0.01415752</td>
+  <td >0.0150422</td>
+  <td >0.014451507</td>
+  <td >0.01387448</td>
+  <td >0.0147026</td>
+  <td >0.01433376</td>
+  <td >0.014303613</td>
  </tr>
  <tr>
-  <td class="border border-slate-600 p-2" height="20" >test-org-roam-with-file</td>
-  <td class="border border-slate-600 p-2" >0.01293492</td>
-  <td class="border border-slate-600 p-2" >0.01199168</td>
-  <td class="border border-slate-600 p-2" >0.01381696</td>
-  <td class="border border-slate-600 p-2" >0.01291452</td>
-  <td class="border border-slate-600 p-2" >0.01209968</td>
-  <td class="border border-slate-600 p-2" >0.01191384</td>
-  <td class="border border-slate-600 p-2" >0.01204764</td>
-  <td class="border border-slate-600 p-2" >0.012020387</td>
+  <td height="20" >test-org-roam-with-file</td>
+  <td >0.01293492</td>
+  <td >0.01199168</td>
+  <td >0.01381696</td>
+  <td >0.01291452</td>
+  <td >0.01209968</td>
+  <td >0.01191384</td>
+  <td >0.01204764</td>
+  <td >0.012020387</td>
  </tr>
  <tr>
-  <td class="border border-slate-600 p-2" height="20" >test-with-plain-file</td>
-  <td class="border border-slate-600 p-2" >0.00915172</td>
-  <td class="border border-slate-600 p-2" >0.00927128</td>
-  <td class="border border-slate-600 p-2" >0.00839904</td>
-  <td class="border border-slate-600 p-2" >0.00894068</td>
-  <td class="border border-slate-600 p-2" >0.00762304</td>
-  <td class="border border-slate-600 p-2" >0.00856996</td>
-  <td class="border border-slate-600 p-2" >0.00862808</td>
-  <td class="border border-slate-600 p-2" >0.008273693</td>
+  <td height="20" >test-with-plain-file</td>
+  <td >0.00915172</td>
+  <td >0.00927128</td>
+  <td >0.00839904</td>
+  <td >0.00894068</td>
+  <td >0.00762304</td>
+  <td >0.00856996</td>
+  <td >0.00862808</td>
+  <td >0.008273693</td>
  </tr>
 </tbody></table>
+</div>

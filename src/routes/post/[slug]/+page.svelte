@@ -7,7 +7,7 @@
  export let data;
 </script>
 
-<article class="p-5 md:p-0 prose dark:prose-invert mx-auto max-w-screen-xl prose-img:block prose-img:m-auto prose-img:max-h-96 prose-p:w-full prose-h1:text-left">
+<article class="p-5 md:p-0 prose dark:prose-invert mx-auto max-w-screen-xl prose-img:block prose-img:m-auto prose-img:max-h-96 prose-p:w-full prose-h1:text-left break-words prose-table:table-auto prose-table:bg-slate-900 prose-td:border prose-td:border-slate-600 prose-td:p-2">
 
     <div class='text-xs text-slate-400'>
         {data.date}
