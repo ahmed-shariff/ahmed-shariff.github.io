@@ -33,8 +33,8 @@
             valueStr={data.meta.authors} />
         <Information keyStr="Venue">{data.meta.venue}</Information>
         <Information keyStr="Date of publication">{data.date}</Information>
-        <Information keyStr="URL"><a href={data.meta.paperurl}>{data.meta.doi}</a></Information>
-        <Information keyStr="pdf download"><a href={data.meta.pdf} class=""><FilePdf /></a></Information>
+        <Information keyStr="URL"><a href={data.meta.paperurl.trimEnd().trimStart()}>{data.meta.doi}</a></Information>
+        <Information keyStr="pdf download"><a href={data.meta.pdf.trimEnd().trimStart()} class=""><FilePdf /></a></Information>
         <Information keyStr="Abstract">{data.meta.abstract}</Information>
         <Information keyStr="Citation">{data.meta.citation}</Information>
     {/if}
