@@ -35,8 +35,8 @@
         <Information keyStr="Date of publication">{data.date}</Information>
         <Information keyStr="URL"><a href={data.meta.paperurl.trimEnd().trimStart()}>{data.meta.doi}</a></Information>
         <Information keyStr="pdf download"><a href={data.meta.pdf.trimEnd().trimStart()} class=""><FilePdf /></a></Information>
-        <Information keyStr="Abstract">{data.meta.abstract}</Information>
-        <Information keyStr="Citation">{data.meta.citation}</Information>
+        <Information keyStr="Abstract" inCols={true}>{data.meta.abstract}</Information>
+        <Information keyStr="Citation" inCols={true}>{data.meta.citation}</Information>
     {/if}
 
     <svelte:component this={data.content} />
