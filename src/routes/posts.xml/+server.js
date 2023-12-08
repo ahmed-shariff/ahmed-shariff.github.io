@@ -1,3 +1,5 @@
+export const prerender = true;
+
 import { getAllPosts } from '$lib/allPosts'
 import { parse } from 'fecha';
 import { Feed } from 'feed';
