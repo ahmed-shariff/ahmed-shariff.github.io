@@ -15,7 +15,7 @@ tagline: "My current approach to writing software artifacts in research projects
 
 Last week, at the [OVI lab's](https://ovi.ok.ubc.ca) weekly meeting, I presented my approach to writing software artifacts for research projects. The slides are as follows:
 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQOGJDiY6Cqv7X7V9zSrrJh8CwMEVlHmlAZLX8ZUixo4PLwqI5kH8GSAtFQpP0Pcmi1-fuagcqAt58L/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe style="aspect-ratio: 16 / 9; width: 100%; max-width: 960px; justify-self: center;" src="https://docs.google.com/presentation/d/e/2PACX-1vQOGJDiY6Cqv7X7V9zSrrJh8CwMEVlHmlAZLX8ZUixo4PLwqI5kH8GSAtFQpP0Pcmi1-fuagcqAt58L/embed?start=false&loop=false&delayms=3000" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 In this blog post, I am going to elaborate and expand on the presentation (mostly for my own reference).
 
