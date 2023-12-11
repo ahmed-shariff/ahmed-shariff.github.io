@@ -3,9 +3,25 @@
  import Tag from "$lib/Tag.svelte";
  import Giscus from '@giscus/svelte';
  import FilePdf from "$lib/icons/FilePDF.svelte";
+ import Meta from "$lib/Meta.svelte";
 
  export let data;
+
+ let metaDesc = "";
+
+ if (data.meta.doi !== undefined)
+     metaDesc = data.meta.abstract;
+ else if (data.meta.tagline !== undefined)
+     metaDesc = data.meta.tagline;
+ else
+     metaDesc = data.title;
 </script>
+
+<Meta
+    title={data.title}
+    desc={metaDesc}
+    link={`https://shariff-faleel.com/post/${data.slug}`}
+/>
 
 <article class="p-5 md:p-0 prose dark:prose-invert mx-auto max-w-screen-xl prose-img:block prose-img:m-auto prose-img:max-h-96 prose-p:w-full prose-h1:text-left break-words prose-table:table-auto prose-table:bg-slate-900 prose-td:border prose-td:border-slate-600 prose-td:p-2">
 

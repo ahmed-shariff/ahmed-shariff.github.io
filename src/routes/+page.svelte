@@ -4,12 +4,19 @@
  import PersonalLink from '$lib/PersonalLink.svelte';
  import PostCard from '$lib/PostCard.svelte';
  import ArrowButton from '$lib/ArrowButton.svelte';
+ import Meta from '$lib/Meta.svelte';
 
  export let data;
 
  let gavatarSize = 220;
  let gavatarQueryString = `//en.gravatar.com/avatar/${getMD5("shariff.mfa@outlook.com", {encoding: 'binary'})}?s=${gavatarSize}&r=pg&d=retro`
 </script>
+
+<Meta
+    title="Home Page for Shariff Faleel's website."
+    desc="Home Page for Shariff Faleel's website. You can see his blog posts, publication and more information about him."
+    link="https://shariff-faleel.com/"
+/>
 
 <div class='divide-y-4 divide-slate-400/25'>
     <div class='flex flex-col sm:flex-row gap-x-12 m-1 max-w-none text-justify justify-center'>

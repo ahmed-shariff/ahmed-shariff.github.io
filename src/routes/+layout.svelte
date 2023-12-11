@@ -5,6 +5,11 @@
  import Icon from "../lib/icons/Icon.svelte";
 </script>
 
+<svelte:head>
+    <meta name="robots" content="index, follow"/>
+    <meta name="googlebot" content="index, follow"/>
+</svelte:head>
+
 <div class='flex flex-col min-h-screen bg-slate-700'>
     <header class='bg-gray-800 mb-0 md:mb-8 py-1 text-gray-300 md:sticky top-0 left-0 right-0 drop-shadow-lg shadow-gray-900 z-10'>
         <div class='container mx-auto flex flex-col md:flex-row gap-x-12 items-center justify-center'>

@@ -1,9 +1,10 @@
 import { error } from '@sveltejs/kit';
-import { slugToDate } from '../../../lib/allPosts';
+import { slugToDate } from '$lib/allPosts';
 import { format } from 'fecha';
 
 export async function load({ params }) {
-    const post = await import(`../../../posts/${params.slug}.md`);
+    const slug = params.slug;
+    const post = await import(`../../../posts/${slug}.md`);
 
     if (!post) throw error(404);
 
@@ -16,6 +17,6 @@ export async function load({ params }) {
     const published = post.metadata.published !== undefined && !post.metadata.published;
 
     return {
-        content, title, published, meta, date
+        content, title, published, meta, date, slug
     };
 }

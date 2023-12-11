@@ -6,6 +6,7 @@
  import { beforeUpdate } from 'svelte';
  import Icon from '$lib/icons/Icon.svelte';
  import { siRss } from 'simple-icons';
+ import Meta from '$lib/Meta.svelte';
 
  export let data;
 
@@ -52,6 +53,12 @@
      }
  }
 </script>
+
+<Meta
+    title="Posts and publications by Shariff AM Faleel"
+    desc="The list of posts and publications by Shariff AM Faleel"
+    link="https://shariff-faleel.com/posts"
+/>
 
 <div>
     <h1 class='text-xl text-center text-slate-100'>{title}</h1>
