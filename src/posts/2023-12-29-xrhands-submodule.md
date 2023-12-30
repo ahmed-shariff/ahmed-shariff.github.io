@@ -24,26 +24,27 @@ So it goes without saying - it's all one big hot mess.
 Which is what prompted the HPUI rewrite.
 But that also means making the [Vicon pipeline](https://github.com/ovi-lab/vicon-nexus-unity-stream) work with Unity XR Hands.
 I need to de-spaghettify the Vicon pipeline at some point. 
+For now I am only adding the XR Hands subsystem.
 But I expect the XR Hands Subsystem as I am describing here to remain mostly the same.
 
 ## The subsystem implementation
 
 Following the [documentation of how to write a provider](https://docs.unity3d.com/Packages/com.unity.xr.hands@1.4/manual/implement-a-provider.html) is not too hard.
-Implement `XRHandSubsystemProvider`, extend `XRHandSubsystem` (which can be an empty) and a static method that would register the subsystem (see a full minimal example at the end).
+Implement `XRHandSubsystemProvider`, extend `XRHandSubsystem` (which can be an empty class) and a static method that would register the subsystem (see a full minimal example at the end).
 One thing to keep in mind here is that the poses are expected to be relative to the XROrigin.
-That part I didn't fully understand and isn't documented properly is how to have the subsystem I register start and do its thing.
+The part that I didn't fully understand and isn't documented properly is how to have the subsystem I register start and do its thing.
 Turns out there is a Utility class that can be used to start and stop the custom subsystem - [`XRHandProviderUtility.SubsystemUpdater`](https://docs.unity3d.com/Packages/com.unity.xr.hands@1.4/api/UnityEngine.XR.Hands.ProviderImplementation.XRHandProviderUtility.SubsystemUpdater.html).
 As far as I have understood, there are two ways of going about this.
 One is to have it start and stop from within a [Unity XR Loader](https://docs.unity3d.com/Packages/com.unity.xr.hands@1.4/manual/implement-a-provider.html#implement-an-xr-loader) or have it manually trigger somewhere within the scene.
-While it's tempting to learn how to implement an XR Loader, in the interest of not adding on more tangents, I opted for the latter option.
+While it's tempting to learn how to implement an XR Loader, in the interest of not adding more tangents to my work, I opted for the latter option.
 
-`XRHandsSubsystem` extends `SubsystemWithProvider`, which has `OnStart`, `OnStop` and `OnDestroy` which can be extended.
-These methods also call the providers `Start`, `Stop` and `Destroy` methods.
-The `SubsystemUpdater` also has a `Start`, `Stop` and `Destroy` method.
-So what I ended up doing is having the `SubsystemUpdated`s methods called in the respective methods in the `XRHandsSubsystem`.
+`XRHandsSubsystem` extends `SubsystemWithProvider`, which has the methods `OnStart`, `OnStop` and `OnDestroy` which can be extended.
+These methods also respectively call the provider's `Start`, `Stop` and `Destroy` methods.
+The `SubsystemUpdater` also has similar a `Start`, `Stop` and `Destroy` method.
+So what I ended up doing is having the `SubsystemUpdated`s methods called in the respective methods of the `XRHandsSubsystem`.
 
 Following is a very simple implementation of the subsystem and provider.
-The Vicon data pipeline uses the `MyHandSubsystem.SetHandPoses` to feed the data to the subsystem.
+The Vicon data pipeline calls `MyHandSubsystem.SetHandPoses` to feed the data to the subsystem.
 
 ### The provider
 ```csharp
@@ -51,7 +52,6 @@ using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
 using UnityEngine.XR.Hands;
-using UnityEngine.XR.Hands.ProviderImplementation;
 
 namespace MyCustomXRHandsProvider
 {
