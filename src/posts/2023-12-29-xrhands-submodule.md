@@ -4,7 +4,6 @@ comments: true
 title: "Writing a simple XR Hands subsystem"
 tags: ["programming", "hci", "machine learning", "HPUI", "Vicon", "guide", "Unity", "software design"]
 tagline: "A quick summary of how to write and use a custom XR Hand provider for Unity"
-published: false
 ---
 
 I was trying to provide the data from a custom motion capture pipeline through the Unity XR Hands Subsystem API. Naturally, the documentation on this is not the best.
