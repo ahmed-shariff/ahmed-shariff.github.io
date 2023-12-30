@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: "Software development for research projects"
-tags: ["programming", "hci", "machine learning"]
+tags: ["programming", "hci", "machine learning", "software design"]
 tagline: "My current approach to writing software artifacts in research projects."
 ---
 <script>
