@@ -28,7 +28,7 @@
             {#if post.meta.venue !== undefined}
                 <div>{post.meta.venue}</div>
             {/if}
-            {#if post.meta.doi !== undefined}
+            {#if (post.meta.ispub && post.meta.doi !== undefined)}
                 <div>{post.meta.doi}</div>
             {/if}
         </div>
@@ -36,7 +36,7 @@
             <div class='text-xs'>{post.meta.tagline}</div>
         {/if}
     </div>
-    {#if post.meta.doi !== undefined}
+    {#if post.meta.ispub}
         <div class='flex bg-slate-500 p-1.5 content-center items-center'>
             <School size="18" color={"#cccccc"}/>
         </div>

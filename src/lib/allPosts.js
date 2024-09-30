@@ -32,6 +32,11 @@ export function getAllPosts() {
     }));
 
     const tags = sortedPosts.then((posts) => {
+        const erroredPosts = posts.filter(post => post.meta === undefined);
+        if (erroredPosts.length != 0) {
+            console.log(erroredPosts.map(post => post.path));
+        }
+
         const tagsList = posts.map(post => post.meta.tags);
         const filteredTags = tagsList.filter(tags => tags !== undefined).flat();
         return [...new Set(filteredTags)].filter(tag => tag !== null);
