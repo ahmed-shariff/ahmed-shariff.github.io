@@ -42,15 +42,23 @@
         {data.title}
     </h1>
 
-    {#if data.meta.doi !== undefined}
-        <Information keyStr="Type" valueStr={data.meta.type} />
-        <Information
-            keyStr="Authors"
-            valueStr={data.meta.authors} />
+    {#if data.meta.ispub === true}
+        <Information keyStr="Type">{data.meta.type}</Information>
+        <Information keyStr="Authors">{@html data.meta.authors}</Information>
         <Information keyStr="Venue">{data.meta.venue}</Information>
         <Information keyStr="Date of publication">{data.date}</Information>
-        <Information keyStr="URL"><a href={data.meta.paperurl.trimEnd().trimStart()}>{data.meta.doi}</a></Information>
-        <Information keyStr="pdf download"><a href={data.meta.pdf.trimEnd().trimStart()} class=""><FilePdf /></a></Information>
+        {#if data.meta.doi !== undefined}
+            <Information keyStr="URL">
+                {#if data.meta.paperurl !== undefined}
+                    <a href={data.meta.paperurl.trimEnd().trimStart()}>{data.meta.doi}</a>
+                {:else}
+                    data.meta.doi
+                {/if}
+            </Information>
+        {/if}
+        {#if data.meta.pdf !== undefined}
+            <Information keyStr="pdf download"><a href={data.meta.pdf.trimEnd().trimStart()} class=""><FilePdf /></a></Information>
+        {/if}
         <Information keyStr="Abstract" inCols={true}>{data.meta.abstract}</Information>
         <Information keyStr="Citation" inCols={true}>{data.meta.citation}</Information>
     {/if}

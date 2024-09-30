@@ -1,4 +1,5 @@
 ---
+ispub: true
 title: "Evaluating design guidelines for hand proximate user interfaces"
 date: '2023-07-10'
 authors: "Francisco Perella-Holfeld, <b>Shariff AM Faleel</b>, Pourang Irani"

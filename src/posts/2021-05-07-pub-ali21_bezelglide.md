@@ -1,4 +1,5 @@
 ---
+ispub: true
 title: "BezelGlide: Interacting with Graphs on Smartwatches with Minimal Screen Occlusion"
 date: '2021-05-07'
 authors: "Ali Neshati; Bradley Rey; <b>Ahmed Shariff Mohommed Faleel</b>; Sandra Bardot; Celine Latulipe; Pourang Irani"

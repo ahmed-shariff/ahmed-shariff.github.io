@@ -1,4 +1,5 @@
 ---
+ispub: true
 title: "User Gesture Elicitation of Common Smartphone Tasks for Hand Proximate User Interfaces"
 date: '2020-05-27'
 authors: "<b>Shariff AM Faleel</b>; Michael Gammon; Yumiko Sakamoto; Carlo Menon; Pourang Irani"

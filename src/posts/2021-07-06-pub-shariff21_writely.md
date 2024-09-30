@@ -1,4 +1,5 @@
 ---
+ispub: true
 title: "Writely: Force Feedback for Non-Dominant Hand Writing Training"
 date: '2021-07-06'
 authors: "<b>Shariff AM Faleel</b>; Bibhushan Raj Joshi; Bradley Rey"

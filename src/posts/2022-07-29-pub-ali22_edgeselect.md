@@ -1,4 +1,5 @@
 ---
+ispub: true
 title: "EdgeSelect: Smartwatch Data Interaction with Minimal Screen Occlusion"
 date: '2022-11-07'
 authors: "Ali Neshati; Aaron Salo; <b>Shariff AM Faleel</b>; Ziming Li; Hai-Ning Liang; Celine Latulipe; Pourang Irani"

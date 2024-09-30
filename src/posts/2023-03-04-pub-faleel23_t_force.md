@@ -1,4 +1,5 @@
 ---
+ispub: true
 title: "T-Force: Exploring the Use of Typing Force for Three State Virtual Keyboards"
 date: '2023-04-23'
 authors: "<b>Shariff AM Faleel</b>, Yishuo Liu, Roya A Cody, Bradley Rey, Linghao Du, Jiangyue Yu, Da-Yuan Huang, Pourang Irani, Wei Li"

@@ -1,4 +1,5 @@
 ---
+ispub: true
 title: "A Novel Dialogue Manager Model for Spoken Dialogue Systems Based on User Input Learning"
 date: '2019-07-05'
 authors: "<b>M.F. Ahmed Shariff</b>; Ruwan D. Nawarathna"

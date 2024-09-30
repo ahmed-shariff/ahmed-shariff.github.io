@@ -1,4 +1,5 @@
 ---
+ispub: true
 title: "HPUI: Hand Proximate User Interfaces for One-Handed Interactions on Head Mounted Displays"
 date: '2021-08-27'
 authors: "<b>Shariff AM Faleel</b>; Michael Gammon; Kevin Fan; Da-Yuan Huang; Wei Li; Pourang Irani"

@@ -93,7 +93,7 @@
         </div>
         <ul class="pt-2">
         {#each postsData.posts as post, i}
-            {#if (tags == null || tags.length == 0 || (post.meta.tags != undefined && post.meta.tags.filter((tag) => tags.includes(tag)).length == tags.length)) && (!isPubOnly || ("doi" in post.meta))}
+            {#if (tags == null || tags.length == 0 || (post.meta.tags != undefined && post.meta.tags.filter((tag) => tags.includes(tag)).length == tags.length)) && (!isPubOnly || (post.meta.ispub))}
                 <li>
                     <PostCard {post}/>
                 </li>

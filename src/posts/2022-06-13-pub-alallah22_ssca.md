@@ -1,4 +1,5 @@
 ---
+ispub: true
 title: "SSCA: Situated Space-time Cube Analytics"
 date: '2022-06-13'
 authors: "Fouad Alallah, <b>Shariff AM Faleel</b>, Yumiko Sakamoto, Bradley Rey, Pourang Irani"
