@@ -5,7 +5,7 @@ date: '2023-07-10'
 authors: "Francisco Perella-Holfeld, <b>Shariff AM Faleel</b>, Pourang Irani"
 venue: "DIS '23"
 type: 'Conference'
-paperurl: 'https://dl.acm.org/doi/10.1145/3544548.3580915'
+paperurl: 'https://dl.acm.org/doi/10.1145/3563657.3596117'
 doi: 10.1145/3563657.3596117
 citation: "Francisco Perella-Holfeld, Shariff AM Faleel, and Pourang Irani. 2023. Evaluating design guidelines for hand proximate user interfaces. In Proceedings of the 2023 ACM Designing Interactive Systems Conference (DIS '23). Association for Computing Machinery, New York, NY, USA, 1159–1173. https://doi.org/10.1145/3563657.3596117"
 abstract: "Our study investigates the design practices of Hand-Proximate User Interfaces (HPUI) which are displayed on and around a user’s hand in a head-mounted display (HMD). Specifically, we examine one-handed inputs where the main mode of interaction is thumb-to-finger contact. Our focus is on the user interface (UI) design of these displays, and we aim to develop design guidelines and heuristics for this novel design space. To achieve this, we conducted a participatory design study involving 15 participants who provided feedback on 120 different design examples, as well as their thoughts surrounding the HPUI design. Participants favored designs that were ergonomically comfortable and flexible, and those that provided clear visibility regardless of hand positioning. Based on this feedback, we developed 7 design guidelines for Hand Proximate User Interfaces. In applying these guidelines we find that common application interfaces can easily be accommodated using HPUI for use on head-mounted displays."
