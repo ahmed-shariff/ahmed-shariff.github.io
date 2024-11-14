@@ -3,6 +3,7 @@ ispub: true
 title: "Comparison of unencumbered interaction technique for head-mounted displays"
 date: '2024-10-27'
 authors: "<b>Shariff AM Faleel</b>, Rajveer Sodhi and Pourang Irani"
+pdf: https://dl.acm.org/doi/10.1145/3698146?cid=99659534363
 venue: "ISS '24"
 type: 'Conference'
 paperurl: 'https://dl.acm.org/doi/10.1145/3698146'
@@ -12,7 +13,7 @@ abstract: "Head Mounted Displays (HMDs) are gaining more public attention. With 
 ---
 
 ```latex
-@article{10.1145/3698146,
+@article{faleel24_comp_of_unen,
 author = {Faleel, Shariff AM and Sodhi, Rajveer and Irani, Pourang},
 title = {Comparison of Unencumbered Interaction Technique for Head-Mounted Displays},
 year = {2024},
