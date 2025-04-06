@@ -45,7 +45,9 @@
     {#if data.meta.ispub === true}
         <Information keyStr="Type">{data.meta.type}</Information>
         <Information keyStr="Authors">{@html data.meta.authors}</Information>
-        <Information keyStr="Venue">{data.meta.venue}</Information>
+        {#if data.meta.venue !== undefined}
+            <Information keyStr="Venue">{data.meta.venue}</Information>
+        {/if}
         <Information keyStr="Date of publication">{data.date}</Information>
         {#if data.meta.doi !== undefined}
             <Information keyStr="URL">

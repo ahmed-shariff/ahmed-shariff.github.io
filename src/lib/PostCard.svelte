@@ -27,6 +27,8 @@
         <div class='text-slate-400 flex flex-wrap gap-x-4'>
             {#if post.meta.venue !== undefined}
                 <div>{post.meta.venue}</div>
+            {:else if post.meta.type !== undefined}
+                <div>{post.meta.type}</div>
             {/if}
             {#if (post.meta.ispub && post.meta.doi !== undefined)}
                 <div>{post.meta.doi}</div>

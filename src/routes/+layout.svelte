@@ -3,6 +3,8 @@
  import { siGithub, siRss } from 'simple-icons';
  import IoCevronUpCircleArrow from "$lib/icons/ioCevronUpCircleArrow.svelte";
  import Icon from "../lib/icons/Icon.svelte";
+
+ let currentYear = new Date().getFullYear();
 </script>
 
 <svelte:head>
@@ -49,7 +51,7 @@
     </div>
     <footer class='bg-gray-800 mt-8 py-4 text-gray-300 drop-shadow-lg shadow-gray-900'>
         <div class='container mx-auto flex justify-center text-sm'>
-                    &copy; 2023 Shariff Faleel
+                    &copy; { currentYear } Shariff Faleel
         </div>
     </footer>
 </div >

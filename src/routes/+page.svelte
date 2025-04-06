@@ -49,7 +49,7 @@
             <div class="prose dark:prose-invert max-w-none">
                 <h1 class='text-center font-normal text-lg'>Hello there ....</h1>
                 <p>I am Ahmed Shariff, in case you didn&apos;t know ;). A tech enthusiast, a believer in the power of technology. My primary interest is in augmenting human experiences. My current focus is on improving the interactions with immersive technologies.</p>
-                <p>Currently, I am a PhD Candidate at the <a href="https://ok.ubc.ca">University of British Columbia - Okanagan</a>, under the supervision of <a href="https://cmps-people.ok.ubc.ca/pirani/">Prof. Pourang Irani</a> at the <a href="https://ovi.ok.ubc.ca">OVI Lab</a>.
+                <p>I completed my PhD at <a href="https://ok.ubc.ca">University of British Columbia - Okanagan</a>, under the supervision of <a href="https://cmps-people.ok.ubc.ca/pirani/">Prof. Pourang Irani</a> at the <a href="https://ovi.ok.ubc.ca">OVI Lab</a>.
                 </p>
             </div>
             <div class="flex flex-col text-center my-4 p-2">
