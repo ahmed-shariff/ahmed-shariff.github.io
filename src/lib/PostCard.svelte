@@ -7,24 +7,24 @@
 </script>
 
 <a href="/post/{post.path}" class="rounded-btn min-h-24 max-h-64 flex flex-row">
-    <div class="grow text-left h-full p-3 prose dark:prose-invert prose-sm max-w-none prose-h1:text-base prose-h1:font-normal">
-        <div class="text-slate-400">
+    <div class="grow text-left h-full p-3 prose prose-sm max-w-none prose-h1:text-base prose-h1:font-normal">
+        <div class="text-slate-300">
             {post.date}
         </div>
         <h1 class="-mb-0.5">
         {#if post.meta.published === false}
-            <div class='inline text-red-400'>[DRAFT] </div>
+            <div class='inline text-red-300'>[DRAFT] </div>
         {/if}
         {post.meta.title}
         </h1>
         {#if (tags !== null)}
-            <div class="text-xs text-slate-400 flex gap-x-1 flex-wrap">
+            <div class="text-xs text-slate-300 flex gap-x-1 flex-wrap">
                 {#each tags as tag}
                     <Tag {tag} />
                 {/each}
             </div>
         {/if}
-        <div class='text-slate-400 flex flex-wrap gap-x-4'>
+        <div class='text-slate-300 flex flex-wrap gap-x-4'>
             {#if post.meta.venue !== undefined}
                 <div>{post.meta.venue}</div>
             {:else if post.meta.type !== undefined}

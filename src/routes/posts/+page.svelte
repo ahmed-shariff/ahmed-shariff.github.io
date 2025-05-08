@@ -60,8 +60,8 @@
     link="https://shariff-faleel.com/posts"
 />
 
-<div>
-    <h1 class='text-xl text-center text-slate-100'>{title}</h1>
+<div class="text-slate-200">
+    <h1 class='text-xl text-center text-slate-200'>{title}</h1>
     <div class="flex mx-1 w-100">
         <div class="flex flex-col sm:flex-row space-x-1 justify-start items-center">
             <button class="rounded-btn w-48 px-2 py-1" on:click={publicationFilterBtnOnClick}>{publicationFilterBtnTxt}</button>

@@ -29,7 +29,7 @@
                 </div>
                 <div
                     class="absolute mt-2 origin-top-right rounded-md shadow-lg transition-transform transition-opacity ease-in-out duration-200 opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100" >
-                    <div class="p-2 bg-gray-900 rounded-md shadow dark-mode:bg-gray-700">
+                    <div class="p-2 bg-gray-900 rounded-md shadow">
                         <a href="https://gist.github.com/ahmed-shariff" class="flex space-x-2 nav-btn w-100">
                             <div><Icon title="github" size="18"><path d={siGithub.path}/></Icon></div><div>github-gists</div>
                         </a>

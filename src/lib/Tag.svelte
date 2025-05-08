@@ -47,5 +47,5 @@
 </script>
 
 <div>
-    <button class="hover:underline" on:click={onClick}>#{tag}</button>
+    <button class="hover:underline text-slate-300" on:click={onClick}>#{tag}</button>
 </div>
