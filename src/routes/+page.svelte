@@ -48,8 +48,7 @@
         <div class="p-2 divide-y-4 divide-slate-600">
             <div class="prose max-w-none">
                 <h1 class='text-center font-normal text-lg'>Hello there ....</h1>
-                <p>I am Ahmed Shariff, in case you didn&apos;t know ;). A tech enthusiast, a believer in the power of technology. My primary interest is in augmenting human experiences. My current focus is on improving the interactions with immersive technologies.</p>
-                <p>I completed my PhD at <a href="https://ok.ubc.ca">University of British Columbia - Okanagan</a>, under the supervision of <a href="https://cmps-people.ok.ubc.ca/pirani/">Prof. Pourang Irani</a> at the <a href="https://ovi.ok.ubc.ca">OVI Lab</a>.
+                <p>I am Shariff Faleel, a post-doctoral fellow at the <a href="https://ovi.ok.ubc.ca">OVI Lab</a>. I design and study immersive technologies like AR and VR to improve how people interact with information while they go about their everyday life. I completed my PhD under <a href="https://cmps-people.ok.ubc.ca/pirani/">Prof. Pourang Irani</a>. Currently I focus on translating academic innovation to real-world use, particularly around realizing smart-glases as the next iteration of mobile computing. My overall goal is to develop technology that can meaningfully augment the human experience.
                 </p>
             </div>
             <div class="flex flex-col text-center my-4 p-2">
