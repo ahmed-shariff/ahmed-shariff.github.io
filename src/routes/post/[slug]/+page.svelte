@@ -43,6 +43,13 @@
     </h1>
 
     {#if data.meta.ispub === true}
+        {#if data.meta.award !== undefined}
+            <div class='flex space-x-4 mt-2'>
+                <div class='prose-p:m-0'>
+                 {"🏆 " + data.meta.award}
+                </div>
+            </div>
+        {/if}
         <Information keyStr="Type">{data.meta.type}</Information>
         <Information keyStr="Authors">{@html data.meta.authors}</Information>
         {#if data.meta.venue !== undefined}

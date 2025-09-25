@@ -33,6 +33,9 @@
             {#if (post.meta.ispub && post.meta.doi !== undefined)}
                 <div>{post.meta.doi}</div>
             {/if}
+            {#if (post.meta.award !== undefined)}
+                <div>{"🏆 " + post.meta.award}</div>
+            {/if}
         </div>
         {#if post.meta.tagline !== undefined}
             <div class='text-xs'>{post.meta.tagline}</div>
