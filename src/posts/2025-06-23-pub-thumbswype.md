@@ -10,6 +10,8 @@ abstract: "Designing a comfortable, familiar, and efficient one-handed text entr
 doi: 10.1145/3743708
 paperurl: 'https://doi.org/10.1145/3743708'
 pdf: https://dl.acm.org/doi/pdf/10.1145/3743708
+tags: ["HPUI"]
+award: "Honourable mention"
 ---
 
 ```latex

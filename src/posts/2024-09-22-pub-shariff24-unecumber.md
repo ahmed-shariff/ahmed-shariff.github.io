@@ -10,6 +10,7 @@ paperurl: 'https://dl.acm.org/doi/10.1145/3698146'
 doi: 10.1145/3698146
 citation: 'Shariff AM Faleel, Rajveer Sodhi, and Pourang Irani. 2024. Comparison of Unencumbered Interaction Technique for Head-Mounted Displays. Proc. ACM Hum.-Comput. Interact. 8, ISS, Article 546 (December 2024), 17 pages. https://doi.org/10.1145/3698146'
 abstract: "Head Mounted Displays (HMDs) are gaining more public attention. With the advancement of tracking technologies, they are incorporating unencumbered interaction techniques to address the need for user-friendly and efficient interaction techniques for day-to-day activities. While there is a good understanding of the different interaction techniques individually, very little research has been done to compare them directly. This would be vital to understanding their strengths and weaknesses in different contexts and building better synergies among them. This paper uses a target selection task to compare the performance and user preferences for four interaction techniques: gaze-pinch, ray pointer, hand-proximate user interface, and direct mid-air interactions. Results indicate that the gaze-pinch interaction technique required significantly more time to complete tasks than the others, whose time to complete was similar. However, in terms of preferences and errors, the interaction techniques mostly performed similar."
+tags: ["HPUI"]
 ---
 
 ```latex

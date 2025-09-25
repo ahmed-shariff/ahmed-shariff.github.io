@@ -12,6 +12,7 @@ abstract: "Our study investigates the design practices of Hand-Proximate User In
 pdf: 'https://dl.acm.org/doi/10.1145/3563657.3596117?cid=99659534363'
 thumbnail: "/assets/2023-07-08/TeaserFigure.png"
 thumbnailDescription: "These 16 hand-proximate user interfaces serve as examples to help participants understand the possible designs they can create. The interfaces are organized into different rows, each representing a specific application. For instance, the third row depicts a map application, where the first three columns exhibit distinct map navigation or display styles. The first column demonstrates a detached display with joystick control, the second features a touchpad swipe control, and the third showcases a continuous display and combined input surface. The fourth column portrays a submenu that provides additional options, such as inputting directions" 
+tags: ["HPUI"]
 ---
 
 ```latex
