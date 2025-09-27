@@ -24,6 +24,11 @@
                 {/each}
             </div>
         {/if}
+        {#if (post.meta.ispub)}
+        <div class='text-slate-300 flex flex-wrap prose-p:m-0'>
+            {@html post.meta.authors}
+        </div>
+        {/if}
         <div class='text-slate-300 flex flex-wrap gap-x-4'>
             {#if post.meta.venue !== undefined}
                 <div>{post.meta.venue}</div>
