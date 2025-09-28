@@ -9,7 +9,7 @@ citation: "Rishav Banerjee, Sharif AM Faleel, Omang Baheti, Khalad Hasan, and Po
 abstract: "Designing a comfortable, familiar, and efficient one-handed text entry method for Head-Mounted Displays (HMDs) remains a significant challenge. Existing midair typing systems induce fatigue, while novel techniques often demand extensive training or sacrifice input efficiency. Consequently, we introduce ThumbSwype, a novel thumb-to-finger text entry technique that adapts smartphone swipe typing for HMDs. Users see the traditional QWERTY keyboard overlaid on their index, middle, and ring fingers, allowing them to perform swipe gestures with their thumb to type words. In an evaluation study (N=16), participants achieved a mean of 14.52 words per minute (WPM), which is 63.8% of their smartphone swipe-typing performance, with a peak average of 20.2 WPM. We compare ThumbSwype’s performance with related work, and discuss directions for future improvement."
 doi: 10.1145/3743708
 paperurl: 'https://doi.org/10.1145/3743708'
-pdf: https://dl.acm.org/doi/pdf/10.1145/3743708
+pdf:  https://dl.acm.org/doi/10.1145/3743708?cid=99659534363
 tags: ["HPUI"]
 award: "Honourable mention"
 ---
