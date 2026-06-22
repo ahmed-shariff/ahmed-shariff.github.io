@@ -4,7 +4,7 @@ import { format } from 'fecha';
 
 export async function load({ params }) {
     const slug = params.slug;
-    const post = await import(`../../../posts/${slug}.md`);
+    const post = await import(`../../../../posts/${slug}.md`);
 
     if (!post) throw error(404);
 

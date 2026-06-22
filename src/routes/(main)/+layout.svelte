@@ -1,8 +1,8 @@
 <script>
- import "../app.css";
+ import "../../app.css";
  import { siGithub, siRss } from 'simple-icons';
  import IoCevronUpCircleArrow from "$lib/icons/ioCevronUpCircleArrow.svelte";
- import Icon from "../lib/icons/Icon.svelte";
+ import Icon from "../../lib/icons/Icon.svelte";
 
  let currentYear = new Date().getFullYear();
 </script>

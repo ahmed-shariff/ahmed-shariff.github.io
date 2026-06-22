@@ -6,7 +6,7 @@ export function slugToDate(slug) {
 }
 
 export function getAllPosts() {
-    const allPostFiles = import.meta.glob('/src/posts/*.md');
+    const allPostFiles = import.meta.glob('../posts/*.md');
     const iterablePostFiles = Object.entries(allPostFiles);
 
     const allPosts = Promise.all(
@@ -25,7 +25,7 @@ export function getAllPosts() {
         })
     );
 
-    const filteredPosts = allPosts.then((posts) => posts.filter(post => (dev || post.meta.published === undefined || post.meta.publised)));
+    const filteredPosts = allPosts.then((posts) => posts.filter(post => (dev || post.meta.published === undefined || post.meta.published)));
 
     const sortedPosts = filteredPosts.then((posts) => posts.sort((a, b) => {
         return new Date(b.date) - new Date(a.date);
