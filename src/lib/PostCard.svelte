@@ -2,7 +2,7 @@
  import Tag from "./Tag.svelte";
  import School from "./icons/school.svelte";
 
- export let post;
+ let { post } = $props();
  const tags = (post.meta.tags !== undefined) && (post.meta.tags !== null) && (post.meta.tags.length > 0) ? post.meta.tags: null;
 </script>
 

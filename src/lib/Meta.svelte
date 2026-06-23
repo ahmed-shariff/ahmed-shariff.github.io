@@ -1,7 +1,5 @@
 <script>
- export let title;
- export let desc;
- export let link; // cannonical
+ let {title, desc, link } = $props(); // link is cannonical
 </script>
 
 <svelte:head>

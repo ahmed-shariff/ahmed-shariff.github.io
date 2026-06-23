@@ -3,25 +3,23 @@
  import { goto } from "$app/navigation";
  import PostCard from "$lib/PostCard.svelte";
  import Tag from "$lib/Tag.svelte";
- import { beforeUpdate } from 'svelte';
  import Icon from '$lib/icons/Icon.svelte';
  import { siRss } from 'simple-icons';
  import Meta from '$lib/Meta.svelte';
 
- export let data;
+ let { data } = $props();
 
  let pubVal, tagsVal;
- beforeUpdate(() => {
+
+ $effect.pre(() => {
      pubVal = $page.url.searchParams.get("pub");
      tagsVal = $page.url.searchParams.getAll("tag");
  })
 
- let isPubOnly, tags, publicationFilterBtnTxt, title;
- $: isPubOnly= pubVal;
- $: publicationFilterBtnTxt = isPubOnly ? "Show all posts" : "Show publications only";
- $: tags = tagsVal;
-
- $: title = isPubOnly ? "Publications" : "Posts";
+ let isPubOnly = $derived(pubVal);
+ let publicationFilterBtnTxt = $derived(isPubOnly ? "Show all posts" : "Show publications only");
+ let tags = $derived(tagsVal);
+ let title = $derived(isPubOnly ? "Publications" : "Posts");
 
  function publicationFilterBtnOnClick() {
      let query = new URLSearchParams($page.url.searchParams.toString());
@@ -44,8 +42,8 @@
  }
 
  function handleTagChange(event) {
-     let tag = event.detail.tag;
-     if (event.detail.inverseOp) {
+     let tag = event.tag;
+     if (event.inverseOp) {
          tags = tags.filter(_tag => _tag !== tag);
      }
      else {
@@ -64,13 +62,13 @@
     <h1 class='text-xl text-center text-slate-200'>{title}</h1>
     <div class="flex mx-1 w-100">
         <div class="flex flex-col sm:flex-row space-x-1 justify-start items-center">
-            <button class="rounded-btn w-48 px-2 py-1" on:click={publicationFilterBtnOnClick}>{publicationFilterBtnTxt}</button>
+            <button class="rounded-btn w-48 px-2 py-1" onclick={publicationFilterBtnOnClick}>{publicationFilterBtnTxt}</button>
             {#if (tags !== undefined) && (tags !== null) && (tags.length > 0)}
-                <button class="rounded-btn w-48 px-2 py-1" on:click={clearTagsBtnOnClick}>Clear all tags</button>
+                <button class="rounded-btn w-48 px-2 py-1" onclick={clearTagsBtnOnClick}>Clear all tags</button>
                 <div class="flex flex-wrap">
                     <div class="font-semibold pl-4"> Selected tags:</div>
                     {#each tags as tag}
-                        <Tag {tag} inverseOp={true} on:change={handleTagChange} />
+                        <Tag {tag} inverseOp={true} change={handleTagChange} />
                     {/each}
                 </div>
             {/if}
@@ -85,20 +83,24 @@
     {#await data then postsData}
         <div class="flex flex-wrap flex-row px-3 space-x-1">
             <div class="font-semibold">Filter by tag:</div>
-            {#each postsData.tags as tag}
-                {#if tags === undefined || !tags.includes(tag)}
-                    <Tag {tag} on:change={handleTagChange} />
-                {/if}
-            {/each}
+            {#await postsData.tags then postTags}
+                {#each postTags as tag}
+                    {#if tags === undefined || !tags.includes(tag)}
+                        <Tag {tag} change={handleTagChange} />
+                    {/if}
+                {/each}
+            {/await}
         </div>
         <ul class="pt-2">
-        {#each postsData.posts as post, i}
-            {#if (tags == null || tags.length == 0 || (post.meta.tags != undefined && post.meta.tags.filter((tag) => tags.includes(tag)).length == tags.length)) && (!isPubOnly || (post.meta.ispub))}
-                <li>
-                    <PostCard {post}/>
-                </li>
-            {/if}
-        {/each}
+        {#await postsData.posts then posts}
+            {#each posts as post}
+                {#if (tags == null || tags.length == 0 || (post.meta.tags != undefined && post.meta.tags.filter((tag) => tags.includes(tag)).length == tags.length)) && (!isPubOnly || (post.meta.ispub))}
+                    <li>
+                        <PostCard {post}/>
+                    </li>
+                {/if}
+            {/each}
+        {/await}
         </ul>
     {/await}
 </div>

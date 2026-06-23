@@ -5,16 +5,16 @@
  import FilePdf from "$lib/icons/FilePDF.svelte";
  import Meta from "$lib/Meta.svelte";
 
- export let data;
+let { data } = $props();
 
- let metaDesc = "";
+let metaDesc = $derived.by(() => {
+     if (data?.meta?.doi !== undefined)
+         return data.meta.abstract;
+     if (data?.meta?.tagline !== undefined)
+         return data.meta.tagline;
+     return data?.title ?? "";
+});
 
- if (data.meta.doi !== undefined)
-     metaDesc = data.meta.abstract;
- else if (data.meta.tagline !== undefined)
-     metaDesc = data.meta.tagline;
- else
-     metaDesc = data.title;
 </script>
 
 <Meta

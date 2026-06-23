@@ -1,6 +1,5 @@
 <script>
- export let text;
- export let href;
+ let { text, href } = $props();
 </script>
 
 <a class="button group overflow-hidden px-6 h-12 rounded-btn rounded-full flex space-x-2 items-center" href={href}>

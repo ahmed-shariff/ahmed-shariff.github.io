@@ -1,7 +1,6 @@
 <script>
  import Icon from "$lib/icons/Icon.svelte";
- export let color = 'currentColor';
- export let size = 24;
+ let { color = 'currentColor', size = 24 } = $props();
 </script>
 
 <Icon width={size} height={size} color={color} viewBox={"0 0 512 512"}>

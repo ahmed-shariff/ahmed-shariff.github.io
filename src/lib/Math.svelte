@@ -1,6 +1,6 @@
 <script> 
  import katex from 'katex';
- export let eqn;
+ let { eqn } = $props();
  const eqnText = katex.renderToString(eqn, {
      block: true,
      displayMode: false,

@@ -1,6 +1,5 @@
 <script>
- export let keyStr;
- export let inCols=false;
+ let { keyStr, inCols = false} = $props();
 
  let flexSet = inCols ? "flex-col sm:flex-row":"";
 </script>

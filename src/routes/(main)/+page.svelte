@@ -6,7 +6,7 @@
  import ArrowButton from '$lib/ArrowButton.svelte';
  import Meta from '$lib/Meta.svelte';
 
- export let data;
+ let { data } = $props();
 
  let gavatarSize = 220;
  let gavatarQueryString = `//en.gravatar.com/avatar/${getMD5("shariff.mfa@outlook.com", {encoding: 'binary'})}?s=${gavatarSize}&r=pg&d=retro`

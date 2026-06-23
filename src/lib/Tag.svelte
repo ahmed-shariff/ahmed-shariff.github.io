@@ -1,17 +1,13 @@
 <script>
  import { page } from '$app/stores';
  import { goto } from "$app/navigation";
- import { beforeUpdate, createEventDispatcher } from 'svelte';
 
- export let tag;
- export let inverseOp = false;
+ let { tag, change, inverseOp = false } = $props();
 
  let query = null;
- beforeUpdate(() => {
+ $effect.pre(() => {
      query = new URLSearchParams($page.url.searchParams.toString());
  });
-
- const dispatch = createEventDispatcher();
 
  // When inverseOp is true, remove the `tag` from the search query,
  // if  not add it on click.
@@ -41,11 +37,11 @@
 
          // NOTE: goto doesn't change the state on static site, but sets the query params
          goto(`?${queryStr}`);
-         dispatch('change', { tag: tag, inverseOp: inverseOp });
+         change({ tag: tag, inverseOp: inverseOp });
      }
  }
 </script>
 
 <div>
-    <button class="hover:underline text-slate-300" on:click={onClick}>#{tag}</button>
+    <button class="hover:underline text-slate-300" onclick={onClick}>#{tag}</button>
 </div>
