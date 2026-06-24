@@ -10,7 +10,7 @@ abstract: "Designing a comfortable, familiar, and efficient one-handed text entr
 doi: 10.1145/3743708
 paperurl: 'https://doi.org/10.1145/3743708'
 pdf:  https://dl.acm.org/doi/10.1145/3743708?cid=99659534363
-tags: ["HPUI"]
+tags: ["HPUI", "text-entry"]
 award: "Honourable mention"
 ---
 
