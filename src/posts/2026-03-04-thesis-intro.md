@@ -12,7 +12,7 @@ published: true
 </script>
 
 
-*This is rewrite of my [PhD thesis](./2025-03-27-pub-shariff-thesis.md) introdiction.*
+*This is rewrite of my [PhD thesis](./2025-03-27-pub-shariff-thesis) introdiction.*
 
 <figure>
   <img src={ffirst}/>
