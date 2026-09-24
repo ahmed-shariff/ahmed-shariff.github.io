@@ -1,10 +1,18 @@
 <script>
  import "../../app.css";
+ import { beforeNavigate } from '$app/navigation';
+ import { updated } from '$app/state';
  import { siGithub, siRss } from 'simple-icons';
  import IoCevronUpCircleArrow from "$lib/icons/ioCevronUpCircleArrow.svelte";
  import Icon from "../../lib/icons/Icon.svelte";
 
  let currentYear = new Date().getFullYear();
+
+ beforeNavigate(({ willUnload, to }) => {
+     if (updated.current && !willUnload && to?.url) {
+         location.href = to.url.href;
+     }
+ });
 </script>
 
 <svelte:head>
