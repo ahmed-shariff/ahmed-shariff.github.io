@@ -1,10 +1,11 @@
 <script>
  import getMD5 from 'md5';
- import { siGithub, siGooglescholar, siFacebook, siTwitter, siLinkedin } from 'simple-icons';
+ import { siGithub, siGooglescholar, siFacebook, siX } from 'simple-icons';
  import PersonalLink from '$lib/PersonalLink.svelte';
  import PostCard from '$lib/PostCard.svelte';
  import ArrowButton from '$lib/ArrowButton.svelte';
  import Meta from '$lib/Meta.svelte';
+ import linkedin from '$lib/icons/linkedin.svelte';
 
  let { data } = $props();
 
@@ -38,10 +39,10 @@
                     <PersonalLink link="https://www.facebook.com/amsha1" text="facebook" icon={siFacebook} />
                 </li>
                 <li>
-                    <PersonalLink link="https://twitter.com/_ahmedshariff_" text="Twitter" icon={siTwitter} />
+                    <PersonalLink link="https://x.com/_ahmedshariff_" text="X" icon={siX} />
                 </li>
                 <li>
-                    <PersonalLink link="https://www.linkedin.com/in/shariff-faleel" text="Linkedin" icon={siLinkedin} />
+                    <PersonalLink link="https://www.linkedin.com/in/shariff-faleel" text="Linkedin" icon={linkedin} />
                 </li>
             </ul>
         </div>
