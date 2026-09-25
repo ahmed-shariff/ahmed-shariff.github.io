@@ -13,10 +13,10 @@ const config = {
 	    precompress: false,
 	    strict: true
 	}),
-	version: {
-	    name: Date.now().toString(),
-	    pollInterval: 5000
-	},
+	/* version: {
+	   name: Date.now().toString(),
+	   pollInterval: 5000
+	   }, */
 	paths: {
 	    /* base: process.argv.includes('dev') ? '' : "https://shariff-faleel.com" */
 	}
