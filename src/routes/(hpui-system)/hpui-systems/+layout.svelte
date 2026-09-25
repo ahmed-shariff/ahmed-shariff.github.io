@@ -25,7 +25,7 @@
 </svelte:head>
 
 <div class="min-h-screen bg-[#F7FAFF] text-slate-900">
-    <header class="sticky top-0 z-20 border-b border-[#C9D8F7] bg-white/90 backdrop-blur">
+    <header class="sticky top-0 z-20 border-b border-[#C9D8F7] bg-white/90 backdrop-blur-sm">
 	<div class="container mx-auto flex items-center justify-between px-4 py-3">
 	    <a href="/hpui-systems" class="flex items-center gap-3 font-semibold tracking-tight text-[#00132B]">
 		<div class="h-9 w-9 rounded-xl bg-[#0253F3]"></div>

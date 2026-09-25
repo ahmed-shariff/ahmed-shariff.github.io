@@ -1,15 +1,31 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-@layer components {
-    .rounded-btn {
-        @apply border border-gray-200 m-2 rounded-xl shadow-md shadow-gray-800 overflow-hidden text-ellipsis transition duration-100 hover:shadow hover:bg-slate-600
-    }
+@config '../tailwind.config.js';
 
-    .nav-btn {
-        @apply transition duration-100 bg-transparent shadow-md shadow-transparent rounded-lg hover:shadow-gray-900 hover:bg-gray-700 hover:underline hover:decoration-2 px-4 py-2 items-center
-    }
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility rounded-btn {
+  @apply border border-gray-200 m-2 rounded-xl shadow-md shadow-gray-800 overflow-hidden text-ellipsis transition duration-100 hover:shadow-sm hover:bg-slate-600;
+}
+
+@utility nav-btn {
+  @apply transition duration-100 bg-transparent shadow-md shadow-transparent rounded-lg hover:shadow-gray-900 hover:bg-gray-700 hover:underline hover:decoration-2 px-4 py-2 items-center;
 }
 
 @layer base {

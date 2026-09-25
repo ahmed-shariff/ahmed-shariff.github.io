@@ -46,7 +46,7 @@
         <div class="mt-8 flex flex-wrap gap-3">
             <a
                 href="#newsletter"
-                class="rounded-xl bg-[#0253F3] px-5 py-3 font-medium text-white shadow-sm transition hover:bg-[#0047d1]"
+                class="rounded-xl bg-[#0253F3] px-5 py-3 font-medium text-white shadow-xs transition hover:bg-[#0047d1]"
             >
             Join the newsletter
             </a>
@@ -60,7 +60,7 @@
     </div>
 
     
-    <div class="aspect-[4/3] rounded-2xl bg-gradient-to-br from-[#EAF1FF] to-[#DDE8FF] p-1">
+    <div class="aspect-4/3 rounded-2xl bg-linear-to-br from-[#EAF1FF] to-[#DDE8FF] p-1">
         <div class="flex h-full flex-col justify-between rounded-2xl border border-dashed border-[#87A9FF] bg-white/70 p-2">
             <figure class="flex h-full flex-col items-center justify-center text-center">
                 <img src={ffirst} alt="my alt text" class="max-h-full max-w-full object-contain" />
@@ -106,7 +106,7 @@
     {#each publications as pub}
         <a
             href={pub.href}
-            class="block rounded-2xl border border-[#C9D8F7] bg-white p-5 transition hover:border-[#0253F3] hover:shadow-sm"
+            class="block rounded-2xl border border-[#C9D8F7] bg-white p-5 transition hover:border-[#0253F3] hover:shadow-xs"
         >
             <h3 class="font-semibold text-[#00132B]">{pub.title}</h3>
             <p class="mt-1 text-sm text-slate-600">{@html pub.desc}</p>
@@ -117,7 +117,7 @@
     <div class="mt-6 grid gap-4">
         <a
             href="https://shariff-faleel.com/posts?tag=HPUI"
-            class="block rounded-2xl border border-[#C9D8F7] bg-white p-5 transition hover:border-[#0253F3] hover:shadow-sm"
+            class="block rounded-2xl border border-[#C9D8F7] bg-white p-5 transition hover:border-[#0253F3] hover:shadow-xs"
         >
             <p>
         ... For more see full list of publication and articals related to HPUI here.
@@ -204,7 +204,7 @@
             type="email"
             name="email"
             id="bd-email"
-            class="w-full rounded-xl border border-[#C9D8F7] px-4 py-3 outline-none transition focus:border-[#0253F3]"
+            class="w-full rounded-xl border border-[#C9D8F7] px-4 py-3 outline-hidden transition focus:border-[#0253F3]"
         />
         <input
             type="submit"
