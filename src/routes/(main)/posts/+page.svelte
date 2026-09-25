@@ -80,27 +80,21 @@
             </a>
         </div>
     </div>
-    {#await data then postsData}
-        <div class="flex flex-wrap flex-row px-3 space-x-1">
-            <div class="font-semibold">Filter by tag:</div>
-            {#await postsData.tags then postTags}
-                {#each postTags as tag}
-                    {#if tags === undefined || !tags.includes(tag)}
-                        <Tag {tag} change={handleTagChange} />
-                    {/if}
-                {/each}
-            {/await}
-        </div>
-        <ul class="pt-2">
-        {#await postsData.posts then posts}
-            {#each posts as post}
-                {#if (tags == null || tags.length == 0 || (post.meta.tags != undefined && post.meta.tags.filter((tag) => tags.includes(tag)).length == tags.length)) && (!isPubOnly || (post.meta.ispub))}
-                    <li>
-                        <PostCard {post}/>
-                    </li>
-                {/if}
-            {/each}
-        {/await}
-        </ul>
-    {/await}
+    <div class="flex flex-wrap flex-row px-3 space-x-1">
+        <div class="font-semibold">Filter by tag:</div>
+        {#each data.tags as tag}
+            {#if tags === undefined || !tags.includes(tag)}
+                <Tag {tag} change={handleTagChange} />
+            {/if}
+        {/each}
+    </div>
+    <ul class="pt-2">
+        {#each data.posts as post}
+            {#if (tags == null || tags.length == 0 || (post.meta.tags != undefined && post.meta.tags.filter((tag) => tags.includes(tag)).length == tags.length)) && (!isPubOnly || (post.meta.ispub))}
+                <li>
+                    <PostCard {post}/>
+                </li>
+            {/if}
+        {/each}
+    </ul>
 </div>
