@@ -57,11 +57,11 @@ Use `Read`, `Glob`, and `Grep` to inspect source files before editing. Use `Edit
 - `src/lib/*.svelte` — shared site and post components.
 - `src/lib/icons/` — icon components.
 - `src/posts/*.md` — post content and frontmatter metadata.
-- `src/posts/assets/` — assets kept with individual posts.
+- `src/posts/assets/` — assets kept with individual posts. Post frontmatter thumbnail paths are relative to this directory, for example `2026-07-03/thumbnail.png`.
 - `static/` — files copied directly to the generated site, including PDFs and favicons.
 - `public/` — additional public files, including `posts.xml` and images.
 - `svelte.config.js` — static adapter and mdsvex configuration.
-- `vite.config.js` — SvelteKit and Tailwind Vite plugins.
+- `vite.config.js` — SvelteKit and Tailwind Vite plugins. On this Windows setup, the repository may be accessed through a symlink or mapped drive. If Vite returns 403 for `/.svelte-kit/generated/...` or `/src/posts/assets/...`, inspect the resolved project path and configure `server.fs.allow` for the project root in `vite.config.js`.
 - `tailwind.config.js` — content scanning, typography, spacing, font sizes, and syntax highlighting.
 - `.github/workflows/svelte-gh-pages-deploy.yml` — build and GitHub Pages deployment.
 - `build/` — static adapter output; generated, not source.
@@ -75,11 +75,11 @@ Use `Read`, `Glob`, and `Grep` to inspect source files before editing. Use `Edit
    - Directly served files belong under `static/` or the existing `public/` area, based on the neighboring implementation.
    - Build and deployment behavior belongs in the root configuration files or `.github/workflows/`.
 
-2. For post-list behavior, read `src/lib/allPosts.js` first. It uses `import.meta.glob('../posts/*.md')`, reads each module's `metadata`, derives the date from the first ten characters of the filename, filters unpublished posts outside development, sorts by descending date, and gathers unique non-null tags.
+2. For post-list behavior, read `src/lib/allPosts.js` first. It uses `import.meta.glob('../posts/*.md')`, reads each module's `metadata`, derives the date from the first ten characters of the filename, filters unpublished posts outside development, sorts by descending date, and gathers unique non-null tags. If list metadata refers to assets, resolve them in this data layer with a static `import.meta.glob('../posts/assets/**/*', { eager: true, query: '?url', import: 'default' })`; never pass `/src/posts/assets/...` strings to the browser.
 
 3. For a new post, add a file under `src/posts/` whose filename begins with `YYYY-MM-DD`. Follow the metadata keys used by nearby posts, especially `title`, `description`, `tags`, `image`, `ispub`, and `published`. Keep post-specific media under `src/posts/assets/<post-date>/` when that is the existing pattern.
 
-4. For post detail behavior, follow the route parameter flow. `[slug]/+page.js` imports `../../../../posts/${slug}.md`, reads `post.metadata` and `post.default`, derives a display date with `slugToDate`, and returns the content and metadata to `[slug]/+page.svelte`.
+4. For post detail behavior, follow the route parameter flow. `[slug]/+page.js` imports `../../../../posts/${slug}.md`, reads `post.metadata` and `post.default`, derives a display date with `slugToDate`, and returns the content and metadata to `[slug]/+page.svelte`. Reuse the shared asset resolver from `src/lib/allPosts.js` so detail pages and list pages return the same generated thumbnail URL.
 
 5. For home-page changes, preserve the distinction between `meta.ispub` posts and regular posts. The home loader selects up to four of each category after `getAllPosts()` resolves.
 
@@ -99,11 +99,18 @@ Use `Read`, `Glob`, and `Grep` to inspect source files before editing. Use `Edit
 - `published` is treated differently in development and production. Development includes unpublished posts; the production filter keeps posts where `published` is absent or truthy.
 - The detail loader's `published` value is computed separately and should not be assumed to match the archive filter without checking the code.
 - `meta.ispub` controls the home-page publication grouping. It is not the same flag as `published`.
-- `src/posts/assets/` is not included by the post glob. Keep asset changes independent of Markdown module discovery.
+- `src/posts/assets/` is not included by the post glob. Keep asset changes independent of Markdown module discovery, and use Vite imports or `import.meta.glob` for assets. Frontmatter paths are metadata keys, not browser URLs.
+- For Markdown-body images, the existing `<script>` imports from `/src/posts/assets/...` are valid because mdsvex/Vite transforms static imports. Do not copy that browser-facing path into dynamically rendered frontmatter metadata.
 - `/post` intentionally redirects to `/posts`; do not add a duplicate archive page without changing that route.
 - `src/routes/(main)/posts.xml/+server.js` contains a fixed site URL. Update it deliberately if the canonical domain changes.
 - `build/`, `.svelte-kit/`, `.next/`, and `node_modules/` are generated or installed content, not places for source edits.
 - The repository contains both `public/` and `static/`. Follow the existing location and verify the resulting URL rather than moving files casually.
+
+## Development-server troubleshooting
+
+If the browser reports 403 responses for generated SvelteKit modules such as `/.svelte-kit/generated/client/nodes/0.js`, or for frontmatter thumbnails under `/src/posts/assets/...`, the issue is usually Vite's filesystem allow-list rejecting the resolved target of a symlinked or mapped project path. Reinstalling packages and deleting generated directories does not change that check. Configure `server.fs.allow` in `vite.config.js` for the project root, then restart Vite. Verify that only one dev server is running before testing the port, since Vite may choose the next port when 5173 is occupied. If an agent starts a server for diagnosis, stop that process when finished.
+
+Do not assume `C:\\...` and `S:\\...` paths are separate checkouts. Ask first or inspect the link/mapping because they may refer to the same project.
 
 ## Verification
 
