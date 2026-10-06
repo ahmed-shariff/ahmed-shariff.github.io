@@ -44,7 +44,12 @@ let metaDesc = $derived.by(() => {
     </h1>
 
     {#if thumbnail}
-        <img src={thumbnail} alt={data.meta.thumbnailDescription ?? data.title} class="w-full max-h-96 object-contain" />
+        <figure class="m-0 w-full">
+            <img src={thumbnail} alt={data.meta.thumbnailDescription ?? data.title} class="h-auto max-w-full object-contain" />
+            {#if data.meta.thumbnailDescription}
+                <figcaption class="text-sm text-slate-400">{data.meta.thumbnailDescription}</figcaption>
+            {/if}
+        </figure>
     {/if}
 
     {#if data.meta.ispub === true}
