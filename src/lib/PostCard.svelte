@@ -7,11 +7,16 @@
  const tags = $derived((post.meta.tags !== undefined) && (post.meta.tags !== null) && (post.meta.tags.length > 0) ? post.meta.tags: null);
 </script>
 
-<a href="/post/{post.path}" class="rounded-btn min-h-24 max-h-64 flex flex-row overflow-hidden">
+<a href="/post/{post.path}" class="rounded-btn relative flex min-h-24 overflow-hidden lg:flex-row">
     {#if thumbnail}
-        <img src={thumbnail} alt={post.meta.thumbnailDescription ?? ""} class="h-auto w-32 shrink-0 object-cover" />
+        <img
+            src={thumbnail}
+            alt={post.meta.thumbnailDescription ?? ""}
+            title={post.meta.thumbnailDescription ?? undefined}
+            class="absolute inset-0 h-full w-full scale-105 object-cover blur-sm brightness-50 lg:relative lg:inset-auto lg:h-auto lg:w-32 lg:shrink-0 lg:scale-100 lg:blur-none lg:brightness-100"
+        />
     {/if}
-    <div class="grow text-left h-full p-3 prose prose-sm max-w-none prose-h1:text-base prose-h1:font-normal">
+    <div class="relative z-10 grow p-3 text-left prose prose-sm max-w-none prose-h1:text-base prose-h1:font-normal">
         <div class="text-slate-300">
             {post.date}
         </div>
@@ -51,7 +56,7 @@
         {/if}
     </div>
     {#if post.meta.ispub}
-        <div class='flex bg-slate-500 p-1.5 content-center items-center'>
+        <div class='relative z-10 flex shrink-0 bg-slate-500 p-1.5 content-center items-center'>
             <School size="18" color={"#cccccc"}/>
         </div>
     {/if}
