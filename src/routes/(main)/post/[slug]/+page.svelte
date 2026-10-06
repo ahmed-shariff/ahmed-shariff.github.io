@@ -6,6 +6,7 @@
  import Meta from "$lib/Meta.svelte";
 
 let { data } = $props();
+let thumbnail = $derived(data.meta.thumbnail ?? null);
 
 let metaDesc = $derived.by(() => {
      if (data?.meta?.doi !== undefined)
@@ -41,6 +42,10 @@ let metaDesc = $derived.by(() => {
         {/if}
         {data.title}
     </h1>
+
+    {#if thumbnail}
+        <img src={thumbnail} alt={data.meta.thumbnailDescription ?? data.title} class="w-full max-h-96 object-contain" />
+    {/if}
 
     {#if data.meta.ispub === true}
         {#if data.meta.award !== undefined}

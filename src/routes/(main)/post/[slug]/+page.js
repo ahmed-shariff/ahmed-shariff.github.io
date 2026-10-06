@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { slugToDate } from '$lib/allPosts';
+import { resolveThumbnail, slugToDate } from '$lib/allPosts';
 import { format } from 'fecha';
 
 export async function load({ params }) {
@@ -12,7 +12,10 @@ export async function load({ params }) {
     const date = format(slugToDate(postPath.slice(0, 10)), "YYYY MMMM D");
 
     const { title, } = post.metadata;
-    const meta = post.metadata;
+    const meta = {
+        ...post.metadata,
+        thumbnail: resolveThumbnail(post.metadata.thumbnail)
+    };
     const content = post.default;
     const published = post.metadata.published !== undefined && !post.metadata.published;
 

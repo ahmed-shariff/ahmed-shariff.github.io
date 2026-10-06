@@ -5,6 +5,7 @@ date: '2026-07-03'
 authors: "Maxime Daniel, <b>Shariff AM Faleel</b>, and Pourang Irani"
 venue: "SIGGRAPH '26"
 type: 'Conference'
+thumbnail: "2026-07-03/thumbnail.png"
 pdf:  https://dl.acm.org/doi/10.1145/3811320?cid=99659534363
 citation: "Maxime Daniel, Shariff AM Faleel, and Pourang Irani. 2026. MorphSkein: A Shape-Changing Afterimage Display Preserving Pixel Density During Surface-Area Changes Across Troposkein-Based Shapes. ACM Trans. Graph. 45, 4, Article 40 (July 2026), 11 pages. https://doi.org/10.1145/3811320"
 doi: 10.1145/3811320

@@ -3,10 +3,14 @@
  import School from "./icons/school.svelte";
 
  let { post } = $props();
- const tags = (post.meta.tags !== undefined) && (post.meta.tags !== null) && (post.meta.tags.length > 0) ? post.meta.tags: null;
+ const thumbnail = $derived(post.meta.thumbnail ?? null);
+ const tags = $derived((post.meta.tags !== undefined) && (post.meta.tags !== null) && (post.meta.tags.length > 0) ? post.meta.tags: null);
 </script>
 
-<a href="/post/{post.path}" class="rounded-btn min-h-24 max-h-64 flex flex-row">
+<a href="/post/{post.path}" class="rounded-btn min-h-24 max-h-64 flex flex-row overflow-hidden">
+    {#if thumbnail}
+        <img src={thumbnail} alt={post.meta.thumbnailDescription ?? ""} class="h-auto w-32 shrink-0 object-cover" />
+    {/if}
     <div class="grow text-left h-full p-3 prose prose-sm max-w-none prose-h1:text-base prose-h1:font-normal">
         <div class="text-slate-300">
             {post.date}

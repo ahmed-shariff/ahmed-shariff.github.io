@@ -1,6 +1,19 @@
 import { parse, format } from 'fecha';
 import { dev } from '$app/environment';
 
+const postAssets = import.meta.glob('../posts/assets/**/*', {
+    eager: true,
+    query: '?url',
+    import: 'default'
+});
+
+export function resolveThumbnail(thumbnail) {
+    if (!thumbnail) return null;
+
+    const asset = postAssets[`../posts/assets/${thumbnail}`];
+    return asset ?? null;
+}
+
 export function slugToDate(slug) {
     return parse(slug.substring(0, 10), "YYYY-MM-DD");
 }
@@ -17,7 +30,10 @@ export function getAllPosts() {
             const date = format(slugToDate(postPath.slice(0, 10)), "YYYY MMMM D");
 
             return {
-                meta: metadata,
+                meta: {
+                    ...metadata,
+                    thumbnail: resolveThumbnail(metadata.thumbnail)
+                },
                 path: postPath,
                 date: date,
                 slug: slug
