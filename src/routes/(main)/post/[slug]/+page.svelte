@@ -47,7 +47,7 @@ let metaDesc = $derived.by(() => {
         <figure class="m-0 w-full">
             <img src={thumbnail} alt={data.meta.thumbnailDescription ?? data.title} class="h-auto max-w-full object-contain" />
             {#if data.meta.thumbnailDescription}
-                <figcaption class="text-sm text-slate-400">{data.meta.thumbnailDescription}</figcaption>
+                <figcaption>{data.meta.thumbnailDescription}</figcaption>
             {/if}
         </figure>
     {/if}
@@ -80,6 +80,7 @@ let metaDesc = $derived.by(() => {
         {/if}
         <Information keyStr="Abstract" inCols={true}>{data.meta.abstract}</Information>
         <Information keyStr="Citation" inCols={true}>{data.meta.citation}</Information>
+        <hr class="my-4 border-t border-gray-300" />
     {/if}
 
     <svelte:component this={data.content} />
