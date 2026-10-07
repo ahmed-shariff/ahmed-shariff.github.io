@@ -60,17 +60,11 @@
 
 <div class="text-slate-200">
     <h1 class='text-xl text-center text-slate-200'>{title}</h1>
-    <div class="flex mx-1 w-100">
+    <div class="flex mx-1 w-none">
         <div class="flex flex-col sm:flex-row space-x-1 justify-start items-center">
             <button class="rounded-btn w-48 px-2 py-1" onclick={publicationFilterBtnOnClick}>{publicationFilterBtnTxt}</button>
             {#if (tags !== undefined) && (tags !== null) && (tags.length > 0)}
                 <button class="rounded-btn w-48 px-2 py-1" onclick={clearTagsBtnOnClick}>Clear all tags</button>
-                <div class="flex flex-wrap">
-                    <div class="font-semibold pl-4"> Selected tags:</div>
-                    {#each tags as tag}
-                        <Tag {tag} inverseOp={true} change={handleTagChange} />
-                    {/each}
-                </div>
             {/if}
         </div>
         <div class="grow flex justify-end">
@@ -80,6 +74,14 @@
             </a>
         </div>
     </div>
+    {#if (tags !== undefined) && (tags !== null) && (tags.length > 0)}
+    <div class="flex flex-wrap flex-row px-3 space-x-1">
+        <div class="font-semibold"> Selected tags:</div>
+        {#each tags as tag}
+            <Tag {tag} inverseOp={true} change={handleTagChange} />
+        {/each}
+    </div>
+    {/if}
     <div class="flex flex-wrap flex-row px-3 space-x-1">
         <div class="font-semibold">Filter by tag:</div>
         {#each data.tags as tag}
