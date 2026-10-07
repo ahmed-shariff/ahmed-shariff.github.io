@@ -88,7 +88,7 @@
             {/if}
         {/each}
     </div>
-    <ul class="pt-2">
+    <ul class="mx-auto w-full max-w-postcard pt-2">
         {#each data.posts as post}
             {#if (tags == null || tags.length == 0 || (post.meta.tags != undefined && post.meta.tags.filter((tag) => tags.includes(tag)).length == tags.length)) && (!isPubOnly || (post.meta.ispub))}
                 <li>

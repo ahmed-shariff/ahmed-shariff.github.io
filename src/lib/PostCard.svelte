@@ -7,14 +7,15 @@
  const tags = $derived((post.meta.tags !== undefined) && (post.meta.tags !== null) && (post.meta.tags.length > 0) ? post.meta.tags: null);
 </script>
 
-<a href="/post/{post.path}" class="rounded-btn relative flex min-h-24 overflow-hidden lg:flex-row">
+<a href="/post/{post.path}" class="rounded-btn relative flex min-h-24 max-w-5xl overflow-hidden lg:flex-row">
     {#if thumbnail}
         <img
             src={thumbnail}
             alt={post.meta.thumbnailDescription ?? ""}
             title={post.meta.thumbnailDescription ?? undefined}
-            class="absolute inset-0 h-full w-full scale-105 object-cover blur-sm brightness-50 lg:relative lg:inset-auto lg:h-auto lg:w-32 lg:shrink-0 lg:scale-100 lg:blur-none lg:brightness-100"
+            class="absolute inset-0 h-full w-full scale-105 object-cover blur-sm brightness-40"
         />
+        <!-- class="absolute inset-0 h-full w-full scale-105 object-cover blur-sm brightness-50 lg:relative lg:inset-auto lg:h-auto lg:w-32 lg:shrink-0 lg:scale-100 lg:blur-none lg:brightness-100" -->
     {/if}
     <div class="relative z-10 grow p-3 text-left prose prose-sm max-w-none prose-h1:text-base prose-h1:font-normal">
         <div class="text-slate-300">

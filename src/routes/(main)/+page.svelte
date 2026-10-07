@@ -54,7 +54,7 @@
             </div>
             <div class="flex flex-col text-center my-4 p-2">
                 <h1 class="text-xl text-gray-300 text-xl"><a class="justify-self-center" href="/posts?pub=true">Recent Publications</a></h1>
-                <ul>
+                <ul class="mx-auto w-full max-w-postcard">
                 {#each data.publications as post}
                     <li>
                         <PostCard {post}/>
@@ -67,7 +67,7 @@
             </div>
             <div class="flex flex-col text-center my-4 p-2">
                 <h1 class="text-xl text-gray-300 text-xl"><a class="justify-self-center" href="/posts">Recent Posts</a></h1>
-                <ul>
+                <ul class="mx-auto w-full max-w-postcard">
                 {#each data.posts as post}
                     <li>
                         <PostCard {post}/>
