@@ -49,7 +49,7 @@ export default {
                 },
             }),
             maxWidth: {
-                postcard: '72rem',
+                postcard: '100rem',
             },
             spacing: () => ({
                 ...Array.from({ length: 96 }, (_, index) => index * 0.5)
