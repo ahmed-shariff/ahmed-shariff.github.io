@@ -21,8 +21,8 @@
 </svelte:head>
 
 <div class='flex flex-col min-h-screen bg-slate-700'>
-    <header class='bg-gray-800 mb-0 md:mb-8 py-1 text-gray-300 md:sticky top-0 left-0 right-0 drop-shadow-lg shadow-gray-900 z-20'>
-        <div class='container mx-auto flex flex-col md:flex-row gap-x-12 items-center justify-center'>
+    <header class='h-12 bg-gray-800 mb-0 md:mb-8 text-gray-300 md:sticky top-0 left-0 right-0 drop-shadow-lg shadow-gray-900 z-20'>
+        <div class='container mx-auto flex h-full flex-col md:flex-row gap-x-12 items-center justify-center'>
             <a class="nav-btn font-semibold text-lg" href="/">Shariff Faleel</a>
             <a class="nav-btn" href="/posts" data-sveltekit-reload>Posts</a>
             <a class="nav-btn" href="/posts?pub=true" data-sveltekit-reload>Publications</a>

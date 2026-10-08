@@ -58,45 +58,47 @@
     link="https://shariff-faleel.com/posts"
 />
 
-<div class="text-slate-200">
-    <h1 class='text-xl text-center text-slate-200'>{title}</h1>
-    <div class="flex mx-1 w-none">
-        <div class="flex flex-col sm:flex-row space-x-1 justify-start items-center">
-            <button class="rounded-btn w-48 px-2 py-1" onclick={publicationFilterBtnOnClick}>{publicationFilterBtnTxt}</button>
+<div class="grid gap-6 text-slate-200 md:grid-cols-[16rem_minmax(0,1fr)]">
+    <aside class="self-start md:sticky md:top-20 md:order-1">
+        <h1 class="text-xl text-center text-slate-200">{title}</h1>
+        <div class="mt-2 flex flex-col items-stretch">
+            <button class="rounded-btn px-2 py-1" onclick={publicationFilterBtnOnClick}>{publicationFilterBtnTxt}</button>
             {#if (tags !== undefined) && (tags !== null) && (tags.length > 0)}
-                <button class="rounded-btn w-48 px-2 py-1" onclick={clearTagsBtnOnClick}>Clear all tags</button>
+                <button class="rounded-btn px-2 py-1" onclick={clearTagsBtnOnClick}>Clear all tags</button>
             {/if}
         </div>
-        <div class="grow flex justify-end">
-            <a href="/posts.xml" class="p-2 flex space-x-2">
-                <span>RSS Feed</span>
-                <Icon title="rss" size="20" class="fill-slate-400"><path d={siRss.path}/></Icon>
-            </a>
+        {#if (tags !== undefined) && (tags !== null) && (tags.length > 0)}
+        <div class="mt-3 flex flex-wrap gap-1">
+            <div class="w-full font-semibold">Selected tags:</div>
+            {#each tags as tag}
+                <Tag {tag} inverseOp={true} change={handleTagChange} />
+            {/each}
         </div>
-    </div>
-    {#if (tags !== undefined) && (tags !== null) && (tags.length > 0)}
-    <div class="flex flex-wrap flex-row px-3 space-x-1">
-        <div class="font-semibold"> Selected tags:</div>
-        {#each tags as tag}
-            <Tag {tag} inverseOp={true} change={handleTagChange} />
-        {/each}
-    </div>
-    {/if}
-    <div class="flex flex-wrap flex-row px-3 space-x-1">
-        <div class="font-semibold">Filter by tag:</div>
-        {#each data.tags as tag}
-            {#if tags === undefined || !tags.includes(tag)}
-                <Tag {tag} change={handleTagChange} />
-            {/if}
-        {/each}
-    </div>
-    <ul class="mx-auto w-full max-w-postcard pt-2">
-        {#each data.posts as post}
-            {#if (tags == null || tags.length == 0 || (post.meta.tags != undefined && post.meta.tags.filter((tag) => tags.includes(tag)).length == tags.length)) && (!isPubOnly || (post.meta.ispub))}
-                <li>
-                    <PostCard {post}/>
-                </li>
-            {/if}
-        {/each}
-    </ul>
+        {/if}
+        <div class="mt-3 flex flex-wrap gap-1">
+            <div class="w-full font-semibold">Filter by tag:</div>
+            {#each data.tags as tag}
+                {#if tags === undefined || !tags.includes(tag)}
+                    <Tag {tag} change={handleTagChange} />
+                {/if}
+            {/each}
+        </div>
+        <hr class="m-3" />
+        <a href="/posts.xml" class="mt-2 flex items-center justify-center gap-2 p-2">
+            <span>RSS Feed</span>
+            <Icon title="rss" size="20" class="fill-slate-400"><path d={siRss.path}/></Icon>
+        </a>
+    </aside>
+
+    <main class="min-w-0 md:order-2">
+        <ul class="mx-auto w-full max-w-postcard pt-2">
+            {#each data.posts as post}
+                {#if (tags == null || tags.length == 0 || (post.meta.tags != undefined && post.meta.tags.filter((tag) => tags.includes(tag)).length == tags.length)) && (!isPubOnly || (post.meta.ispub))}
+                    <li>
+                        <PostCard {post}/>
+                    </li>
+                {/if}
+            {/each}
+        </ul>
+    </main>
 </div>
