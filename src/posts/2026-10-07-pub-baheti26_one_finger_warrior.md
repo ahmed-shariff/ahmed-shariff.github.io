@@ -11,6 +11,7 @@ abstract: "As Head-Mounted Displays (HMDs) become increasingly prevalent, design
 tags: ["HPUI", "text-entry", "Unity", "VR", "AR"]
 thumbnailDescription:  "(a) Index Finger can be divided into three segments along the longitudinal axis: Distal Phalanx, Intermediate Phalanx, and Proximal Phalanx. Similarly, (b) the surface of the index finger can be divided into Radial (top) and Volar (front) surfaces along the transverse axis. (c) Combining these, we can have six regions: (i) Radial Distal, (ii) Radial Intermediate, (iii) Radial Proximal, (iv) Volar Distal, (v) Volar Intermediate, and (vi) Volar Proximal. We use these regions to design One Finger Warrior: a one-finger keyboard. (d) An example scenario where a user is replying to a message on-the-go using One Finger Warrior."
 thumbnail: '2026-10-07/new_teaser.png'
+award: "Best paper"
 ---
 
 ```latex
