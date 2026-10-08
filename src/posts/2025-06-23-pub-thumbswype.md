@@ -10,7 +10,7 @@ abstract: "Designing a comfortable, familiar, and efficient one-handed text entr
 doi: 10.1145/3743708
 paperurl: 'https://doi.org/10.1145/3743708'
 pdf:  https://dl.acm.org/doi/10.1145/3743708?cid=99659534363
-tags: ["HPUI", "text-entry"]
+tags: ["HPUI", "text-entry", "VR", "AR", "Unity"]
 award: "Honourable mention"
 thumbnailDescription: "Typing with ThumbSwype. a) The user wearing a head mounted display sees the keyboard overlaid on their fingers. b) A swipe gesture is initiated by touching down onto the relevant letter. c) Touch is maintained as the thumb moves comfortably over the remaining letters, similar to a smartphone swipe keyboard. d) The thumb is moved away from the keyboard, and the swiped word \"lunch\" is entered in the text box."
 thumbnail: "2025-06-26/teaser.png"

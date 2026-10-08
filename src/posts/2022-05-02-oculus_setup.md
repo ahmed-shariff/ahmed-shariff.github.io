@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: Setting up Oculus Quest 2 for development with Unity
-tags: ["oculus", "vr", "guide"]
+tags: ["oculus", "VR", "guide"]
 tagline: Step-by-step guide to setting up oculus for development with unity.
 ---
 I am compiling the different steps (or the sources) you have follow to setup the device:
