@@ -40,7 +40,7 @@ npm run build
 npm run preview
 ```
 
-Use `Read`, `Glob`, and `Grep` to inspect source files before editing. Use `EditBatch` for targeted existing-file changes and `Write` for new files.
+Use `Read`, `Glob`, and `Grep` to inspect source files before editing. Check component prop contracts and SVG coordinate systems before connecting reusable components. Use `EditBatch` for targeted existing-file changes and `Write` for new files.
 
 ## Quick Reference
 
@@ -87,7 +87,7 @@ Use `Read`, `Glob`, and `Grep` to inspect source files before editing. Use `Edit
 
 7. For RSS changes, update `src/routes/(main)/posts.xml/+server.js`. The endpoint is prerendered, creates a `Feed`, and derives each item from post metadata and the filename-based slug/date. Check URL construction when changing slug handling.
 
-8. For styling changes, inspect `src/app.css`, the relevant component, and `tailwind.config.js`. Tailwind scans `src/**/*.{html,js,svelte,ts}`. Markdown typography and highlighted code styling are configured globally.
+8. For styling changes, inspect `src/app.css`, the relevant component, and `tailwind.config.js`. Tailwind scans `src/**/*.{html,js,svelte,ts}`. Markdown typography and highlighted code styling are configured globally. Define repeated layout values such as postcard widths as named Tailwind theme tokens rather than repeating raw utilities. For related page layouts, use the same responsive structure: a left sidebar with `md:sticky md:top-20` and a main content column. Keep the shared header height fixed when it is sticky so the sidebar does not jump as the page begins scrolling.
 
 9. Run `npm run build` through `PowerShell` on Windows or `Bash` on Linux. The static adapter writes pages and assets to `build/` and uses `404.html` as the fallback. Do not edit generated directories such as `.svelte-kit`, `.next`, or `build/` as source.
 
@@ -111,6 +111,12 @@ Use `Read`, `Glob`, and `Grep` to inspect source files before editing. Use `Edit
 If the browser reports 403 responses for generated SvelteKit modules such as `/.svelte-kit/generated/client/nodes/0.js`, or for frontmatter thumbnails under `/src/posts/assets/...`, the issue is usually Vite's filesystem allow-list rejecting the resolved target of a symlinked or mapped project path. Reinstalling packages and deleting generated directories does not change that check. Configure `server.fs.allow` in `vite.config.js` for the project root, then restart Vite. Verify that only one dev server is running before testing the port, since Vite may choose the next port when 5173 is occupied. If an agent starts a server for diagnosis, stop that process when finished.
 
 Do not assume `C:\\...` and `S:\\...` paths are separate checkouts. Ask first or inspect the link/mapping because they may refer to the same project.
+
+## Reusable component notes
+
+`src/lib/PersonalLink.svelte` accepts Simple Icons data objects with `path` and `title`, and it also accepts Svelte icon components. Components passed as icons must render through a dynamic component branch rather than being treated as path data. The local `linkedin.svelte` icon uses a 24 by 24 path and must retain a matching `viewBox="0 0 24 24"`; mismatched SVG coordinate systems make the path appear missing or misplaced.
+
+When a shared component supports multiple input shapes, inspect each caller before changing the component. Preserve the existing Simple Icons path branch while adding component support, and verify with a production build.
 
 ## Verification
 
